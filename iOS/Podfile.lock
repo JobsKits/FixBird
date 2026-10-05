@@ -1,0 +1,311 @@
+PODS:
+  - Alamofire (5.12.2)
+  - BMPlayer (1.3.2):
+    - BMPlayer/Full (= 1.3.2)
+  - BMPlayer/Core (1.3.2)
+  - BMPlayer/Full (1.3.2):
+    - BMPlayer/Core
+    - NVActivityIndicatorView (~> 4.7.0)
+    - SnapKit (~> 5.0.0)
+  - CocoaLumberjack (3.10.0):
+    - CocoaLumberjack/Core (= 3.10.0)
+  - CocoaLumberjack/Core (3.10.0)
+  - ESPullToRefresh (2.9.3)
+  - GKNavigationBarSwift (1.7.3)
+  - JobsByQuartzCore (0.0.1):
+    - JobsSwiftBaseDefines
+    - JobsSwiftBlock
+    - JobsSwiftDSL
+  - JobsByUIKit (0.0.1):
+    - ESPullToRefresh
+    - GKNavigationBarSwift
+    - JobsByQuartzCore
+    - JobsImageTools
+    - Jobsl10n
+    - JobsNavBar
+    - JobsScale
+    - JobsSwiftBaseDefines
+    - JobsSwiftBlock
+    - JobsSwiftDSL
+    - JobsSwiftTimer
+    - JobsTextTools
+    - JobsViewPush
+    - Kingfisher
+    - lottie-ios
+    - "NSObject+Rx"
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SkeletonView
+    - SnapKit
+    - SVGKit
+  - JobsByWebKit (0.0.1):
+    - JobsByUIKit
+    - JobsSwiftDSL
+  - JobsCountdownButton (0.0.1):
+    - JobsByUIKit
+    - JobsSwiftBaseDefines
+    - JobsSwiftDSL
+    - JobsSwiftTimer
+  - JobsDebugPanel (1.0.0):
+    - JobsByUIKit
+    - JobsInheritance
+    - JobsSwiftBaseDefines
+    - JobsSwiftDSL
+    - SnapKit
+  - JobsGetWindow (0.1.14)
+  - JobsImageTools (0.1.14):
+    - JobsSwiftBaseDefines
+    - JobsSwiftBlock
+    - JobsSwiftDSL
+    - Kingfisher
+    - SDWebImage
+  - JobsInheritance (0.0.1):
+    - GKNavigationBarSwift
+    - JobsByUIKit
+    - JobsByWebKit
+    - JobsNavBar
+    - JobsSwiftBaseDefines
+    - JobsSwiftBlock
+    - JobsSwiftDebugTools
+    - JobsSwiftDSL
+    - JobsSwiftFoundation
+    - JobsSwiftStandardLibrary
+    - JobsToast
+    - SnapKit
+  - Jobsl10n (0.1.14)
+  - JobsNavBar (0.1.14):
+    - JobsSwiftBaseDefines
+    - JobsSwiftBlock
+    - JobsSwiftDSL
+    - SnapKit
+    - SwiftMessages
+  - JobsNetworking (1.0.1):
+    - JobsNetworking/Core (= 1.0.1)
+  - JobsNetworking/Core (1.0.1):
+    - Alamofire (~> 5.9)
+    - JobsSwiftDSL
+  - JobsScale (0.1.14):
+    - JobsGetWindow
+  - JobsSwiftBaseDefines (0.1.6):
+    - JobsSwiftBlock
+    - JobsTextTools
+  - JobsSwiftBlock (0.1.0):
+    - Kingfisher
+    - Moya
+    - SnapKit
+  - JobsSwiftDebugTools (0.0.1):
+    - JobsByUIKit
+    - JobsSwiftBaseDefines
+    - JobsToast
+  - JobsSwiftDSL (0.1.0):
+    - BMPlayer
+    - GKNavigationBarSwift
+    - JobsSwiftBaseDefines
+    - JobsSwiftBlock
+    - JobsTextTools
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+  - JobsSwiftFoundation (0.1.1):
+    - JobsByUIKit
+    - JobsSwiftDSL
+  - JobsSwiftOpen (0.0.1):
+    - GKNavigationBarSwift
+    - JobsByUIKit
+    - JobsInheritance
+    - SnapKit
+  - JobsSwiftSplash (0.0.1):
+    - JobsByUIKit
+    - JobsCountdownButton
+    - JobsInheritance
+    - JobsSwiftBaseDefines
+    - JobsSwiftDSL
+    - JobsSwiftOpen
+    - SnapKit
+  - JobsSwiftStandardLibrary (0.0.1):
+    - JobsSwiftBaseDefines
+  - JobsSwiftTimer (0.1.0)
+  - JobsTextTools (0.1.14)
+  - JobsToast (0.1.14):
+    - JobsByUIKit
+    - JobsSwiftBaseDefines
+    - JobsSwiftBlock
+    - JobsSwiftDSL
+    - SnapKit
+  - JobsViewPush (0.0.1):
+    - JobsSwiftBaseDefines
+    - JobsSwiftDSL
+  - Kingfisher (8.13.0)
+  - lottie-ios (4.6.1)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - "NSObject+Rx (5.2.2)":
+    - RxSwift (~> 6.2)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
+  - RxCocoa (6.9.0):
+    - RxRelay (= 6.9.0)
+    - RxSwift (= 6.9.0)
+  - RxRelay (6.9.0):
+    - RxSwift (= 6.9.0)
+  - RxSwift (6.9.0)
+  - SDWebImage (5.21.7):
+    - SDWebImage/Core (= 5.21.7)
+  - SDWebImage/Core (5.21.7)
+  - SkeletonView (1.30.4)
+  - SnapKit (5.0.1)
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
+  - SwiftMessages (10.0.2):
+    - SwiftMessages/App (= 10.0.2)
+  - SwiftMessages/App (10.0.2)
+
+DEPENDENCIES:
+  - "JobsByQuartzCore (from `JobsByPods/JobsByQuartzCore@Pods`)"
+  - "JobsByUIKit (from `JobsByPods/JobsByUIKit@Pods`)"
+  - "JobsByWebKit (from `JobsByPods/JobsByWebKit@Pods`)"
+  - "JobsCountdownButton (from `JobsByPods/JobsCountdownButton@Pods`)"
+  - "JobsDebugPanel (from `JobsByPods/JobsDebugPanel@Pods`)"
+  - "JobsGetWindow (from `JobsByPods/JobsGetWindow@Pods`)"
+  - "JobsImageTools (from `JobsByPods/JobsImageTools@Pods`)"
+  - "JobsInheritance (from `JobsByPods/JobsInheritance@Pods`)"
+  - "Jobsl10n (from `JobsByPods/Jobsl10n@Pods`)"
+  - "JobsNavBar (from `JobsByPods/JobsNavBar@Pods`)"
+  - "JobsNetworking (from `JobsByPods/JobsNetworking@Pods`)"
+  - "JobsScale (from `JobsByPods/JobsScale@Pods`)"
+  - "JobsSwiftBaseDefines (from `JobsByPods/JobsSwiftBaseDefines@Pods`)"
+  - "JobsSwiftBlock (from `JobsByPods/JobsSwiftBlock@Pods`)"
+  - "JobsSwiftDebugTools (from `JobsByPods/JobsSwiftDebugTools@Pods`)"
+  - "JobsSwiftDSL (from `JobsByPods/JobsSwiftDSL@Pods`)"
+  - "JobsSwiftFoundation (from `JobsByPods/JobsSwiftFoundation@Pods`)"
+  - "JobsSwiftOpen (from `JobsByPods/JobsSwiftOpen@Pods`)"
+  - "JobsSwiftSplash (from `JobsByPods/JobsSwiftSplash@Pods`)"
+  - "JobsSwiftStandardLibrary (from `JobsByPods/JobsSwiftStandardLibrary@Pods`)"
+  - "JobsSwiftTimer (from `JobsByPods/JobsSwiftTimer@Pods`)"
+  - "JobsTextTools (from `JobsByPods/JobsTextTools@Pods`)"
+  - "JobsToast (from `JobsByPods/JobsToast@Pods`)"
+  - "JobsViewPush (from `JobsByPods/JobsViewPush@Pods`)"
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - BMPlayer
+    - CocoaLumberjack
+    - ESPullToRefresh
+    - GKNavigationBarSwift
+    - Kingfisher
+    - lottie-ios
+    - Moya
+    - "NSObject+Rx"
+    - NVActivityIndicatorView
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - SkeletonView
+    - SnapKit
+    - SVGKit
+    - SwiftMessages
+
+EXTERNAL SOURCES:
+  JobsByQuartzCore:
+    :path: "JobsByPods/JobsByQuartzCore@Pods"
+  JobsByUIKit:
+    :path: "JobsByPods/JobsByUIKit@Pods"
+  JobsByWebKit:
+    :path: "JobsByPods/JobsByWebKit@Pods"
+  JobsCountdownButton:
+    :path: "JobsByPods/JobsCountdownButton@Pods"
+  JobsDebugPanel:
+    :path: "JobsByPods/JobsDebugPanel@Pods"
+  JobsGetWindow:
+    :path: "JobsByPods/JobsGetWindow@Pods"
+  JobsImageTools:
+    :path: "JobsByPods/JobsImageTools@Pods"
+  JobsInheritance:
+    :path: "JobsByPods/JobsInheritance@Pods"
+  Jobsl10n:
+    :path: "JobsByPods/Jobsl10n@Pods"
+  JobsNavBar:
+    :path: "JobsByPods/JobsNavBar@Pods"
+  JobsNetworking:
+    :path: "JobsByPods/JobsNetworking@Pods"
+  JobsScale:
+    :path: "JobsByPods/JobsScale@Pods"
+  JobsSwiftBaseDefines:
+    :path: "JobsByPods/JobsSwiftBaseDefines@Pods"
+  JobsSwiftBlock:
+    :path: "JobsByPods/JobsSwiftBlock@Pods"
+  JobsSwiftDebugTools:
+    :path: "JobsByPods/JobsSwiftDebugTools@Pods"
+  JobsSwiftDSL:
+    :path: "JobsByPods/JobsSwiftDSL@Pods"
+  JobsSwiftFoundation:
+    :path: "JobsByPods/JobsSwiftFoundation@Pods"
+  JobsSwiftOpen:
+    :path: "JobsByPods/JobsSwiftOpen@Pods"
+  JobsSwiftSplash:
+    :path: "JobsByPods/JobsSwiftSplash@Pods"
+  JobsSwiftStandardLibrary:
+    :path: "JobsByPods/JobsSwiftStandardLibrary@Pods"
+  JobsSwiftTimer:
+    :path: "JobsByPods/JobsSwiftTimer@Pods"
+  JobsTextTools:
+    :path: "JobsByPods/JobsTextTools@Pods"
+  JobsToast:
+    :path: "JobsByPods/JobsToast@Pods"
+  JobsViewPush:
+    :path: "JobsByPods/JobsViewPush@Pods"
+
+SPEC CHECKSUMS:
+  Alamofire: c5f37d8f438dc1d7fd3ff767f2f80fd01ca381d7
+  BMPlayer: e4b241bd088644d7b89d991a1a65d1b1615d19b3
+  CocoaLumberjack: 12545b2899dcaeec69b82c27b174042259c1ec27
+  ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
+  GKNavigationBarSwift: a7815e2f2b25a3f19b6f6baa49e47a39aa1b2ebd
+  JobsByQuartzCore: 983447f27427f3db5c757d3138be9ec3a880512a
+  JobsByUIKit: 07b4700e0d290d8bc190c56283fcf7a074407849
+  JobsByWebKit: b6fec1f5591c5255a3af8a87414af8a28e4f0b57
+  JobsCountdownButton: bdaa0a35d4fc729506bc61f4f1063c545a713054
+  JobsDebugPanel: 7f02c9d26b6b8539103466ef4ba2b0eb6e8ee5d8
+  JobsGetWindow: fb0bbe8603081fb4645ea5d03317ce36c0f31c65
+  JobsImageTools: 5442c54a3ae113aad76fd39a1f5ae3ae5b8fea28
+  JobsInheritance: 2a48bc8e2d7dae3643ad2668803c8a1b773dbba0
+  Jobsl10n: 7dcc6eee8ebefe092b65bd16350bbb9a29460aa6
+  JobsNavBar: 8e2d20df7de3e739edb457278920c44e72507047
+  JobsNetworking: 2dd25981e2c61d3cc8cba9e0ff3906fce80a81b0
+  JobsScale: 0455fa25096eae822c98ecb443122e6125053231
+  JobsSwiftBaseDefines: f75d5587dfe99fb44479aa4b23294d9484313884
+  JobsSwiftBlock: ce7f7020bd963063608fb4aabb70f5f0e54ee32c
+  JobsSwiftDebugTools: 0b091cc71765ad995323dde20f5017f42ee34819
+  JobsSwiftDSL: a1a937c2456a10dadc4284adfbe2172fe99a7e62
+  JobsSwiftFoundation: 7850038734cf7f5b2154ca9ced57ae7d8bb6f618
+  JobsSwiftOpen: 72f2fff9bd6df984246f66f53d7a8a8253e2d9f1
+  JobsSwiftSplash: 03869bdf6cde350f61b7f9263883cc065084512e
+  JobsSwiftStandardLibrary: 0fde927b7b6f8d83daf3818cbe5094ddd35bbe8b
+  JobsSwiftTimer: ac6dd48743dfa856639f05f312e1e5a5f2b251fa
+  JobsTextTools: 492006e86820df999a4b6e450c27148c829b4239
+  JobsToast: 950f1562ce5c058bca1415c76f090371883c5b14
+  JobsViewPush: 6cbe93cc9ddf1b749e8a7b97f4ddf7addb89d304
+  Kingfisher: 260f690679115e70aac534e18cf1f3cd70814d5c
+  lottie-ios: 6467ca7035120c5b0e0acee58bb679cf15875686
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
+  RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
+  RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
+  SDWebImage: e9fc87c1aab89a8ab1bbd74eba378c6f53be8abf
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+  SwiftMessages: bfefe945bc05ce7cd328303d53d0d1849e29109d
+
+PODFILE CHECKSUM: 3a06ab6631a7d308aff9715fbf06307338d8b80d
+
+COCOAPODS: 1.17.0

@@ -1,0 +1,48 @@
+services:
+  tidb:
+    image: pingcap/tidb:${TIDB_IMAGE_TAG:-v8.5.8}
+    command:
+      - --store=unistore
+      - --path=/data/tidb
+    restart: unless-stopped
+    ports:
+      - "${TIDB_BIND_ADDRESS:-127.0.0.1}:${TIDB_PORT:-4000}:4000"
+    volumes:
+      - tidb-data:/data/tidb
+    networks:
+      - repair-private
+
+  api:
+    build:
+      context: ../../..
+      dockerfile: Deployment/Docker/Shared/Dockerfile
+    image: repair-marketplace-api:local
+    restart: unless-stopped
+    depends_on:
+      - tidb
+    environment:
+      APP_ADDR: ":8080"
+      ADMIN_WEB_DIR: /app/WebAdmin
+      WEB_DIR: /app/Web
+      DEMO_MODE: "true"
+      ALLOW_DEMO_NETWORK: "true"
+      ALLOW_ANONYMOUS_DEMO: "${ALLOW_ANONYMOUS_DEMO:-true}"
+      WORKER_ASSET_DIR: /app/private-uploads
+      ADMIN_BOOTSTRAP_USERNAME: "${ADMIN_BOOTSTRAP_USERNAME:-}"
+      ADMIN_BOOTSTRAP_PASSWORD: "${ADMIN_BOOTSTRAP_PASSWORD:-}"
+      SESSION_TTL_HOURS: "${SESSION_TTL_HOURS:-24}"
+      TIDB_DSN: root@tcp(tidb:4000)/repair_marketplace?parseTime=true&tls=false
+    volumes:
+      - worker-assets:/app/private-uploads
+    ports:
+      - "${API_BIND_ADDRESS:-127.0.0.1}:${API_PORT:-8080}:8080"
+    networks:
+      - repair-private
+
+networks:
+  repair-private:
+    driver: bridge
+
+volumes:
+  tidb-data:
+  worker-assets:

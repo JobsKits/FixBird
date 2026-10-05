@@ -1,0 +1,201 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: repair-marketplace
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tidb-headless
+  namespace: repair-marketplace
+spec:
+  clusterIP: None
+  selector:
+    app: tidb
+  ports:
+    - name: mysql
+      port: 4000
+      targetPort: 4000
+    - name: status
+      port: 10080
+      targetPort: 10080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tidb
+  namespace: repair-marketplace
+spec:
+  selector:
+    app: tidb
+  ports:
+    - name: mysql
+      port: 4000
+      targetPort: 4000
+    - name: status
+      port: 10080
+      targetPort: 10080
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: tidb
+  namespace: repair-marketplace
+spec:
+  serviceName: tidb-headless
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tidb
+  template:
+    metadata:
+      labels:
+        app: tidb
+    spec:
+      containers:
+        - name: tidb
+          image: pingcap/tidb:v8.5.8
+          imagePullPolicy: IfNotPresent
+          args:
+            - --store=unistore
+            - --path=/data/tidb
+          ports:
+            - name: mysql
+              containerPort: 4000
+            - name: status
+              containerPort: 10080
+          resources:
+            requests:
+              cpu: 250m
+              memory: 768Mi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+          readinessProbe:
+            tcpSocket:
+              port: mysql
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 24
+          volumeMounts:
+            - name: tidb-data
+              mountPath: /data/tidb
+  volumeClaimTemplates:
+    - metadata:
+        name: tidb-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: repair-api
+  namespace: repair-marketplace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: repair-api
+  template:
+    metadata:
+      labels:
+        app: repair-api
+    spec:
+      containers:
+        - name: api
+          image: repair-marketplace-api:local
+          imagePullPolicy: Never
+          env:
+            - name: APP_ADDR
+              value: ":8080"
+            - name: ADMIN_WEB_DIR
+              value: /app/WebAdmin
+            - name: WEB_DIR
+              value: /app/Web
+            - name: DEMO_MODE
+              value: "true"
+            - name: ALLOW_DEMO_NETWORK
+              value: "true"
+            - name: ALLOW_ANONYMOUS_DEMO
+              value: "true"
+            - name: WORKER_ASSET_DIR
+              value: /app/private-uploads
+            - name: SESSION_TTL_HOURS
+              value: "24"
+            - name: ADMIN_BOOTSTRAP_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: repair-admin
+                  key: ADMIN_BOOTSTRAP_USERNAME
+                  optional: true
+            - name: ADMIN_BOOTSTRAP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: repair-admin
+                  key: ADMIN_BOOTSTRAP_PASSWORD
+                  optional: true
+            - name: TIDB_DSN
+              value: root@tcp(tidb.repair-marketplace.svc.cluster.local:4000)/repair_marketplace?parseTime=true&tls=false
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - name: worker-assets
+              mountPath: /app/private-uploads
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: "1"
+              memory: 512Mi
+          startupProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 20
+      volumes:
+        - name: worker-assets
+          persistentVolumeClaim:
+            claimName: worker-assets
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: worker-assets
+  namespace: repair-marketplace
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repair-api
+  namespace: repair-marketplace
+spec:
+  type: ClusterIP
+  selector:
+    app: repair-api
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http

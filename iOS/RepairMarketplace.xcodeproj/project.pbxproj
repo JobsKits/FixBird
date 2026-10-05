@@ -1,0 +1,1267 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05269717689B33BFEBFA2BDB /* MarketplaceAccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B36A56295711C5779EB5B9 /* MarketplaceAccountStore.swift */; };
+		06E9677851A7DE3FAA2703E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6684D26B93846D59F7081EF /* AppDelegate.swift */; };
+		10D5977F98E09085AE1FEC8E /* MarketplaceDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8F6D53889D29AA4536870A /* MarketplaceDevicesViewController.swift */; };
+		12C312E58BC565B08030B156 /* MarketplaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6333C272927247D30C6ED3 /* MarketplaceUser.swift */; };
+		198896EA7F0003AE7A08F296 /* JobsThemeResources.json in Resources */ = {isa = PBXBuildFile; fileRef = 73DE667E28863EA632ABF921 /* JobsThemeResources.json */; };
+		1B2D66C60F6A76290AD01532 /* MarketplaceOrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A35D59847A212F1136784 /* MarketplaceOrderStatus.swift */; };
+		2F728E7242DFC5220B5391CD /* MarketplacePrivateCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B474BDBE0EA1AB9BF4DB06D /* MarketplacePrivateCache.swift */; };
+		344C15C820ADB7372EB4CBFB /* MarketplaceAuthInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0174B1978FFAB61C413621 /* MarketplaceAuthInput.swift */; };
+		373C56B06B4937915D48855A /* MarketplaceLedgerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8862889735BDB6EBF99FF486 /* MarketplaceLedgerStore.swift */; };
+		39FD27DD5378ADC79BEAF349 /* MarketplaceKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE87BF9B2856BDD6D51D75E5 /* MarketplaceKeychain.swift */; };
+		4147911D46094B5DE2EB7BC4 /* MarketplaceCacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E73646B7E3450ED9F15E508 /* MarketplaceCacheStorage.swift */; };
+		45C22DC8C240847D6E6ACD2A /* MarketplaceAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC2607E379A2F1656BE53A /* MarketplaceAccountViewController.swift */; };
+		49CC79E650D85BE63154C57C /* MarketplaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187A8D8F3414683B591A2C0E /* MarketplaceViewController.swift */; };
+		4C1616A5E6A0CA94D4028705 /* MarketplaceRequestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2517D28558ACD33CAC6BDB6 /* MarketplaceRequestContext.swift */; };
+		50F33FEBD8AE8AD2A7C05F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651D0DF32437A298125A43BB /* SceneDelegate.swift */; };
+		5120E3C5D560F1B500D6EB9D /* RepairCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0389E41766F112B541DC1 /* RepairCategory.swift */; };
+		5251C9C0EACE73AA25C5B7B3 /* MarketplaceRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE87A4B39A62F68DFC1FA2E4 /* MarketplaceRole.swift */; };
+		526903EC520EF747447BFDF0 /* MarketplaceDeviceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C13E397C0ED79D9C6459E /* MarketplaceDeviceStore.swift */; };
+		5507EF4EAFEEB7898EF63741 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A938ED9F118F6D3222C99C /* Foundation.framework */; };
+		5F20067E7123BA24D5E3CCB7 /* MarketplaceCredentialStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EF2CF98583C68107F499E7 /* MarketplaceCredentialStorage.swift */; };
+		61D726A9707DE40366504F8A /* MarketplaceQRScanner+Make.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B8B1FCB9E9A369C73D5D5A /* MarketplaceQRScanner+Make.swift */; };
+		61F2783AF8715994A61C9CC8 /* UIImage+Make.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581BB5069D3DF33988F317A /* UIImage+Make.swift */; };
+		6D1CA610B630C228EDEA5F18 /* MarketplaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BEC2209F96ABCF2D218F4 /* MarketplaceStore.swift */; };
+		70919D0F715D0AF2A45B5C99 /* RepairOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C35FB803FBC5D728B44DCF /* RepairOrder.swift */; };
+		7397F01ED0EEA6559209F3D7 /* MarketplaceQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90702E8FBDB8224971F99C /* MarketplaceQRViewController.swift */; };
+		7EF9F85D2004F6B5570B94EF /* MarketplaceOrderCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8805F62BA6E1DE99B80574A /* MarketplaceOrderCache.swift */; };
+		80735C6286E645C30C61304B /* Pods_RepairMarketplace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFE92A4EEDCC4D9BCA0AB6F /* Pods_RepairMarketplace.framework */; };
+		8583AC23433651175753A059 /* MarketplaceDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F24A4AD5E645361305E402 /* MarketplaceDevice.swift */; };
+		86224D18DE004ED2CD3AAEC6 /* MarketplaceLedgerSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F7E7FEAA65F0FCB4C49CEC /* MarketplaceLedgerSummary.swift */; };
+		8C4EE6FFD5E20EACC8F809AD /* MarketplaceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59DDF2AA4B9F106AC554E9 /* MarketplaceAPI.swift */; };
+		8FF8CCE7C5C37286EEAA0F58 /* MarketplaceViewController+Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA0D86AFB5CB017C769D85 /* MarketplaceViewController+Orders.swift */; };
+		90343F68EEB3A18C7B24B02D /* UISceneConfiguration+Make.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570B1BF12BA48D5339236BF /* UISceneConfiguration+Make.swift */; };
+		91BCAF409108D1854641A963 /* CreateRepairOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B364FEE691904CDDE03AFA /* CreateRepairOrder.swift */; };
+		9238498C0C569218D0EB7495 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFF72079BA7717D8114FAA60 /* Localizable.strings */; };
+		97A25E2E3DD987DE6375C66D /* MarketplaceOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9B28BDBB8BA30ABA0E351 /* MarketplaceOutcome.swift */; };
+		9B820CDF14F519A54AB534B1 /* MarketplaceDebugPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE65B99179E81D4FA7113E /* MarketplaceDebugPanel.swift */; };
+		9EE56B19A56EDDD74203E2F1 /* MarketplaceLedgerJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1F324CC8A169FE781F6371 /* MarketplaceLedgerJournal.swift */; };
+		9FE7943869E4A6DF911C82F7 /* MarketplaceLedgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C6758F45028708B67828F /* MarketplaceLedgerViewController.swift */; };
+		A06F47FFB881F134B9D4E302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115373947962ECF48472AA65 /* Assets.xcassets */; };
+		A20307A1CF08ECA8B3E7CA08 /* MarketplaceDeviceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB290996122E8C07FD1E77 /* MarketplaceDeviceSession.swift */; };
+		A98CC253A14EE0BE0D8BE759 /* MarketplaceEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE79A0C4BCB2BD4650C1EB9 /* MarketplaceEnvironment.swift */; };
+		A9A956F0883CAB963A2747D4 /* MarketplaceSessionCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E91A46510FB2908740281B8 /* MarketplaceSessionCenter.swift */; };
+		B00BFDA6AF9FB89D35755FF5 /* MarketplacePrivateAssetClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1B13A27E71DC8E1FB6DC8A /* MarketplacePrivateAssetClient.swift */; };
+		B289CEB60833D92218AA1B75 /* MarketplaceOrderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C913324A110A6753749A14 /* MarketplaceOrderForm.swift */; };
+		B39EF0D134230512025D5E74 /* MarketplaceViewController+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184432C1453B520F07F6D9D0 /* MarketplaceViewController+Settings.swift */; };
+		BACF2AFB35FC7D6EC78F156A /* MarketplaceAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDAD4AAEA54D18CADCA6D62 /* MarketplaceAPIClient.swift */; };
+		BBAE69DD51190EAB41C72BB3 /* MarketplaceQRChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAE3FDDD81F5D2F01E52CE0 /* MarketplaceQRChallenge.swift */; };
+		BD309EAE2458AB2F990D4264 /* MarketplaceQRLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA0D2D33493C8998BEBC46 /* MarketplaceQRLogin.swift */; };
+		BD62F3A48B3E239B83D5A6B6 /* MarketplaceWorkerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80D8FEB6A2C49AC1B190B2C /* MarketplaceWorkerStore.swift */; };
+		C1718B0EC33F89D8FE66F526 /* MarketplaceFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AF0F885D1C291292D52168 /* MarketplaceFeatureViewController.swift */; };
+		C62CBED2104EFE7E9F446247 /* MarketplaceQRStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8AEE2EBD0F641EF7B38962 /* MarketplaceQRStore.swift */; };
+		C69CD5B0EB0B98EFC338F5B8 /* MarketplaceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B29E142F06DD18924F391 /* MarketplaceSession.swift */; };
+		C7A21409A6771C818ABABBA3 /* MarketplaceWorkerDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37208FAF0EEEC69C231F0ADC /* MarketplaceWorkerDraft.swift */; };
+		CB2BBA1913EC2524BB83DBF2 /* MarketplaceMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB58934DBA43F723FAC6A4 /* MarketplaceMoney.swift */; };
+		D037421BA0C42AD50A99B958 /* MarketplaceIdentityContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9AD15FD0BE68C51E895989 /* MarketplaceIdentityContext.swift */; };
+		D51BCF5DEB3CCB0DA2D082FD /* MarketplaceLedgerEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A84706D1460FEF5B3BFC3A /* MarketplaceLedgerEntry.swift */; };
+		D6255E84EB1401E34CDE75A6 /* MarketplaceRemoteFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C5A46B5CB28CA47F246C81 /* MarketplaceRemoteFailure.swift */; };
+		D93AA74EA3B16CFAD7B7A3D0 /* MarketplaceViewController+Forms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883F83265B15DC0144C9B /* MarketplaceViewController+Forms.swift */; };
+		E4F199FDE87A2770F0943FA2 /* MarketplaceViewController+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC0B20FD191DD716CD1B87 /* MarketplaceViewController+Home.swift */; };
+		E7FDDC799E6042E74D97CA36 /* MarketplaceViewController+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DDECB612970C15E2AEECD9 /* MarketplaceViewController+Components.swift */; };
+		EEF27E4236060F076FF5255A /* MarketplaceWorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D741CA62892873BCFF8C5B4 /* MarketplaceWorkerViewController.swift */; };
+		F0F0358B11CBF778CA9476FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E555E1A2A8A892224F7FA2C /* InfoPlist.strings */; };
+		F13B19DFB5182724AE50908F /* MarketplaceOrderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABA69761B3CC1E6DE0F290E /* MarketplaceOrderCard.swift */; };
+		F1474E68B0A05434BAE60614 /* MarketplaceWorkerApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E673C919C6B85F97802A15 /* MarketplaceWorkerApplication.swift */; };
+		FA7D1F4453C1A556BCD45977 /* MarketplaceWorkerAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87405FF0BCB6E6574DFB89F1 /* MarketplaceWorkerAsset.swift */; };
+		FD7CE96AA14518E7A3D9B07B /* MarketplaceOrderSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B230AF6DA0923D9FD65827A /* MarketplaceOrderSubmission.swift */; };
+		FF249F8B4DA9588B9F12EFA3 /* MarketplaceUIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5332DF8BC308061F2BBAFF /* MarketplaceUIFactory.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02F24A4AD5E645361305E402 /* MarketplaceDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceDevice.swift; sourceTree = "<group>"; };
+		04A0389E41766F112B541DC1 /* RepairCategory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RepairCategory.swift; sourceTree = "<group>"; };
+		0ACC2607E379A2F1656BE53A /* MarketplaceAccountViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceAccountViewController.swift; sourceTree = "<group>"; };
+		0B474BDBE0EA1AB9BF4DB06D /* MarketplacePrivateCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplacePrivateCache.swift; sourceTree = "<group>"; };
+		0E73646B7E3450ED9F15E508 /* MarketplaceCacheStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceCacheStorage.swift; sourceTree = "<group>"; };
+		110F80D2C8FDE0128123F8B0 /* Pods-RepairMarketplace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMarketplace.debug.xcconfig"; path = "Target Support Files/Pods-RepairMarketplace/Pods-RepairMarketplace.debug.xcconfig"; sourceTree = "<group>"; };
+		115373947962ECF48472AA65 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14AF0F885D1C291292D52168 /* MarketplaceFeatureViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceFeatureViewController.swift; sourceTree = "<group>"; };
+		15AB58934DBA43F723FAC6A4 /* MarketplaceMoney.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceMoney.swift; sourceTree = "<group>"; };
+		184432C1453B520F07F6D9D0 /* MarketplaceViewController+Settings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MarketplaceViewController+Settings.swift"; sourceTree = "<group>"; };
+		187A8D8F3414683B591A2C0E /* MarketplaceViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceViewController.swift; sourceTree = "<group>"; };
+		1B5332DF8BC308061F2BBAFF /* MarketplaceUIFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceUIFactory.swift; sourceTree = "<group>"; };
+		1C9C6758F45028708B67828F /* MarketplaceLedgerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceLedgerViewController.swift; sourceTree = "<group>"; };
+		1D741CA62892873BCFF8C5B4 /* MarketplaceWorkerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceWorkerViewController.swift; sourceTree = "<group>"; };
+		23C5A46B5CB28CA47F246C81 /* MarketplaceRemoteFailure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceRemoteFailure.swift; sourceTree = "<group>"; };
+		24BC0B20FD191DD716CD1B87 /* MarketplaceViewController+Home.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MarketplaceViewController+Home.swift"; sourceTree = "<group>"; };
+		2AAE3FDDD81F5D2F01E52CE0 /* MarketplaceQRChallenge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceQRChallenge.swift; sourceTree = "<group>"; };
+		2CB9B28BDBB8BA30ABA0E351 /* MarketplaceOutcome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceOutcome.swift; sourceTree = "<group>"; };
+		2E8F6D53889D29AA4536870A /* MarketplaceDevicesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceDevicesViewController.swift; sourceTree = "<group>"; };
+		2E91A46510FB2908740281B8 /* MarketplaceSessionCenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceSessionCenter.swift; sourceTree = "<group>"; };
+		2F59DDF2AA4B9F106AC554E9 /* MarketplaceAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceAPI.swift; sourceTree = "<group>"; };
+		31F7E7FEAA65F0FCB4C49CEC /* MarketplaceLedgerSummary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceLedgerSummary.swift; sourceTree = "<group>"; };
+		37208FAF0EEEC69C231F0ADC /* MarketplaceWorkerDraft.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceWorkerDraft.swift; sourceTree = "<group>"; };
+		387883F83265B15DC0144C9B /* MarketplaceViewController+Forms.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MarketplaceViewController+Forms.swift"; sourceTree = "<group>"; };
+		38AB290996122E8C07FD1E77 /* MarketplaceDeviceSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceDeviceSession.swift; sourceTree = "<group>"; };
+		3B9C13E397C0ED79D9C6459E /* MarketplaceDeviceStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceDeviceStore.swift; sourceTree = "<group>"; };
+		46FA0D86AFB5CB017C769D85 /* MarketplaceViewController+Orders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MarketplaceViewController+Orders.swift"; sourceTree = "<group>"; };
+		496EC5B113639816D312ED44 /* RepairMarketplace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepairMarketplace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B0D7BAD2F99F3F1BE3D3E62 /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4B90702E8FBDB8224971F99C /* MarketplaceQRViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceQRViewController.swift; sourceTree = "<group>"; };
+		4B9AD15FD0BE68C51E895989 /* MarketplaceIdentityContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceIdentityContext.swift; sourceTree = "<group>"; };
+		4FEEE8FD0664BCD5AC7CEE41 /* Pods-RepairMarketplace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepairMarketplace.release.xcconfig"; path = "Target Support Files/Pods-RepairMarketplace/Pods-RepairMarketplace.release.xcconfig"; sourceTree = "<group>"; };
+		56F5F1C556A6DEDCA00F7B8E /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ABA69761B3CC1E6DE0F290E /* MarketplaceOrderCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceOrderCard.swift; sourceTree = "<group>"; };
+		5CCE65B99179E81D4FA7113E /* MarketplaceDebugPanel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceDebugPanel.swift; sourceTree = "<group>"; };
+		64EF2CF98583C68107F499E7 /* MarketplaceCredentialStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceCredentialStorage.swift; sourceTree = "<group>"; };
+		651D0DF32437A298125A43BB /* SceneDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		67C3E41DAE315E192CA5FF97 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		68A5A167AC6D45B243B8F3D1 /* zh-Hans */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		69DFFC668C159DE360995D9C /* en */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6E1B13A27E71DC8E1FB6DC8A /* MarketplacePrivateAssetClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplacePrivateAssetClient.swift; sourceTree = "<group>"; };
+		6F0174B1978FFAB61C413621 /* MarketplaceAuthInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceAuthInput.swift; sourceTree = "<group>"; };
+		73DE667E28863EA632ABF921 /* JobsThemeResources.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = JobsThemeResources.json; sourceTree = "<group>"; };
+		75E673C919C6B85F97802A15 /* MarketplaceWorkerApplication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceWorkerApplication.swift; sourceTree = "<group>"; };
+		76DDECB612970C15E2AEECD9 /* MarketplaceViewController+Components.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MarketplaceViewController+Components.swift"; sourceTree = "<group>"; };
+		7B230AF6DA0923D9FD65827A /* MarketplaceOrderSubmission.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceOrderSubmission.swift; sourceTree = "<group>"; };
+		7F1F324CC8A169FE781F6371 /* MarketplaceLedgerJournal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceLedgerJournal.swift; sourceTree = "<group>"; };
+		87405FF0BCB6E6574DFB89F1 /* MarketplaceWorkerAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceWorkerAsset.swift; sourceTree = "<group>"; };
+		8862889735BDB6EBF99FF486 /* MarketplaceLedgerStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceLedgerStore.swift; sourceTree = "<group>"; };
+		8BE79A0C4BCB2BD4650C1EB9 /* MarketplaceEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MarketplaceEnvironment.swift; path = Services/MarketplaceEnvironment/MarketplaceEnvironment.swift; sourceTree = "<group>"; };
+		90B8B1FCB9E9A369C73D5D5A /* MarketplaceQRScanner+Make.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MarketplaceQRScanner+Make.swift"; sourceTree = "<group>"; };
+		92A84706D1460FEF5B3BFC3A /* MarketplaceLedgerEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceLedgerEntry.swift; sourceTree = "<group>"; };
+		9581BB5069D3DF33988F317A /* UIImage+Make.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Make.swift"; sourceTree = "<group>"; };
+		A1C35FB803FBC5D728B44DCF /* RepairOrder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RepairOrder.swift; sourceTree = "<group>"; };
+		A2D000062026100500000002 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A570B1BF12BA48D5339236BF /* UISceneConfiguration+Make.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UISceneConfiguration+Make.swift"; sourceTree = "<group>"; };
+		A91A35D59847A212F1136784 /* MarketplaceOrderStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceOrderStatus.swift; sourceTree = "<group>"; };
+		AD0B29E142F06DD18924F391 /* MarketplaceSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceSession.swift; sourceTree = "<group>"; };
+		B2517D28558ACD33CAC6BDB6 /* MarketplaceRequestContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceRequestContext.swift; sourceTree = "<group>"; };
+		B5C913324A110A6753749A14 /* MarketplaceOrderForm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceOrderForm.swift; sourceTree = "<group>"; };
+		BD8AEE2EBD0F641EF7B38962 /* MarketplaceQRStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceQRStore.swift; sourceTree = "<group>"; };
+		BFDAD4AAEA54D18CADCA6D62 /* MarketplaceAPIClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceAPIClient.swift; sourceTree = "<group>"; };
+		D1A938ED9F118F6D3222C99C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D82BEC2209F96ABCF2D218F4 /* MarketplaceStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceStore.swift; sourceTree = "<group>"; };
+		DE87A4B39A62F68DFC1FA2E4 /* MarketplaceRole.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceRole.swift; sourceTree = "<group>"; };
+		DEFE92A4EEDCC4D9BCA0AB6F /* Pods_RepairMarketplace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RepairMarketplace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3DBB287DF9CFBF6355E1327 /* 【MacOS@Xcode】🫘打开终端运行Pod Install.command */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "【MacOS@Xcode】🫘打开终端运行Pod Install.command"; sourceTree = "<group>"; };
+		E6684D26B93846D59F7081EF /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E80D8FEB6A2C49AC1B190B2C /* MarketplaceWorkerStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceWorkerStore.swift; sourceTree = "<group>"; };
+		E8805F62BA6E1DE99B80574A /* MarketplaceOrderCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceOrderCache.swift; sourceTree = "<group>"; };
+		EE87BF9B2856BDD6D51D75E5 /* MarketplaceKeychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceKeychain.swift; sourceTree = "<group>"; };
+		F4B36A56295711C5779EB5B9 /* MarketplaceAccountStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceAccountStore.swift; sourceTree = "<group>"; };
+		F5B364FEE691904CDDE03AFA /* CreateRepairOrder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateRepairOrder.swift; sourceTree = "<group>"; };
+		FB6333C272927247D30C6ED3 /* MarketplaceUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceUser.swift; sourceTree = "<group>"; };
+		FBFA0D2D33493C8998BEBC46 /* MarketplaceQRLogin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarketplaceQRLogin.swift; sourceTree = "<group>"; };
+		FCB2F72D6BA44A0BB96A1875 /* save_device_ipa_after_build.command */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = save_device_ipa_after_build.command; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDB999BB40DBC440B4FC0040 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5507EF4EAFEEB7898EF63741 /* Foundation.framework in Frameworks */,
+				80735C6286E645C30C61304B /* Pods_RepairMarketplace.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		057D1494CE813B9A29B292B6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				D20B1F8166C4811A97F036AF /* CreateRepairOrder */,
+				173EAF32CD71F5206C136693 /* MarketplaceMoney */,
+				41E2BF7A910BC1031C9AD9CC /* MarketplaceOrderStatus */,
+				492CC874E40DD9E661853404 /* MarketplaceOutcome */,
+				B22A115E960111C986CA514D /* MarketplaceRemoteFailure */,
+				C322D42F8D431FD2F3ED168F /* MarketplaceRequestContext */,
+				BB2B80A500F8CFDE306195F1 /* MarketplaceRole */,
+				A3121BC33D1B06762832B304 /* RepairCategory */,
+				199AA15F32651D181C5128EC /* RepairOrder */,
+				57EB6D87805BA99BD1296B31 /* MarketplaceOrderSubmission */,
+				712CDF76204C699C898A6B23 /* MarketplaceAuthInput */,
+				EF043D834961537AB6023544 /* MarketplaceDevice */,
+				6DAF5C56E99543FBA26105A9 /* MarketplaceDeviceSession */,
+				30BC8D3D703AA5DFD69EFE50 /* MarketplaceIdentityContext */,
+				94ED4CFBACF7CEF377B48D38 /* MarketplaceLedgerEntry */,
+				79610842964B6766573CC057 /* MarketplaceLedgerJournal */,
+				AFA2DED95B8997FFB144FA9D /* MarketplaceLedgerSummary */,
+				53D04C2945E66A371028EF67 /* MarketplaceQRChallenge */,
+				10F8CB4FCB3A028258BF0067 /* MarketplaceQRLogin */,
+				4C1B4512972B65F9308F2A27 /* MarketplaceSession */,
+				06170D47474A7FF5FDF13618 /* MarketplaceUser */,
+				8510A84FF3AB8347762A008B /* MarketplaceWorkerApplication */,
+				7BB591A942806FA056159145 /* MarketplaceWorkerAsset */,
+				D08A39363E7D0130DA40E407 /* MarketplaceWorkerDraft */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		05DAD4D2F57A2803A3048EA1 /* MarketplaceAPI */ = {
+			isa = PBXGroup;
+			children = (
+				2F59DDF2AA4B9F106AC554E9 /* MarketplaceAPI.swift */,
+			);
+			name = MarketplaceAPI;
+			path = MarketplaceAPI;
+			sourceTree = "<group>";
+		};
+		06170D47474A7FF5FDF13618 /* MarketplaceUser */ = {
+			isa = PBXGroup;
+			children = (
+				FB6333C272927247D30C6ED3 /* MarketplaceUser.swift */,
+			);
+			name = MarketplaceUser;
+			path = MarketplaceUser;
+			sourceTree = "<group>";
+		};
+		06965548AA433F1DA54AB807 /* MarketplacePrivateAssetClient */ = {
+			isa = PBXGroup;
+			children = (
+				6E1B13A27E71DC8E1FB6DC8A /* MarketplacePrivateAssetClient.swift */,
+			);
+			name = MarketplacePrivateAssetClient;
+			path = MarketplacePrivateAssetClient;
+			sourceTree = "<group>";
+		};
+		0B54B4E34548374E679517F0 /* MarketplaceQRStore */ = {
+			isa = PBXGroup;
+			children = (
+				BD8AEE2EBD0F641EF7B38962 /* MarketplaceQRStore.swift */,
+			);
+			name = MarketplaceQRStore;
+			path = MarketplaceQRStore;
+			sourceTree = "<group>";
+		};
+		0B721635F598D119C039F0BD /* MarketplaceOrderForm */ = {
+			isa = PBXGroup;
+			children = (
+				B5C913324A110A6753749A14 /* MarketplaceOrderForm.swift */,
+			);
+			name = MarketplaceOrderForm;
+			path = MarketplaceOrderForm;
+			sourceTree = "<group>";
+		};
+		0B82B76109842E028FCF93DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD309B9096048415E78C24CE /* iOS */,
+				DEFE92A4EEDCC4D9BCA0AB6F /* Pods_RepairMarketplace.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0BD3219C20748124120E9045 /* MarketplaceQRViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4B90702E8FBDB8224971F99C /* MarketplaceQRViewController.swift */,
+			);
+			name = MarketplaceQRViewController;
+			path = MarketplaceQRViewController;
+			sourceTree = "<group>";
+		};
+		10C53CF09B0A3E8DCC4B8B94 /* MarketplaceStore */ = {
+			isa = PBXGroup;
+			children = (
+				D82BEC2209F96ABCF2D218F4 /* MarketplaceStore.swift */,
+			);
+			name = MarketplaceStore;
+			path = MarketplaceStore;
+			sourceTree = "<group>";
+		};
+		10DBC53137F3B95C386FFCB4 /* MarketplaceWorkerStore */ = {
+			isa = PBXGroup;
+			children = (
+				E80D8FEB6A2C49AC1B190B2C /* MarketplaceWorkerStore.swift */,
+			);
+			name = MarketplaceWorkerStore;
+			path = MarketplaceWorkerStore;
+			sourceTree = "<group>";
+		};
+		10F8CB4FCB3A028258BF0067 /* MarketplaceQRLogin */ = {
+			isa = PBXGroup;
+			children = (
+				FBFA0D2D33493C8998BEBC46 /* MarketplaceQRLogin.swift */,
+			);
+			name = MarketplaceQRLogin;
+			path = MarketplaceQRLogin;
+			sourceTree = "<group>";
+		};
+		117EF807CA496383F73662C2 /* MarketplaceOrderCache */ = {
+			isa = PBXGroup;
+			children = (
+				E8805F62BA6E1DE99B80574A /* MarketplaceOrderCache.swift */,
+			);
+			name = MarketplaceOrderCache;
+			path = MarketplaceOrderCache;
+			sourceTree = "<group>";
+		};
+		15459FF75B820ECA38AEA418 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				115373947962ECF48472AA65 /* Assets.xcassets */,
+				73DE667E28863EA632ABF921 /* JobsThemeResources.json */,
+				BFF72079BA7717D8114FAA60 /* Localizable.strings */,
+				9E555E1A2A8A892224F7FA2C /* InfoPlist.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		173EAF32CD71F5206C136693 /* MarketplaceMoney */ = {
+			isa = PBXGroup;
+			children = (
+				15AB58934DBA43F723FAC6A4 /* MarketplaceMoney.swift */,
+			);
+			name = MarketplaceMoney;
+			path = MarketplaceMoney;
+			sourceTree = "<group>";
+		};
+		199AA15F32651D181C5128EC /* RepairOrder */ = {
+			isa = PBXGroup;
+			children = (
+				A1C35FB803FBC5D728B44DCF /* RepairOrder.swift */,
+			);
+			name = RepairOrder;
+			path = RepairOrder;
+			sourceTree = "<group>";
+		};
+		1A82AA05091B97495D3CA992 /* MarketplacePrivateCache */ = {
+			isa = PBXGroup;
+			children = (
+				0B474BDBE0EA1AB9BF4DB06D /* MarketplacePrivateCache.swift */,
+			);
+			name = MarketplacePrivateCache;
+			path = MarketplacePrivateCache;
+			sourceTree = "<group>";
+		};
+		1B10DC40A8F392ECDCAC70AB /* MarketplaceDebugPanel */ = {
+			isa = PBXGroup;
+			children = (
+				5CCE65B99179E81D4FA7113E /* MarketplaceDebugPanel.swift */,
+			);
+			name = MarketplaceDebugPanel;
+			path = MarketplaceDebugPanel;
+			sourceTree = "<group>";
+		};
+		1F098AAF3CD20E5E34F9992E /* MarketplaceLedgerStore */ = {
+			isa = PBXGroup;
+			children = (
+				8862889735BDB6EBF99FF486 /* MarketplaceLedgerStore.swift */,
+			);
+			name = MarketplaceLedgerStore;
+			path = MarketplaceLedgerStore;
+			sourceTree = "<group>";
+		};
+		2041441DB102966AA873D484 /* MarketplaceCacheStorage */ = {
+			isa = PBXGroup;
+			children = (
+				0E73646B7E3450ED9F15E508 /* MarketplaceCacheStorage.swift */,
+			);
+			name = MarketplaceCacheStorage;
+			path = MarketplaceCacheStorage;
+			sourceTree = "<group>";
+		};
+		2289F517E4E79300137C7530 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B619404C9278921E380D43FC /* MarketplaceOrderCard */,
+				0B721635F598D119C039F0BD /* MarketplaceOrderForm */,
+				F3864F464316E9166210B7E7 /* MarketplaceUIFactory */,
+				A1DF2A8D5FF9ED5D8DF489B7 /* MarketplaceViewController */,
+				8F4B190EB8049C056E0DD3AC /* MarketplaceAccountViewController */,
+				415EB200A2BDEC60E83F4A28 /* MarketplaceDevicesViewController */,
+				62AF441A514F387BF82D9E71 /* MarketplaceFeatureViewController */,
+				425F9038DDB25818D7A75B27 /* MarketplaceLedgerViewController */,
+				0BD3219C20748124120E9045 /* MarketplaceQRViewController */,
+				243CF8A435346A0B2D384FD2 /* MarketplaceWorkerViewController */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		243CF8A435346A0B2D384FD2 /* MarketplaceWorkerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D741CA62892873BCFF8C5B4 /* MarketplaceWorkerViewController.swift */,
+			);
+			name = MarketplaceWorkerViewController;
+			path = MarketplaceWorkerViewController;
+			sourceTree = "<group>";
+		};
+		2A453BD3BAF8545838F0A5F4 /* MarketplaceAccountStore */ = {
+			isa = PBXGroup;
+			children = (
+				F4B36A56295711C5779EB5B9 /* MarketplaceAccountStore.swift */,
+			);
+			name = MarketplaceAccountStore;
+			path = MarketplaceAccountStore;
+			sourceTree = "<group>";
+		};
+		30BC8D3D703AA5DFD69EFE50 /* MarketplaceIdentityContext */ = {
+			isa = PBXGroup;
+			children = (
+				4B9AD15FD0BE68C51E895989 /* MarketplaceIdentityContext.swift */,
+			);
+			name = MarketplaceIdentityContext;
+			path = MarketplaceIdentityContext;
+			sourceTree = "<group>";
+		};
+		3B440D495A16391AE1ACCF90 /* 【MacOS@Xcode】🫘打开终端运行Pod Install.command */ = {
+			isa = PBXGroup;
+			children = (
+				E3DBB287DF9CFBF6355E1327 /* 【MacOS@Xcode】🫘打开终端运行Pod Install.command */,
+				67C3E41DAE315E192CA5FF97 /* README.md */,
+			);
+			name = "【MacOS@Xcode】🫘打开终端运行Pod Install.command";
+			path = "【MacOS@Xcode】🫘打开终端运行Pod Install.command";
+			sourceTree = "<group>";
+		};
+		3DCA53B65E4DD8F11CA8D39B /* MarketplaceQRScanner */ = {
+			isa = PBXGroup;
+			children = (
+				90B8B1FCB9E9A369C73D5D5A /* MarketplaceQRScanner+Make.swift */,
+			);
+			name = MarketplaceQRScanner;
+			path = MarketplaceQRScanner;
+			sourceTree = "<group>";
+		};
+		415EB200A2BDEC60E83F4A28 /* MarketplaceDevicesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2E8F6D53889D29AA4536870A /* MarketplaceDevicesViewController.swift */,
+			);
+			name = MarketplaceDevicesViewController;
+			path = MarketplaceDevicesViewController;
+			sourceTree = "<group>";
+		};
+		41E2BF7A910BC1031C9AD9CC /* MarketplaceOrderStatus */ = {
+			isa = PBXGroup;
+			children = (
+				A91A35D59847A212F1136784 /* MarketplaceOrderStatus.swift */,
+			);
+			name = MarketplaceOrderStatus;
+			path = MarketplaceOrderStatus;
+			sourceTree = "<group>";
+		};
+		425F9038DDB25818D7A75B27 /* MarketplaceLedgerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1C9C6758F45028708B67828F /* MarketplaceLedgerViewController.swift */,
+			);
+			name = MarketplaceLedgerViewController;
+			path = MarketplaceLedgerViewController;
+			sourceTree = "<group>";
+		};
+		44CC668D2862191EDC6DCD2F = {
+			isa = PBXGroup;
+			children = (
+				54471A4ADD4CC9ECE1DA7880 /* Products */,
+				0B82B76109842E028FCF93DD /* Frameworks */,
+				730C8D7A625CA8257DE08CD6 /* App */,
+				A8841D1D75A04B0BA411D727 /* ScriptsByDevTools */,
+				AFEBE4534AFF37A07E5FB0A6 /* Pods */,
+				A15ED5C5F29CA3C057FCC03A /* ScriptsByPods */,
+			);
+			sourceTree = "<group>";
+		};
+		492CC874E40DD9E661853404 /* MarketplaceOutcome */ = {
+			isa = PBXGroup;
+			children = (
+				2CB9B28BDBB8BA30ABA0E351 /* MarketplaceOutcome.swift */,
+			);
+			name = MarketplaceOutcome;
+			path = MarketplaceOutcome;
+			sourceTree = "<group>";
+		};
+		4BEE5A685E80ED9AA625BA4C /* UISceneConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				A570B1BF12BA48D5339236BF /* UISceneConfiguration+Make.swift */,
+			);
+			name = UISceneConfiguration;
+			path = UISceneConfiguration;
+			sourceTree = "<group>";
+		};
+		4C1B4512972B65F9308F2A27 /* MarketplaceSession */ = {
+			isa = PBXGroup;
+			children = (
+				AD0B29E142F06DD18924F391 /* MarketplaceSession.swift */,
+			);
+			name = MarketplaceSession;
+			path = MarketplaceSession;
+			sourceTree = "<group>";
+		};
+		50C93F05EC99DB7C8C816978 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				9581BB5069D3DF33988F317A /* UIImage+Make.swift */,
+			);
+			name = UIImage;
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		53D04C2945E66A371028EF67 /* MarketplaceQRChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				2AAE3FDDD81F5D2F01E52CE0 /* MarketplaceQRChallenge.swift */,
+			);
+			name = MarketplaceQRChallenge;
+			path = MarketplaceQRChallenge;
+			sourceTree = "<group>";
+		};
+		54471A4ADD4CC9ECE1DA7880 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				496EC5B113639816D312ED44 /* RepairMarketplace.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		57EB6D87805BA99BD1296B31 /* MarketplaceOrderSubmission */ = {
+			isa = PBXGroup;
+			children = (
+				7B230AF6DA0923D9FD65827A /* MarketplaceOrderSubmission.swift */,
+			);
+			name = MarketplaceOrderSubmission;
+			path = MarketplaceOrderSubmission;
+			sourceTree = "<group>";
+		};
+		5ED545E5FCEF401094E1BB3A /* MarketplaceCredentialStorage */ = {
+			isa = PBXGroup;
+			children = (
+				64EF2CF98583C68107F499E7 /* MarketplaceCredentialStorage.swift */,
+			);
+			name = MarketplaceCredentialStorage;
+			path = MarketplaceCredentialStorage;
+			sourceTree = "<group>";
+		};
+		5F7B0598528F9E4A0619382A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4BEE5A685E80ED9AA625BA4C /* UISceneConfiguration */,
+				3DCA53B65E4DD8F11CA8D39B /* MarketplaceQRScanner */,
+				50C93F05EC99DB7C8C816978 /* UIImage */,
+			);
+			name = Support;
+			path = Support;
+			sourceTree = "<group>";
+		};
+		62AF441A514F387BF82D9E71 /* MarketplaceFeatureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14AF0F885D1C291292D52168 /* MarketplaceFeatureViewController.swift */,
+			);
+			name = MarketplaceFeatureViewController;
+			path = MarketplaceFeatureViewController;
+			sourceTree = "<group>";
+		};
+		6DAF5C56E99543FBA26105A9 /* MarketplaceDeviceSession */ = {
+			isa = PBXGroup;
+			children = (
+				38AB290996122E8C07FD1E77 /* MarketplaceDeviceSession.swift */,
+			);
+			name = MarketplaceDeviceSession;
+			path = MarketplaceDeviceSession;
+			sourceTree = "<group>";
+		};
+		712CDF76204C699C898A6B23 /* MarketplaceAuthInput */ = {
+			isa = PBXGroup;
+			children = (
+				6F0174B1978FFAB61C413621 /* MarketplaceAuthInput.swift */,
+			);
+			name = MarketplaceAuthInput;
+			path = MarketplaceAuthInput;
+			sourceTree = "<group>";
+		};
+		730C8D7A625CA8257DE08CD6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				057D1494CE813B9A29B292B6 /* Domain */,
+				AAA87ADA91023B843995D8D9 /* Services */,
+				2289F517E4E79300137C7530 /* Modules */,
+				15459FF75B820ECA38AEA418 /* Resources */,
+				E6684D26B93846D59F7081EF /* AppDelegate.swift */,
+				651D0DF32437A298125A43BB /* SceneDelegate.swift */,
+				8BE79A0C4BCB2BD4650C1EB9 /* MarketplaceEnvironment.swift */,
+				A4F75FD0242816B4A698DB92 /* Debug */,
+				5F7B0598528F9E4A0619382A /* Support */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		79610842964B6766573CC057 /* MarketplaceLedgerJournal */ = {
+			isa = PBXGroup;
+			children = (
+				7F1F324CC8A169FE781F6371 /* MarketplaceLedgerJournal.swift */,
+			);
+			name = MarketplaceLedgerJournal;
+			path = MarketplaceLedgerJournal;
+			sourceTree = "<group>";
+		};
+		7BB591A942806FA056159145 /* MarketplaceWorkerAsset */ = {
+			isa = PBXGroup;
+			children = (
+				87405FF0BCB6E6574DFB89F1 /* MarketplaceWorkerAsset.swift */,
+			);
+			name = MarketplaceWorkerAsset;
+			path = MarketplaceWorkerAsset;
+			sourceTree = "<group>";
+		};
+		7DF27897EC672B94EAA053FD /* MarketplaceDeviceStore */ = {
+			isa = PBXGroup;
+			children = (
+				3B9C13E397C0ED79D9C6459E /* MarketplaceDeviceStore.swift */,
+			);
+			name = MarketplaceDeviceStore;
+			path = MarketplaceDeviceStore;
+			sourceTree = "<group>";
+		};
+		8510A84FF3AB8347762A008B /* MarketplaceWorkerApplication */ = {
+			isa = PBXGroup;
+			children = (
+				75E673C919C6B85F97802A15 /* MarketplaceWorkerApplication.swift */,
+			);
+			name = MarketplaceWorkerApplication;
+			path = MarketplaceWorkerApplication;
+			sourceTree = "<group>";
+		};
+		8C7AFA3B014C0953F9A1FA14 /* MarketplaceKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				EE87BF9B2856BDD6D51D75E5 /* MarketplaceKeychain.swift */,
+			);
+			name = MarketplaceKeychain;
+			path = MarketplaceKeychain;
+			sourceTree = "<group>";
+		};
+		8F4B190EB8049C056E0DD3AC /* MarketplaceAccountViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0ACC2607E379A2F1656BE53A /* MarketplaceAccountViewController.swift */,
+			);
+			name = MarketplaceAccountViewController;
+			path = MarketplaceAccountViewController;
+			sourceTree = "<group>";
+		};
+		92F92740EAC6E1A0CDF3E204 /* MarketplaceSessionCenter */ = {
+			isa = PBXGroup;
+			children = (
+				2E91A46510FB2908740281B8 /* MarketplaceSessionCenter.swift */,
+			);
+			name = MarketplaceSessionCenter;
+			path = MarketplaceSessionCenter;
+			sourceTree = "<group>";
+		};
+		94ED4CFBACF7CEF377B48D38 /* MarketplaceLedgerEntry */ = {
+			isa = PBXGroup;
+			children = (
+				92A84706D1460FEF5B3BFC3A /* MarketplaceLedgerEntry.swift */,
+			);
+			name = MarketplaceLedgerEntry;
+			path = MarketplaceLedgerEntry;
+			sourceTree = "<group>";
+		};
+		A15ED5C5F29CA3C057FCC03A /* ScriptsByPods */ = {
+			isa = PBXGroup;
+			children = (
+				3B440D495A16391AE1ACCF90 /* 【MacOS@Xcode】🫘打开终端运行Pod Install.command */,
+			);
+			name = ScriptsByPods;
+			path = ScriptsByPods;
+			sourceTree = "<group>";
+		};
+		A1DF2A8D5FF9ED5D8DF489B7 /* MarketplaceViewController */ = {
+			isa = PBXGroup;
+			children = (
+				76DDECB612970C15E2AEECD9 /* MarketplaceViewController+Components.swift */,
+				387883F83265B15DC0144C9B /* MarketplaceViewController+Forms.swift */,
+				24BC0B20FD191DD716CD1B87 /* MarketplaceViewController+Home.swift */,
+				46FA0D86AFB5CB017C769D85 /* MarketplaceViewController+Orders.swift */,
+				184432C1453B520F07F6D9D0 /* MarketplaceViewController+Settings.swift */,
+				187A8D8F3414683B591A2C0E /* MarketplaceViewController.swift */,
+			);
+			name = MarketplaceViewController;
+			path = MarketplaceViewController;
+			sourceTree = "<group>";
+		};
+		A2D000062026100500000001 /* save_device_ipa_after_build.command */ = {
+			isa = PBXGroup;
+			children = (
+				FCB2F72D6BA44A0BB96A1875 /* save_device_ipa_after_build.command */,
+				A2D000062026100500000002 /* README.md */,
+			);
+			path = save_device_ipa_after_build.command;
+			sourceTree = "<group>";
+		};
+		A3121BC33D1B06762832B304 /* RepairCategory */ = {
+			isa = PBXGroup;
+			children = (
+				04A0389E41766F112B541DC1 /* RepairCategory.swift */,
+			);
+			name = RepairCategory;
+			path = RepairCategory;
+			sourceTree = "<group>";
+		};
+		A4F75FD0242816B4A698DB92 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				1B10DC40A8F392ECDCAC70AB /* MarketplaceDebugPanel */,
+			);
+			name = Debug;
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		A8841D1D75A04B0BA411D727 /* ScriptsByDevTools */ = {
+			isa = PBXGroup;
+			children = (
+				A2D000062026100500000001 /* save_device_ipa_after_build.command */,
+			);
+			path = ScriptsByDevTools;
+			sourceTree = "<group>";
+		};
+		AAA87ADA91023B843995D8D9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FEDBA03CD741F943C8AC3835 /* MarketplaceAPIClient */,
+				2041441DB102966AA873D484 /* MarketplaceCacheStorage */,
+				117EF807CA496383F73662C2 /* MarketplaceOrderCache */,
+				05DAD4D2F57A2803A3048EA1 /* MarketplaceAPI */,
+				10C53CF09B0A3E8DCC4B8B94 /* MarketplaceStore */,
+				2A453BD3BAF8545838F0A5F4 /* MarketplaceAccountStore */,
+				5ED545E5FCEF401094E1BB3A /* MarketplaceCredentialStorage */,
+				7DF27897EC672B94EAA053FD /* MarketplaceDeviceStore */,
+				8C7AFA3B014C0953F9A1FA14 /* MarketplaceKeychain */,
+				1F098AAF3CD20E5E34F9992E /* MarketplaceLedgerStore */,
+				06965548AA433F1DA54AB807 /* MarketplacePrivateAssetClient */,
+				1A82AA05091B97495D3CA992 /* MarketplacePrivateCache */,
+				0B54B4E34548374E679517F0 /* MarketplaceQRStore */,
+				92F92740EAC6E1A0CDF3E204 /* MarketplaceSessionCenter */,
+				10DBC53137F3B95C386FFCB4 /* MarketplaceWorkerStore */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AFA2DED95B8997FFB144FA9D /* MarketplaceLedgerSummary */ = {
+			isa = PBXGroup;
+			children = (
+				31F7E7FEAA65F0FCB4C49CEC /* MarketplaceLedgerSummary.swift */,
+			);
+			name = MarketplaceLedgerSummary;
+			path = MarketplaceLedgerSummary;
+			sourceTree = "<group>";
+		};
+		AFEBE4534AFF37A07E5FB0A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FEEE8FD0664BCD5AC7CEE41 /* Pods-RepairMarketplace.release.xcconfig */,
+				110F80D2C8FDE0128123F8B0 /* Pods-RepairMarketplace.debug.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B22A115E960111C986CA514D /* MarketplaceRemoteFailure */ = {
+			isa = PBXGroup;
+			children = (
+				23C5A46B5CB28CA47F246C81 /* MarketplaceRemoteFailure.swift */,
+			);
+			name = MarketplaceRemoteFailure;
+			path = MarketplaceRemoteFailure;
+			sourceTree = "<group>";
+		};
+		B619404C9278921E380D43FC /* MarketplaceOrderCard */ = {
+			isa = PBXGroup;
+			children = (
+				5ABA69761B3CC1E6DE0F290E /* MarketplaceOrderCard.swift */,
+			);
+			name = MarketplaceOrderCard;
+			path = MarketplaceOrderCard;
+			sourceTree = "<group>";
+		};
+		BB2B80A500F8CFDE306195F1 /* MarketplaceRole */ = {
+			isa = PBXGroup;
+			children = (
+				DE87A4B39A62F68DFC1FA2E4 /* MarketplaceRole.swift */,
+			);
+			name = MarketplaceRole;
+			path = MarketplaceRole;
+			sourceTree = "<group>";
+		};
+		C322D42F8D431FD2F3ED168F /* MarketplaceRequestContext */ = {
+			isa = PBXGroup;
+			children = (
+				B2517D28558ACD33CAC6BDB6 /* MarketplaceRequestContext.swift */,
+			);
+			name = MarketplaceRequestContext;
+			path = MarketplaceRequestContext;
+			sourceTree = "<group>";
+		};
+		D08A39363E7D0130DA40E407 /* MarketplaceWorkerDraft */ = {
+			isa = PBXGroup;
+			children = (
+				37208FAF0EEEC69C231F0ADC /* MarketplaceWorkerDraft.swift */,
+			);
+			name = MarketplaceWorkerDraft;
+			path = MarketplaceWorkerDraft;
+			sourceTree = "<group>";
+		};
+		D20B1F8166C4811A97F036AF /* CreateRepairOrder */ = {
+			isa = PBXGroup;
+			children = (
+				F5B364FEE691904CDDE03AFA /* CreateRepairOrder.swift */,
+			);
+			name = CreateRepairOrder;
+			path = CreateRepairOrder;
+			sourceTree = "<group>";
+		};
+		DD309B9096048415E78C24CE /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D1A938ED9F118F6D3222C99C /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		EF043D834961537AB6023544 /* MarketplaceDevice */ = {
+			isa = PBXGroup;
+			children = (
+				02F24A4AD5E645361305E402 /* MarketplaceDevice.swift */,
+			);
+			name = MarketplaceDevice;
+			path = MarketplaceDevice;
+			sourceTree = "<group>";
+		};
+		F3864F464316E9166210B7E7 /* MarketplaceUIFactory */ = {
+			isa = PBXGroup;
+			children = (
+				1B5332DF8BC308061F2BBAFF /* MarketplaceUIFactory.swift */,
+			);
+			name = MarketplaceUIFactory;
+			path = MarketplaceUIFactory;
+			sourceTree = "<group>";
+		};
+		FEDBA03CD741F943C8AC3835 /* MarketplaceAPIClient */ = {
+			isa = PBXGroup;
+			children = (
+				BFDAD4AAEA54D18CADCA6D62 /* MarketplaceAPIClient.swift */,
+			);
+			name = MarketplaceAPIClient;
+			path = MarketplaceAPIClient;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C156C61410998912C9C1A6C /* RepairMarketplace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30BE5A7941724C3474E8CB82 /* Build configuration list for PBXNativeTarget "RepairMarketplace" */;
+			buildPhases = (
+				10EE56B0F0227F956F18E61A /* [CP] Check Pods Manifest.lock */,
+				13E7EECF96BB9396DB9BA97E /* Sources */,
+				EDB999BB40DBC440B4FC0040 /* Frameworks */,
+				83FC8E684F5F066A58578996 /* Resources */,
+				A398D1F9679E56058CE92E6D /* [CP] Copy Pods Resources */,
+				27DFA0BCB4BA4C14A6151EB2 /* Save Build IPA */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RepairMarketplace;
+			productName = RepairMarketplace;
+			productReference = 496EC5B113639816D312ED44 /* RepairMarketplace.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46A204DDA71040C06CE9A9F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					3C156C61410998912C9C1A6C = {
+						DevelopmentTeam = K5692KLW75;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3AB8A4A3860B84E59AADE254 /* Build configuration list for PBXProject "RepairMarketplace" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hans",
+				Base,
+			);
+			mainGroup = 44CC668D2862191EDC6DCD2F;
+			productRefGroup = 54471A4ADD4CC9ECE1DA7880 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C156C61410998912C9C1A6C /* RepairMarketplace */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83FC8E684F5F066A58578996 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A06F47FFB881F134B9D4E302 /* Assets.xcassets in Resources */,
+				198896EA7F0003AE7A08F296 /* JobsThemeResources.json in Resources */,
+				9238498C0C569218D0EB7495 /* Localizable.strings in Resources */,
+				F0F0358B11CBF778CA9476FC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10EE56B0F0227F956F18E61A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RepairMarketplace-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27DFA0BCB4BA4C14A6151EB2 /* Save Build IPA */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/ScriptsByDevTools/save_device_ipa_after_build.command/save_device_ipa_after_build.command",
+			);
+			name = "Save Build IPA";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/build",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "/bin/zsh \"${SRCROOT}/ScriptsByDevTools/save_device_ipa_after_build.command/save_device_ipa_after_build.command\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A398D1F9679E56058CE92E6D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RepairMarketplace/Pods-RepairMarketplace-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13E7EECF96BB9396DB9BA97E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06E9677851A7DE3FAA2703E5 /* AppDelegate.swift in Sources */,
+				50F33FEBD8AE8AD2A7C05F7A /* SceneDelegate.swift in Sources */,
+				A98CC253A14EE0BE0D8BE759 /* MarketplaceEnvironment.swift in Sources */,
+				9B820CDF14F519A54AB534B1 /* MarketplaceDebugPanel.swift in Sources */,
+				91BCAF409108D1854641A963 /* CreateRepairOrder.swift in Sources */,
+				CB2BBA1913EC2524BB83DBF2 /* MarketplaceMoney.swift in Sources */,
+				1B2D66C60F6A76290AD01532 /* MarketplaceOrderStatus.swift in Sources */,
+				97A25E2E3DD987DE6375C66D /* MarketplaceOutcome.swift in Sources */,
+				D6255E84EB1401E34CDE75A6 /* MarketplaceRemoteFailure.swift in Sources */,
+				4C1616A5E6A0CA94D4028705 /* MarketplaceRequestContext.swift in Sources */,
+				5251C9C0EACE73AA25C5B7B3 /* MarketplaceRole.swift in Sources */,
+				5120E3C5D560F1B500D6EB9D /* RepairCategory.swift in Sources */,
+				70919D0F715D0AF2A45B5C99 /* RepairOrder.swift in Sources */,
+				F13B19DFB5182724AE50908F /* MarketplaceOrderCard.swift in Sources */,
+				B289CEB60833D92218AA1B75 /* MarketplaceOrderForm.swift in Sources */,
+				FF249F8B4DA9588B9F12EFA3 /* MarketplaceUIFactory.swift in Sources */,
+				E7FDDC799E6042E74D97CA36 /* MarketplaceViewController+Components.swift in Sources */,
+				D93AA74EA3B16CFAD7B7A3D0 /* MarketplaceViewController+Forms.swift in Sources */,
+				E4F199FDE87A2770F0943FA2 /* MarketplaceViewController+Home.swift in Sources */,
+				8FF8CCE7C5C37286EEAA0F58 /* MarketplaceViewController+Orders.swift in Sources */,
+				B39EF0D134230512025D5E74 /* MarketplaceViewController+Settings.swift in Sources */,
+				BACF2AFB35FC7D6EC78F156A /* MarketplaceAPIClient.swift in Sources */,
+				4147911D46094B5DE2EB7BC4 /* MarketplaceCacheStorage.swift in Sources */,
+				7EF9F85D2004F6B5570B94EF /* MarketplaceOrderCache.swift in Sources */,
+				49CC79E650D85BE63154C57C /* MarketplaceViewController.swift in Sources */,
+				8C4EE6FFD5E20EACC8F809AD /* MarketplaceAPI.swift in Sources */,
+				6D1CA610B630C228EDEA5F18 /* MarketplaceStore.swift in Sources */,
+				FD7CE96AA14518E7A3D9B07B /* MarketplaceOrderSubmission.swift in Sources */,
+				90343F68EEB3A18C7B24B02D /* UISceneConfiguration+Make.swift in Sources */,
+				344C15C820ADB7372EB4CBFB /* MarketplaceAuthInput.swift in Sources */,
+				8583AC23433651175753A059 /* MarketplaceDevice.swift in Sources */,
+				A20307A1CF08ECA8B3E7CA08 /* MarketplaceDeviceSession.swift in Sources */,
+				D037421BA0C42AD50A99B958 /* MarketplaceIdentityContext.swift in Sources */,
+				D51BCF5DEB3CCB0DA2D082FD /* MarketplaceLedgerEntry.swift in Sources */,
+				9EE56B19A56EDDD74203E2F1 /* MarketplaceLedgerJournal.swift in Sources */,
+				86224D18DE004ED2CD3AAEC6 /* MarketplaceLedgerSummary.swift in Sources */,
+				BBAE69DD51190EAB41C72BB3 /* MarketplaceQRChallenge.swift in Sources */,
+				BD309EAE2458AB2F990D4264 /* MarketplaceQRLogin.swift in Sources */,
+				C69CD5B0EB0B98EFC338F5B8 /* MarketplaceSession.swift in Sources */,
+				12C312E58BC565B08030B156 /* MarketplaceUser.swift in Sources */,
+				F1474E68B0A05434BAE60614 /* MarketplaceWorkerApplication.swift in Sources */,
+				FA7D1F4453C1A556BCD45977 /* MarketplaceWorkerAsset.swift in Sources */,
+				C7A21409A6771C818ABABBA3 /* MarketplaceWorkerDraft.swift in Sources */,
+				45C22DC8C240847D6E6ACD2A /* MarketplaceAccountViewController.swift in Sources */,
+				10D5977F98E09085AE1FEC8E /* MarketplaceDevicesViewController.swift in Sources */,
+				C1718B0EC33F89D8FE66F526 /* MarketplaceFeatureViewController.swift in Sources */,
+				9FE7943869E4A6DF911C82F7 /* MarketplaceLedgerViewController.swift in Sources */,
+				7397F01ED0EEA6559209F3D7 /* MarketplaceQRViewController.swift in Sources */,
+				EEF27E4236060F076FF5255A /* MarketplaceWorkerViewController.swift in Sources */,
+				05269717689B33BFEBFA2BDB /* MarketplaceAccountStore.swift in Sources */,
+				5F20067E7123BA24D5E3CCB7 /* MarketplaceCredentialStorage.swift in Sources */,
+				526903EC520EF747447BFDF0 /* MarketplaceDeviceStore.swift in Sources */,
+				39FD27DD5378ADC79BEAF349 /* MarketplaceKeychain.swift in Sources */,
+				373C56B06B4937915D48855A /* MarketplaceLedgerStore.swift in Sources */,
+				B00BFDA6AF9FB89D35755FF5 /* MarketplacePrivateAssetClient.swift in Sources */,
+				2F728E7242DFC5220B5391CD /* MarketplacePrivateCache.swift in Sources */,
+				C62CBED2104EFE7E9F446247 /* MarketplaceQRStore.swift in Sources */,
+				A9A956F0883CAB963A2747D4 /* MarketplaceSessionCenter.swift in Sources */,
+				BD62F3A48B3E239B83D5A6B6 /* MarketplaceWorkerStore.swift in Sources */,
+				61D726A9707DE40366504F8A /* MarketplaceQRScanner+Make.swift in Sources */,
+				61F2783AF8715994A61C9CC8 /* UIImage+Make.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9E555E1A2A8A892224F7FA2C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69DFFC668C159DE360995D9C /* en */,
+				68A5A167AC6D45B243B8F3D1 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BFF72079BA7717D8114FAA60 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56F5F1C556A6DEDCA00F7B8E /* Localizable.strings */,
+				4B0D7BAD2F99F3F1BE3D3E62 /* Localizable.strings */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6816CED19771614334D4AF7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 110F80D2C8FDE0128123F8B0 /* Pods-RepairMarketplace.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5692KLW75;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobs.repairmarketplace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		990F2DF329513AB98F131E9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FEEE8FD0664BCD5AC7CEE41 /* Pods-RepairMarketplace.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K5692KLW75;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jobs.repairmarketplace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9D0BBE5BA536A9A06B8D28C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E491A9EE1C1C628240FB08A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30BE5A7941724C3474E8CB82 /* Build configuration list for PBXNativeTarget "RepairMarketplace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				990F2DF329513AB98F131E9E /* Release */,
+				6816CED19771614334D4AF7E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AB8A4A3860B84E59AADE254 /* Build configuration list for PBXProject "RepairMarketplace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9D0BBE5BA536A9A06B8D28C /* Debug */,
+				E491A9EE1C1C628240FB08A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46A204DDA71040C06CE9A9F8 /* Project object */;
+}

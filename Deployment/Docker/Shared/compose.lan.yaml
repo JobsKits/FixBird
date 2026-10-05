@@ -1,0 +1,6 @@
+# 真机联调附加配置：只发布到指定的局域网地址，保留基础配置的回环入口。
+# docker compose --project-name repair-marketplace -f compose.yaml -f compose.lan.yaml up -d --no-deps api
+services:
+  api:
+    ports:
+      - "${API_LAN_BIND_ADDRESS:?请在 .env 中填写当前 Mac 的局域网 IP}:${API_PORT:-8080}:8080"
