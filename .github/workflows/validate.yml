@@ -1,0 +1,37 @@
+name: Prototype validation
+
+'on':
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.8'
+          cache-dependency-path: Server/go.sum
+      - run: node Validation/validate.mjs --require-ios
+  windows-syntax:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node Validation/validate.mjs --scripts-only --require-powershell

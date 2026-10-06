@@ -1,0 +1,17 @@
+.DS_Store
+.git
+.idea
+.vscode
+**/node_modules
+**/.dart_tool
+**/build
+**/DerivedData
+iOS/Pods
+iOS/RepairMarketplace.xcodeproj/xcuserdata
+iOS/RepairMarketplace.xcworkspace/xcuserdata
+Deployment/**/.env
+Deployment/**/admin.env
+Deployment/**/logs
+Server/.env
+Server/private-uploads
+**/*.log

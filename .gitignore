@@ -1,0 +1,13 @@
+iOS/Pods/
+iOS/RepairMarketplace.xcworkspace/xcuserdata/
+iOS/RepairMarketplace.xcodeproj/xcuserdata/
+iOS/DerivedData/
+iOS/build/
+Server/.env
+Deployment/Docker/Shared/.env
+Deployment/Kubernetes/Shared/admin.env
+Server/private-uploads/
+Server/bin/
+Server/coverage.out
+*.xcuserstate
+.DS_Store
