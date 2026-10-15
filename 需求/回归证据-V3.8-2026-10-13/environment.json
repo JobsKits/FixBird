@@ -1,0 +1,19 @@
+{
+  "clientDate": "2026-10-14",
+  "host": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "architecture": "arm64",
+  "node": "v26.11.1",
+  "go": "go version go1.27.2 darwin/arm64",
+  "binaries": [
+    {
+      "platform": "v38-regression-windows-amd64.exe",
+      "bytes": 11676160,
+      "sha256": "17ff1c13ed0a10f96a59b3eef5e18f985aeb845dfd1a1be4400ca4f7a437dc10"
+    },
+    {
+      "platform": "v38-regression-linux-amd64",
+      "bytes": 11502311,
+      "sha256": "8798aaeb765ad1f926664efbc38d033d462f64a910778eaba84fc2684f38da8d"
+    }
+  ]
+}

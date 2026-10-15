@@ -1,0 +1,5 @@
+{"finding":"R05","response":null,"closed":true,"toast":"账号状态已更新。","error":null}
+{"finding":"R05","response":{},"closed":true,"toast":"账号状态已更新。","error":null}
+{"control":"HTTP403 remains rejected","closed":false,"toast":"","error":"synthetic denial"}
+Control: opening a new modal resets formKeys; identical independent modal submissions are NOT reported as an idempotency defect.
+R06: file protocol fallback points to 8380; deployed workbench default is 8098.

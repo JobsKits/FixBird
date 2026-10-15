@@ -1,0 +1,86 @@
+{
+  "reportDate": "2026-10-14",
+  "scope": "isolated synthetic regression; no business-source fixes",
+  "target": "/Users/jobs/Desktop/啄木鸟维修平台-V3.8",
+  "commands": [
+    {
+      "command": "Tools/go/bin/go -C Server test -race -json ./... -count=1",
+      "log": "go-tests.jsonl",
+      "testPassResults": 46,
+      "testSkippedResults": 11,
+      "testFailures": 0
+    },
+    {
+      "command": "REPAIR_TEST_TIDB_DSN='root@tcp(127.0.0.1:14038)/repair_test_regression?tls=false' WB_TEST_TIDB_DSN='root@tcp(127.0.0.1:14038)/?tls=false' Tools/go/bin/go -C Server test -race -json ./... -count=1",
+      "log": "go-tidb-full.jsonl",
+      "exit": 0,
+      "testPassResults": 57,
+      "rootTestsPassed": 48,
+      "testSkippedResults": 0,
+      "testFailures": 0
+    },
+    {
+      "command": "Tools/go/bin/go -C Server vet ./...",
+      "log": "go-vet.log",
+      "exit": 0
+    },
+    {
+      "command": "node --test WebAdmin/tests/*.test.cjs Web/tests/*.test.cjs Workspace/tests/*.test.cjs",
+      "log": "web-tests.log",
+      "passed": 34,
+      "failed": 0
+    },
+    {
+      "command": "node Scripts/验证工作台.mjs",
+      "log": "http-smoke.log",
+      "passedGroups": 6,
+      "exit": 0
+    },
+    {
+      "command": "temporary Server copy: go test -race -json ./internal/workbench -run TestAudit -count=1",
+      "log": "supplemental-go.jsonl",
+      "diagnostics": 7,
+      "exit": 0,
+      "interpretation": "asserts current behavior including defects; NOT fixes accepted"
+    },
+    {
+      "command": "node frontend-diagnostics.cjs <target>/Workspace/app.js",
+      "log": "frontend-diagnostics.log",
+      "exit": 0
+    }
+  ],
+  "database": {
+    "image": "pingcap/tidb:v8.5.8",
+    "temporaryContainer": "jobs-v38-regression-20261013-2001",
+    "loopbackPort": 14038,
+    "stopped": true,
+    "existingContainersModified": false
+  },
+  "browser": {
+    "loopbackPort": 18038,
+    "temporaryStorage": true,
+    "dispatcherOrderCount": 8,
+    "customerOrderCount": 7,
+    "offlineSampleOrderCount": 6,
+    "viewportChecks": [
+      [
+        1280,
+        900
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "emptyStateAndReloadVisible": true,
+    "viewportReset": true,
+    "tabClosed": true,
+    "serviceStopped": true
+  },
+  "builds": {
+    "darwinArm64": "native-build.log; success",
+    "windowsAmd64": "cross-compiled; not run",
+    "linuxAmd64": "cross-compiled; not run"
+  },
+  "sourceFilesUnchanged": 104
+}

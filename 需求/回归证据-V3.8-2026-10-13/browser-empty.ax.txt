@@ -1,0 +1,25 @@
+Browser tab: 4, Title: "啄木鸟 · 维修协同工作台", URL: "http://127.0.0.1:18038/".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 339, 349, 388-646, 652-661
+~			337 heading 工单列表 0, Value: 2
++				667 text 0
++					668 text 0
+~					353 text field (settable) ⌕, Value: SYNTHETIC-NO-MATCH-20261014, ID: search
++			669 container ordersEmpty
++				670 text ▤
++				671 heading 暂无符合条件的工单, Value: 3
++					672 text 暂无符合条件的工单
++				673 text 可以调整筛选条件，或重新加载当前列表。
++				674 button 重新加载
++			675 text 显示 0 条 / 当前已加载 8 条
++					676 text ✓
++					677 text 负责人核对并确认整单完结
++					678 text ZM20261013-0006 · 海棠物业管理有限公司（合成）
++					679 text 查看 → ◷
++					680 text 客服确认受理
++					681 text ZM20261013-0001 · 海棠物业管理有限公司（合成）
++					682 text 查看 → ◷
++					683 text 客户签署当前报价
++					684 text ZM20261013-0002 · 海棠物业管理有限公司（合成）
++					685 text 查看 →
+The focused UI element is 353 text field (settable) ⌕, Value: SYNTHETIC-NO-MATCH-20261014, ID: search

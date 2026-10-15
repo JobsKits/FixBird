@@ -1,0 +1,12 @@
+{"Time":"2026-10-13T20:02:25.360779+08:00","Action":"start","Package":"repair-platform/internal/workbench"}
+{"Time":"2026-10-13T20:02:25.62557+08:00","Action":"run","Package":"repair-platform/internal/workbench","Test":"TestTiDBPersistenceEncryptedCASAndRestart"}
+{"Time":"2026-10-13T20:02:25.625635+08:00","Action":"output","Package":"repair-platform/internal/workbench","Test":"TestTiDBPersistenceEncryptedCASAndRestart","Output":"=== RUN   TestTiDBPersistenceEncryptedCASAndRestart\n","OutputType":"frame"}
+{"Time":"2026-10-13T20:02:25.676701+08:00","Action":"output","Package":"repair-platform/internal/workbench","Test":"TestTiDBPersistenceEncryptedCASAndRestart","Output":"--- PASS: TestTiDBPersistenceEncryptedCASAndRestart (0.05s)\n","OutputType":"frame"}
+{"Time":"2026-10-13T20:02:25.676734+08:00","Action":"pass","Package":"repair-platform/internal/workbench","Test":"TestTiDBPersistenceEncryptedCASAndRestart","Elapsed":0.05}
+{"Time":"2026-10-13T20:02:25.676772+08:00","Action":"run","Package":"repair-platform/internal/workbench","Test":"TestTiDBTLSRejectsUnsafeConfigurationBeforeNetwork"}
+{"Time":"2026-10-13T20:02:25.676777+08:00","Action":"output","Package":"repair-platform/internal/workbench","Test":"TestTiDBTLSRejectsUnsafeConfigurationBeforeNetwork","Output":"=== RUN   TestTiDBTLSRejectsUnsafeConfigurationBeforeNetwork\n","OutputType":"frame"}
+{"Time":"2026-10-13T20:02:25.677427+08:00","Action":"output","Package":"repair-platform/internal/workbench","Test":"TestTiDBTLSRejectsUnsafeConfigurationBeforeNetwork","Output":"--- PASS: TestTiDBTLSRejectsUnsafeConfigurationBeforeNetwork (0.00s)\n","OutputType":"frame"}
+{"Time":"2026-10-13T20:02:25.677438+08:00","Action":"pass","Package":"repair-platform/internal/workbench","Test":"TestTiDBTLSRejectsUnsafeConfigurationBeforeNetwork","Elapsed":0}
+{"Time":"2026-10-13T20:02:25.677446+08:00","Action":"output","Package":"repair-platform/internal/workbench","Output":"PASS\n","OutputType":"frame"}
+{"Time":"2026-10-13T20:02:26.683339+08:00","Action":"output","Package":"repair-platform/internal/workbench","Output":"ok  \trepair-platform/internal/workbench\t1.322s\n"}
+{"Time":"2026-10-13T20:02:26.68341+08:00","Action":"pass","Package":"repair-platform/internal/workbench","Elapsed":1.323}

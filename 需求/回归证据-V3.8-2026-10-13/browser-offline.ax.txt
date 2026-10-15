@@ -1,0 +1,306 @@
+- complementary:
+  - navigation "工作空间导航":
+    - button "▦ 工单工作台":
+      - generic: ▦
+      - text: 工单工作台
+    - button "☷ 我的待办":
+      - generic: ☷
+      - text: 我的待办
+    - button "¥ 现金与票据":
+      - generic: ¥
+      - text: 现金与票据
+    - button "⚙ 账号与连接":
+      - generic: ⚙
+      - text: 账号与连接
+- banner:
+  - text: 工作空间 /
+  - strong: 工单工作台
+  - generic: 合成演示
+  - button "重新加载" [active]: ↻
+  - button "客":
+    - generic: 客
+- main:
+  - generic: OPERATIONS WORKSPACE
+  - heading "每一张工单，都有下一步。" [level=1]
+  - paragraph: 从受理到整单完结，业务进度、资料票款与责任人一目了然。
+  - button "＋ 新建工单"
+  - status: 独立合成演示 · 无法连接服务，请检查地址或启动服务。 未复制服务端资料或当前表单；恢复连接后刷新自动使用服务端数据。
+  - region "经营概览":
+    - article:
+      - text: 进行中工单
+      - generic: ▦
+      - generic: "6"
+      - generic: 合成样例全链路跟踪至整单完结
+    - article:
+      - text: 结算待办理
+      - generic: ☷
+      - generic: "2"
+      - generic: 合成样例资料 · 票据 · 现金及余项
+    - article:
+      - text: 客户待收款
+      - generic: ¥
+      - generic: ¥13,400.00
+      - generic: 合成样例仅计入财务核实净收款
+    - article:
+      - text: 待完结确认
+      - generic: ✓
+      - generic: "1"
+      - generic: 合成样例负责人一次核对确认
+  - heading "工单列表 6" [level=2]:
+    - text: 工单列表
+    - generic: "6"
+  - paragraph: 同时查看主阶段与资料、票据和回款进度
+  - button "↓ 导出清单"
+  - button "全部工单"
+  - button "我负责的"
+  - button "结算中"
+  - button "待完结确认"
+  - button "有待处理项 0"
+  - generic: ⌕
+  - textbox "⌕":
+    - /placeholder: 搜索工单号、企业、设备或负责人
+  - generic: 主阶段
+  - combobox "主阶段":
+    - option "全部主阶段" [selected]
+    - option "待受理"
+    - option "待安排"
+    - option "检测 / 报价中"
+    - option "待客户确认"
+    - option "待执行"
+    - option "维修中"
+    - option "待质检"
+    - option "待交付"
+    - option "待验收"
+    - option "结算中"
+    - option "待完结确认"
+    - option "已完结"
+  - generic: 付款资料
+  - combobox "付款资料":
+    - option "全部资料进度" [selected]
+    - option "资料待办理"
+    - option "已发送"
+    - option "无需资料"
+  - generic: 客户回款
+  - combobox "客户回款":
+    - option "全部回款" [selected]
+    - option "仍有待收"
+    - option "现金待核实"
+    - option "已结清"
+  - button "重置"
+  - table:
+    - rowgroup:
+      - row "WX-202610-001 锦绣花园物业 地下泵房 · 变频控制柜 寄修 结算中 已验收 · 质保中 付款资料 已做未送 资料包 v1 票据进度 未开 ¥0.00 / ¥10,000.00 核实收款 / 应收 ¥3,000.00 / ¥10,000.00 部分 / 尚未收款 待收金额 ¥7,000.00 公司正在处理，请查看进度 dispatcher · 10/13 09:30 办理 →":
+        - cell "WX-202610-001 锦绣花园物业 地下泵房 · 变频控制柜 寄修":
+          - generic: WX-202610-001
+          - generic: 锦绣花园物业
+          - text: 地下泵房 · 变频控制柜
+          - generic: 寄修
+        - cell "结算中 已验收 · 质保中":
+          - generic: 结算中
+          - generic: 已验收 · 质保中
+        - cell "付款资料 已做未送 资料包 v1":
+          - generic: 付款资料
+          - button "已做未送":
+            - generic: 已做未送
+          - generic: 资料包 v1
+        - cell "票据进度 未开 ¥0.00 / ¥10,000.00":
+          - generic: 票据进度
+          - button "未开":
+            - generic: 未开
+          - generic: ¥0.00 / ¥10,000.00
+        - cell "核实收款 / 应收 ¥3,000.00 / ¥10,000.00 部分 / 尚未收款":
+          - generic: 核实收款 / 应收
+          - generic: ¥3,000.00 / ¥10,000.00
+          - generic: 部分 / 尚未收款
+        - cell "待收金额 ¥7,000.00":
+          - generic: 待收金额
+          - generic: ¥7,000.00
+        - cell "公司正在处理，请查看进度 dispatcher · 10/13 09:30":
+          - generic: 公司正在处理，请查看进度
+          - generic: dispatcher · 10/13 09:30
+        - cell "办理 →":
+          - button "办理 →"
+      - row "WX-202610-002 新城国际物业 消防系统 · 电源模块 寄修 结算中 已验收 · 质保未起算 付款资料 已发送 资料包 v1 票据进度 部分已开 ¥600.00 / ¥1,000.00 核实收款 / 应收 ¥1,000.00 / ¥1,000.00 已结清 待收金额 ¥0.00 公司正在处理，请查看进度 dispatcher · 10/13 09:30 办理 →":
+        - cell "WX-202610-002 新城国际物业 消防系统 · 电源模块 寄修":
+          - generic: WX-202610-002
+          - generic: 新城国际物业
+          - text: 消防系统 · 电源模块
+          - generic: 寄修
+        - cell "结算中 已验收 · 质保未起算":
+          - generic: 结算中
+          - generic: 已验收 · 质保未起算
+        - cell "付款资料 已发送 资料包 v1":
+          - generic: 付款资料
+          - button "已发送":
+            - generic: 已发送
+          - generic: 资料包 v1
+        - cell "票据进度 部分已开 ¥600.00 / ¥1,000.00":
+          - generic: 票据进度
+          - button "部分已开":
+            - generic: 部分已开
+          - generic: ¥600.00 / ¥1,000.00
+        - cell "核实收款 / 应收 ¥1,000.00 / ¥1,000.00 已结清":
+          - generic: 核实收款 / 应收
+          - generic: ¥1,000.00 / ¥1,000.00
+          - generic: 已结清
+        - cell "待收金额 ¥0.00":
+          - generic: 待收金额
+          - generic: ¥0.00
+        - cell "公司正在处理，请查看进度 dispatcher · 10/13 09:30":
+          - generic: 公司正在处理，请查看进度
+          - generic: dispatcher · 10/13 09:30
+        - cell "办理 →":
+          - button "办理 →"
+      - row "WX-202610-003 个人客户 · 陈先生（虚构） 家用空调 · 控制主板 上门 待完结确认 已验收 · 质保中 付款资料 无需，已确认 需求已确认 票据进度 无需，已确认 需求已确认 核实收款 / 应收 ¥500.00 / ¥500.00 已结清 待收金额 ¥0.00 公司正在处理，请查看进度 dispatcher · 10/13 09:30 办理 →":
+        - cell "WX-202610-003 个人客户 · 陈先生（虚构） 家用空调 · 控制主板 上门":
+          - generic: WX-202610-003
+          - generic: 个人客户 · 陈先生（虚构）
+          - text: 家用空调 · 控制主板
+          - generic: 上门
+        - cell "待完结确认 已验收 · 质保中":
+          - generic: 待完结确认
+          - generic: 已验收 · 质保中
+        - cell "付款资料 无需，已确认 需求已确认":
+          - generic: 付款资料
+          - button "无需，已确认":
+            - generic: 无需，已确认
+          - generic: 需求已确认
+        - cell "票据进度 无需，已确认 需求已确认":
+          - generic: 票据进度
+          - button "无需，已确认":
+            - generic: 无需，已确认
+          - generic: 需求已确认
+        - cell "核实收款 / 应收 ¥500.00 / ¥500.00 已结清":
+          - generic: 核实收款 / 应收
+          - generic: ¥500.00 / ¥500.00
+          - generic: 已结清
+        - cell "待收金额 ¥0.00":
+          - generic: 待收金额
+          - generic: ¥0.00
+        - cell "公司正在处理，请查看进度 dispatcher · 10/13 09:30":
+          - generic: 公司正在处理，请查看进度
+          - generic: dispatcher · 10/13 09:30
+        - cell "办理 →":
+          - button "办理 →"
+      - row "WX-202610-004 春申景城物业 电梯机房 · 散热风扇 上门 维修中 履约进行中 付款资料 未制作 资料包 v1 票据进度 未开 ¥0.00 / ¥2,600.00 核实收款 / 应收 ¥0.00 / ¥2,600.00 部分 / 尚未收款 待收金额 ¥2,600.00 公司正在处理，请查看进度 dispatcher · 10/13 09:30 办理 →":
+        - cell "WX-202610-004 春申景城物业 电梯机房 · 散热风扇 上门":
+          - generic: WX-202610-004
+          - generic: 春申景城物业
+          - text: 电梯机房 · 散热风扇
+          - generic: 上门
+        - cell "维修中 履约进行中":
+          - generic: 维修中
+          - generic: 履约进行中
+        - cell "付款资料 未制作 资料包 v1":
+          - generic: 付款资料
+          - button "未制作":
+            - generic: 未制作
+          - generic: 资料包 v1
+        - cell "票据进度 未开 ¥0.00 / ¥2,600.00":
+          - generic: 票据进度
+          - button "未开":
+            - generic: 未开
+          - generic: ¥0.00 / ¥2,600.00
+        - cell "核实收款 / 应收 ¥0.00 / ¥2,600.00 部分 / 尚未收款":
+          - generic: 核实收款 / 应收
+          - generic: ¥0.00 / ¥2,600.00
+          - generic: 部分 / 尚未收款
+        - cell "待收金额 ¥2,600.00":
+          - generic: 待收金额
+          - generic: ¥2,600.00
+        - cell "公司正在处理，请查看进度 dispatcher · 10/13 09:30":
+          - generic: 公司正在处理，请查看进度
+          - generic: dispatcher · 10/13 09:30
+        - cell "办理 →":
+          - button "办理 →"
+      - row "XS-202610-005 江南商务中心 销售 · 消防备用电源 × 4 销售 待客户确认 履约进行中 付款资料 未制作 资料包 v1 票据进度 未开 ¥0.00 / ¥3,800.00 核实收款 / 应收 ¥0.00 / ¥3,800.00 部分 / 尚未收款 待收金额 ¥3,800.00 请确认报价与履约条款 dispatcher · 10/13 09:30 办理 →":
+        - cell "XS-202610-005 江南商务中心 销售 · 消防备用电源 × 4 销售":
+          - generic: XS-202610-005
+          - generic: 江南商务中心
+          - text: 销售 · 消防备用电源 × 4
+          - generic: 销售
+        - cell "待客户确认 履约进行中":
+          - generic: 待客户确认
+          - generic: 履约进行中
+        - cell "付款资料 未制作 资料包 v1":
+          - generic: 付款资料
+          - button "未制作":
+            - generic: 未制作
+          - generic: 资料包 v1
+        - cell "票据进度 未开 ¥0.00 / ¥3,800.00":
+          - generic: 票据进度
+          - button "未开":
+            - generic: 未开
+          - generic: ¥0.00 / ¥3,800.00
+        - cell "核实收款 / 应收 ¥0.00 / ¥3,800.00 部分 / 尚未收款":
+          - generic: 核实收款 / 应收
+          - generic: ¥0.00 / ¥3,800.00
+          - generic: 部分 / 尚未收款
+        - cell "待收金额 ¥3,800.00":
+          - generic: 待收金额
+          - generic: ¥3,800.00
+        - cell "请确认报价与履约条款 dispatcher · 10/13 09:30":
+          - generic: 请确认报价与履约条款
+          - generic: dispatcher · 10/13 09:30
+        - cell "办理 →":
+          - button "办理 →"
+      - row "WX-202610-006 云庭公馆物业 监控主机 · 存储模块 寄修 待受理 履约进行中 付款资料 未制作 资料包 v1 票据进度 未开 ¥0.00 / ¥0.00 核实收款 / 应收 ¥0.00 / ¥0.00 应收待确认 待收金额 ¥0.00 公司正在处理，请查看进度 dispatcher · 10/13 09:30 办理 →":
+        - cell "WX-202610-006 云庭公馆物业 监控主机 · 存储模块 寄修":
+          - generic: WX-202610-006
+          - generic: 云庭公馆物业
+          - text: 监控主机 · 存储模块
+          - generic: 寄修
+        - cell "待受理 履约进行中":
+          - generic: 待受理
+          - generic: 履约进行中
+        - cell "付款资料 未制作 资料包 v1":
+          - generic: 付款资料
+          - button "未制作":
+            - generic: 未制作
+          - generic: 资料包 v1
+        - cell "票据进度 未开 ¥0.00 / ¥0.00":
+          - generic: 票据进度
+          - button "未开":
+            - generic: 未开
+          - generic: ¥0.00 / ¥0.00
+        - cell "核实收款 / 应收 ¥0.00 / ¥0.00 应收待确认":
+          - generic: 核实收款 / 应收
+          - generic: ¥0.00 / ¥0.00
+          - generic: 应收待确认
+        - cell "待收金额 ¥0.00":
+          - generic: 待收金额
+          - generic: ¥0.00
+        - cell "公司正在处理，请查看进度 dispatcher · 10/13 09:30":
+          - generic: 公司正在处理，请查看进度
+          - generic: dispatcher · 10/13 09:30
+        - cell "办理 →":
+          - button "办理 →"
+  - generic: 显示 6 条 / 当前已加载 6 条
+  - heading "当前关注" [level=2]
+  - button "查看待办 →"
+  - generic: ✓
+  - strong: 公司正在处理，请查看进度
+  - generic: WX-202610-003 · 个人客户 · 陈先生（虚构）
+  - generic: 查看 →
+  - generic: ◷
+  - strong: 公司正在处理，请查看进度
+  - generic: WX-202610-001 · 锦绣花园物业
+  - generic: 查看 →
+  - generic: ◷
+  - strong: 公司正在处理，请查看进度
+  - generic: WX-202610-002 · 新城国际物业
+  - generic: 查看 →
+  - generic: ONE ORDER · ONE JOURNEY
+  - heading "验收之后，继续跟到整单完结。" [level=2]
+  - paragraph: 所需资料发出、真实票据齐备、现金核实及内部余项办妥，再由负责人一次确认。
+  - generic: 待验收
+  - generic: →
+  - generic: 结算中
+  - generic: →
+  - generic: 待完结确认
+  - generic: →
+  - generic: 已完结
+  - text: 完结不终止有效质保。失败、取消也继续跟踪退款与退件。
+- contentinfo:
+  - text: 啄木鸟维修协同平台
+  - generic: 第一阶段 · 现金登记与人工确认

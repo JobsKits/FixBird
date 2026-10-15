@@ -1,0 +1,14 @@
+{
+  "temporarySourceCopyRemoved": true,
+  "testBinariesRemoved": true,
+  "testServiceStopped": true,
+  "testContainerStopped": true,
+  "browserTabClosed": true,
+  "viewportReset": true,
+  "existingContainersPreserved": [
+    "repair-marketplace-api-1",
+    "repair-marketplace-tidb-1"
+  ],
+  "reportPreviewServiceStopped": true,
+  "reportPreviewTabClosed": true
+}
