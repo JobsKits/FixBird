@@ -8,6 +8,26 @@
 
 使用 <u>[**Swift**](https://www.swift.org/)</u> / [**UIKit**](https://developer.apple.com/documentation/uikit) 按 `JobsSwiftBaseConfigDemo` 的组织方式平移，支持用户 / 师傅账号和独立本地演示。
 
+## <span id="cocoapods-network-route">CocoaPods 安装网络选路</span> <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+
+[**CocoaPods**](https://cocoapods.org/) 的安装和更新在解析依赖前，先准备本次下载链路，再实测公共 Specs；终端、已有手动入口与 CI 使用同一 Podfile 挂载。
+
+| 真实入口 | 执行顺序 |
+| --- | --- |
+| [./Podfile](././Podfile) | 网络 / 代理实测 → 官方归档注册 → Git / CDN Specs 选源 → 原依赖安装 |
+
+在相应 Podfile 所在目录继续执行原命令：
+
+```zsh
+pod install
+```
+
+优先验证明确配置的代理；未指定或不可用时检查当前链路，再测试 macOS 已启用的 HTTP / HTTPS / SOCKS 手工代理。验证通过后只让当前安装进程与子进程继承，退出恢复，不修改全局代理或 Git 配置。公共源比较同一 podspec 的有效响应及耗时；查询命令不联网，失败告警并回用已有配置 / 缓存。脚本模块缺失或异常时保留原安装流程。
+
+原生源码下载继承同次环境；归档回退仅覆盖已核验的 AMPopTip 4.12.0 发布请求，不会添加该依赖，也不泛化为任意仓库或版本镜像。版本、私有源与锁文件内容由正常 CocoaPods 安装维护，脚本不删除 Pods 或锁文件。探测通过仍需完整安装成功才能判定依赖已就绪。
+
+[网络适配、开关与测试](<./ScriptsByPods/【MacOS】🌐CocoaPods网络适配.command/README.md>) · [Specs 选源、超时与日志](<./ScriptsByPods/【MacOS】🌐CocoaPods源自动选择.command/README.md>)。迁移时保留完整 ScriptsByPods 包及各 Podfile 的相对加载路径。网络摘要显示在安装输出中，Specs 日志写系统临时目录并按 Podfile 所在目录隔离。
+
 ## 一、工程组成 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
 
 - `App/`：App / Scene 入口与 Info.plist。
