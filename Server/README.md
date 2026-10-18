@@ -2,17 +2,33 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、目录与运行](#jobs-toc-heading-2)
+- [二、API与跨端约定](#jobs-toc-heading-3)
+  - [2.1、创建重试与幂等](#jobs-toc-heading-4)
+  - [2.2、金额与支付边界](#jobs-toc-heading-5)
+- [三、健康、时限与迁移](#jobs-toc-heading-6)
+- [四、验证与扩展](#jobs-toc-heading-7)
+- [五、登录设备、扫码与人工审核](#jobs-toc-heading-8)
+- [六、账务查询与后续接入](#jobs-toc-heading-9)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 后端使用 [**Go**](https://go.dev/) 的HTTP服务、领域服务、仓储接口和 [**MySQL**](https://www.mysql.com/) 协议驱动连接 [**TiDB**](https://docs.pingcap.com/tidb/stable/)。默认使用内存演示仓储；配置数据源后使用持久化仓储。演示收款只记账，不实际扣款或转账。
 
 用户／师傅账号采用账号密码与独立 Bearer 会话，主管理员由程序首次自动创建，后台账号在设置中新增。师傅上传私有图片资料，管理员人工通过或驳回；通过后才能接单。固定匿名订单演示可单独关闭。真实支付和生产数据库运行方案仍待后续阶段；`DEMO_MODE=false` 继续拒绝启动。
 
-## 一、目录与运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、目录与运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 目录 | 职责 |
 | --- | --- |
@@ -59,7 +75,7 @@ go run ./cmd/api
 
 初始化管理员不会覆盖已有密码或把普通账号提升为管理员。宿主端口仍默认回环绑定，受控局域网只用于联调；数据库权限、HTTPS、备份和生产运维仍需另行配置。私有文件和数据库中的图片元数据必须配套保留。
 
-## 二、API与跨端约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、API与跨端约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 完整 [**OpenAPI**](https://spec.openapis.org/oas/latest.html) 见 [`api/openapi.yaml`](./api/openapi.yaml)。列表继续返回数组，空数据是 `[]`。
 
@@ -71,13 +87,13 @@ go run ./cmd/api
 - 管理订单、师傅、结算各查询自己的数据，看板独立聚合全量指标，不受limit影响。师傅分页按ID降序。
 - 错误新增稳定`code`及人类可读`message`，保留旧`error`。响应含`X-Request-ID`，错误正文也含`requestId`。常见code：`invalid_input/forbidden/not_found/invalid_state/idempotency_conflict/body_too_large/retryable/request_timeout`。
 
-### 2.1、创建重试与幂等 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">2.1、创建重试与幂等 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 下单POST使用 `Idempotency-Key`，限制1—128位可见ASCII字符。作用域为客户ID＋key；相同key及规范化正文返回同一订单ID与最新状态（201），同key换正文409。未提供key兼容旧客户端，但没有重复创建保护。
 
 TiDB把请求映射与订单写入同一事务，唯一键保护并发创建；内存由同一锁保护。响应丢失、503 `retryable`或超时后，保留原key再请求取得结果，不能换新key把未知结果当失败重建。新订单或明确修改内容才用新key。客户端演示写入不得自动重放为真实订单。
 
-### 2.2、金额与支付边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">2.2、金额与支付边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 报价为整数人民币分，范围1—100000000分（最多100万元）。演示先算师傅份额：`(amountCents * 85 + 50) / 100`整数除法，平台取差额；10分拆为师傅9／平台1。金额范围与汇总溢出均检查；保存规则版本`demo-worker85-half-up-v1`。旧完成记录保留原金额及空版本，不改历史数据。85／15是演示参数。
 
@@ -85,7 +101,7 @@ TiDB把请求映射与订单写入同一事务，唯一键保护并发创建；�
 
 支付意图先校验归属、待付款状态与服务端金额。三个渠道均501 `payment_not_configured`；不存在订单404，非本人403，状态不适合409。接口保留完整Gateway结果和稳定JSON字段，不提供真实凭据、渠道或回调。真实支付接入后再衔接渠道回调、退款、对账和真实结算，当前不做实际资金操作。
 
-## 三、健康、时限与迁移 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-6" data-jobs-toc="v2">三、健康、时限与迁移 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 `GET /healthz`仅存活；`GET /readyz`在2秒内检查仓储／DB连接、必要列和完成版本，返回200或503。startup/liveness用前者、readiness用后者，不能因短暂DB故障反复重启。
 
@@ -105,7 +121,7 @@ go run ./cmd/migrate -resume 003_profit_rule.sql
 go run ./cmd/migrate -seed-demo=false
 ```
 
-## 四、验证与扩展 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-7" data-jobs-toc="v2">四、验证与扩展 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```sh
 go test -race ./...
@@ -124,7 +140,7 @@ REPAIR_TEST_TIDB_DSN='root@tcp(127.0.0.1:临时测试端口)/repair_test_local?p
 
 后续保持模块清楚的单体。账号和人工审核是首期基础能力，不包含 OCR、第三方实名核验或支付机构资质认证。真实资金操作、生产数据库运行、备份恢复和上线监控按后续阶段推进，见[心愿单](../心愿单.md)。
 
-## 五、登录设备、扫码与人工审核 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-8" data-jobs-toc="v2">五、登录设备、扫码与人工审核 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 公开注册只允许 customer／worker；后台账号由已登录管理员在设置中创建，权限为 admin（管理员）或 operator（普通账号）。默认主管理员首次启动自动初始化为 `admin / admin`，重复启动不覆盖已有密码或状态。普通账号不能审核身份、创建账号、重置他人密码或封停账号；允许处理工单、查询账务及修改自己的密码。新增账号不创建会话；注册／登录返回 token、expiresAt、user 和 session；GET /api/v1/auth/me 返回当前用户并附设备会话信息。`/api/v1/admin/accounts` 分页查询全部后台和移动账号，管理员可新增后台账号；`/{username}/password` 重置任意用户密码，`/{username}/status` 封停或解封账号，禁止封停自己。`POST /api/v1/auth/password` 核对当前密码后修改自己的密码。`POST /api/v1/auth/recovery-code` 生成仅显示一次的恢复码；忘记密码可用 `POST /api/v1/auth/password-reset` 验证并消费恢复码。封停、修改或重置密码都会撤销所有旧会话和已授权二维码；解封不会复活旧会话。账号及密码操作失败不伪造本地成功。
 
@@ -136,7 +152,7 @@ PC 创建两分钟扫码请求，保留私有 pollToken，本地将 qrPayload �
 
 师傅以 multipart 单个 file 上传 JPEG／PNG：服务端校验实际格式、尺寸与完整解码，最多5 MiB；图片仅本人／管理员读取。申请包含展示名、联系电话、区域、技能、说明、1—6个本人图片ID与 expectedRevision；首次版本为0。管理员查询申请后以 decision、note、expectedRevision 审核，驳回必填原因；过期版本409。重新提交回到 pending 并暂停新接单，已领取工单继续履约。
 
-## 六、账务查询与后续接入 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-9" data-jobs-toc="v2">六、账务查询与后续接入 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 收款借记平台资金、贷记师傅待结算与平台收入；核销借记师傅待结算、贷记平台资金。金额全部为整数分，每条流水借贷相等。订单／支付／结算和账本写入同锁或同一 TiDB 事务，唯一事件键防止重复记账。流水不可原地改金额；内部保留冲正能力，但没有开放冲正写 API，避免业务状态与账本分离。
 

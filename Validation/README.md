@@ -2,15 +2,26 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、运行方式](#jobs-toc-heading-2)
+- [二、检查范围](#jobs-toc-heading-3)
+- [三、持续集成与边界](#jobs-toc-heading-4)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 统一验证入口检查当前原型的业务、客户端和部署材料：语法、测试、临时内存 API 和模拟命令；不运行真实部署、数据库迁移、卸载、依赖安装或 App 打包。独立 HTTP 检查另提供显式的临时 TiDB 验证方式，只允许专用本机测试实例。
 
-## 一、运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 先准备 [**Node.js**](https://nodejs.org) 24、[**Go**](https://go.dev/) 1.26.8、`gofmt`、`bash` 和 `zsh`；[**macOS**](https://www.apple.com/macos/) 上的源码解析需要 [**Xcode**](https://developer.apple.com/xcode) 命令行工具。在项目根目录执行：
 
@@ -28,7 +39,7 @@ node Validation/validate.mjs --scripts-only
 
 `--require-powershell` 将缺少 PowerShell 视为失败；`--require-ios` 将缺少 macOS 的 Swift 解析环境视为失败。退出码非 0 表示验证失败，控制台显示失败数和跳过数；模拟脚本使用系统临时目录。
 
-## 二、检查范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、检查范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 范围 | 内容 |
 | --- | --- |
@@ -51,7 +62,7 @@ REPAIR_TEST_TIDB_DSN='root@tcp(127.0.0.1:测试端口)/repair_test_probe' \
 
 只接受回环主机与 `repair_test_` 前缀。脚本另外创建随机测试数据库，运行全部迁移且不加载种子数据，然后执行相同的真实 HTTP 流程；结束删除自己创建的数据库。它不迁移指定名称的数据库，不连接已有 API，也不自动安装或启动数据库。不要将业务实例用于此检查。
 
-## 三、持续集成与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、持续集成与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 `../.github/workflows/validate.yml` 提供 [**GitHub Actions**](https://docs.github.com/actions) 配置：macOS 检查业务及 Shell，Windows 使用系统 Windows PowerShell 5.1 解析入口并运行模拟回归。官方 Actions 使用其当前文档中的 v7，依据 [checkout](https://github.com/actions/checkout)、[setup-go](https://github.com/actions/setup-go) 和 [setup-node](https://github.com/actions/setup-node)；仅授予只读仓库权限，不执行部署。
 

@@ -2,12 +2,25 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、DSL 迁移说明](#jobs-toc-heading-1)
+- [二、架构脉络与关键设计](#jobs-toc-heading-2)
+  - [2.1、设计目的与职责划分](#jobs-toc-heading-3)
+  - [2.2、运行脉络](#jobs-toc-heading-4)
+  - [2.3、关键设计与边界](#jobs-toc-heading-5)
+  - [2.4、阅读与重建顺序](#jobs-toc-heading-6)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 > 中文架构入口：[架构脉络与关键设计](#jobs-architecture)。
 
-## 一、DSL 迁移说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、DSL 迁移说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 本 Pod 原有的链式 DSL / 点语法封装已经抽离到 `JobsSwiftDSL`。
 - 继续使用 `byXxx(...)`、`dsl { ... }` 这类语法时，请在调用文件显式 `import JobsSwiftDSL`。
@@ -15,26 +28,26 @@
 
 <a id="jobs-architecture"></a>
 
-## 二、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本节用于用中文快速理解组件，并为按框架重建提供入口；关注职责、运行关系和关键边界，不要求逐行复刻。
 
-### 2.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-3" data-jobs-toc="v2">2.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 保留 [**Foundation**](https://developer.apple.com/documentation/foundation/timer) 相关的数据转换、数值舍入、富文本测量和 UserDefaults 便利能力，原有纯链式配置迁入 JobsSwiftDSL，通过桥接维持过渡关系。
 
-### 2.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">2.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 输入基础值 → 按指定转换或存储规则处理 → 返回结果或读取默认值 → 上层解释业务含义
 
-### 2.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">2.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 这里仍有实际数据处理实现，不是只有桥接文件；但 byXxx DSL 应继续追到 JobsSwiftDSL。
 - Decimal 舍入模式、精度与负数方向必须按实现核对，不能把显示格式化等同于业务计算精度。
 - UserDefaults 的缺失值和存储的 false/0 需要按便利读取入口的默认策略解释。
 - 富文本高度依赖指定宽度和字体兜底，不能脱离布局条件当作固定值。
 
-### 2.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">2.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 先选 Decimal、UserDefaults 或 NSAttributedString 等目标文件，再看桥接说明与迁出后的 DSL 边界。
 

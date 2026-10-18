@@ -2,11 +2,19 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、编者按](#jobs-toc-heading-1)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 一、编者按 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、编者按 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 做成[**CocoaPods**](https://cocoapods.org/)比较困难，对于作者来讲，难以维护。经过多番科学评估以后，故决定对此库放弃**Pods**化
 

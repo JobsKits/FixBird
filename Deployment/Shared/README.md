@@ -2,19 +2,29 @@
 
 ![Jobs出品，必属精品](../../README-banner.svg)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、文件与版本](#jobs-toc-heading-1)
+- [二、下载与目标约定](#jobs-toc-heading-2)
+- [三、维护与验证](#jobs-toc-heading-3)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
 本目录维护两条部署路线的版本清单和共享校验函数。`components.sh` 仅定义函数，不能当安装入口运行。
 
-## 一、文件与版本
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、文件与版本</span><!-- jobs-toc:heading-end -->
 
 `components.env` 保存固定版本、官方下载地址和 SHA256。当前缺失组件的安装版本为 [**Docker Desktop**](https://docs.docker.com/desktop/release-notes/) 4.93.0、[**Minikube**](https://github.com/kubernetes/minikube/releases/tag/v1.39.0) v1.39.0、[**Compose**](https://github.com/docker/compose/releases/tag/v5.6.0) v5.6.0、[**Buildx**](https://github.com/docker/buildx/releases/tag/v0.37.2) v0.37.2、[**K3s**](https://github.com/k3s-io/k3s/releases/tag/v1.37.1%2Bk3s1) v1.37.1+k3s1。已健康的本机组件直接复用；不会为对齐清单自动升级。
 
 Docker Engine 的便捷安装脚本固定到官方仓库提交并校验 SHA256；软件包由官方或发行版签名仓库提供，实际包版本由目标系统的仓库决定。K3s 的安装脚本和安装版本均固定，其安装器会验证下载的二进制。容器内 [**Go**](https://go.dev/) 默认 1.26.8、演示 [**TiDB**](https://docs.pingcap.com/tidb/stable/) 默认 v8.5.8；Dockerfile、示例配置和 Kubernetes 清单中的对应值由隔离测试核对，已有 `.env` 的覆盖值保留。
 
-## 二、下载与目标约定
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、下载与目标约定</span><!-- jobs-toc:heading-end -->
 
 下载必须先通过清单的 SHA256 校验，再执行或替换软件。macOS 的 Docker DMG 还需通过镜像完整性及 Docker 开发者签名校验；Windows 安装器还需通过 Authenticode 签名校验。人工提供 DMG 也必须匹配清单版本与摘要。下载失败、摘要不匹配或官方文件失效时安全停止；维护者重新核对官方发布物后，同时更新版本、架构对应 URL 和摘要，不能删掉校验绕过错误。
 
@@ -22,7 +32,7 @@ Docker Engine 的便捷安装脚本固定到官方仓库提交并校验 SHA256�
 
 macOS 芯片识别优先读取硬件 ARM64 能力，避免 Rosetta 将 Apple Silicon 误判为 Intel。Windows 读取原生架构；Windows ARM64 的 Kubernetes 路线仍明确不支持。
 
-## 三、维护与验证
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">三、维护与验证</span><!-- jobs-toc:heading-end -->
 
 在工程根目录运行 `bash Deployment/Tests/validate-targets.sh`；Windows 在默认 PowerShell 5.1 中运行 `& .\Deployment\Tests\validate-windows.ps1`。详细范围见 [隔离检查说明](../Tests/README.md)。测试不安装组件、修改 Docker context 或接触现有数据。
 

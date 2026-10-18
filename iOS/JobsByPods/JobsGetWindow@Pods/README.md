@@ -2,7 +2,19 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、架构脉络与关键设计](#jobs-toc-heading-1)
+  - [1.1、设计目的与职责划分](#jobs-toc-heading-2)
+  - [1.2、运行脉络](#jobs-toc-heading-3)
+  - [1.3、关键设计与边界](#jobs-toc-heading-4)
+  - [1.4、阅读与重建顺序](#jobs-toc-heading-5)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
@@ -13,26 +25,26 @@
 
 <a id="jobs-architecture"></a>
 
-## 一、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本节用于用中文快速理解组件，并为按框架重建提供入口；关注职责、运行关系和关键边界，不要求逐行复刻。
 
-### 1.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-2" data-jobs-toc="v2">1.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 封装多场景下的窗口选择与可见控制器查找。全局便利函数委托 UIApplication 和 UIWindowScene 扩展，在不同窗口和容器控制器之间寻找适合业务操作的入口。
 
-### 1.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-3" data-jobs-toc="v2">1.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 指定场景或使用默认选择 → 筛选并排序窗口 → 遍历展示和容器关系 → 返回可选窗口或控制器
 
-### 1.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">1.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 多窗口环境不能永久缓存第一次获取的 keyWindow；需要确定场景时优先使用显式 scene 入口。
 - 前台状态、窗口层级、主屏偏好与可见性共同影响选择，不能简化成 connectedScenes 的第一个元素。
 - 可见控制器查找涉及导航、标签、分栏、分页与 presented 关系，并有忽略提示框的选项。
 - 获取结果可能为空，调用方应保留降级路径，不能强制解包假定应用始终存在活动窗口。
 
-### 1.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">1.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 先看 Inlines 中的公开入口，再看 UIApplication 的默认选择和 UIWindowScene 的局部查找。
 

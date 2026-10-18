@@ -2,15 +2,26 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、适用环境](#jobs-toc-heading-1)
+- [二、运行方式](#jobs-toc-heading-2)
+- [三、部署内容](#jobs-toc-heading-3)
+- [四、完整反安装](#jobs-toc-heading-4)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 一、适用环境 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、适用环境 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 支持 Intel（`amd64`）和 Apple Silicon（`arm64`）的 [**macOS**](https://www.apple.com/macos/)。[**Docker Desktop**](https://www.docker.com/products/docker-desktop/) 对 [**macOS**](https://www.apple.com/macos/) 版本、内存和许可的要求会变化，请在运行前查看 [Docker Desktop for Mac 安装要求](https://docs.docker.com/desktop/setup/install/mac-install/)。
 
-## 二、运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 在 Finder 双击 `deploy.command`。Terminal 会按芯片下载匹配架构的 [**Docker Desktop**](https://www.docker.com/products/docker-desktop/)；需要时会出现管理员授权提示。首次启动 [**Docker Desktop**](https://www.docker.com/products/docker-desktop/) 还需在应用窗口接受其许可条款，脚本不会代替用户接受许可。
 
@@ -26,13 +37,13 @@
 
 脚本拒绝远端或非标准 Docker context，后续命令固定到已确认的本机 socket，不切换全局 context；Apple Silicon 在 Rosetta 环境也按硬件 ARM64 下载。固定版本、下载维护方法见 [共享组件说明](../../Shared/README.md)。
 
-## 三、部署内容 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">三、部署内容 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 脚本按需准备 [**Docker Desktop**](https://www.docker.com/products/docker-desktop/)，复制默认 `.env` 配置，每次重新构建当前源码的 [**Go**](https://go.dev/) API 镜像并用 Compose 更新或启动 [**TiDB**](https://docs.pingcap.com/tidb/stable/) 与后台服务。[**Go**](https://go.dev/) SDK 不安装到主机。成功后自动打开 `http://127.0.0.1:8080/admin/` 登录页。程序首次自动创建 `admin / admin`，账号权限在后台“设置”管理。已配置的局域网网卡地址自动保留；数据库与私有图片数据卷保留。
 
 默认 API 与 [**TiDB**](https://docs.pingcap.com/tidb/stable/) 端口只绑定本机回环地址。数据位于 [**Docker**](https://www.docker.com/) 命名卷。日志位于 用户 Library 日志目录中的 `RepairMarketplace/docker-deployment.log`。这是无鉴权的单机演示，不应直接暴露到公网。
 
-## 四、完整反安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">四、完整反安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 运行反部署目录中的 [`uninstall.command`](../../../unDeployment/Docker/macOS/uninstall.command)，在运行时选择“先备份再卸载”（默认）或“永久清空数据”，然后输入完整 `YES`。脚本会卸载本机共享容器运行环境，影响两条部署路线及其它容器项目。源码保留；备份失败停止卸载。详细范围、备份恢复、日志与限制见 [完整反安装说明](../../../unDeployment/README.md)。
 

@@ -2,13 +2,22 @@
 
 ![Jobs出品，必属精品](../../README-banner.svg)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、运行方式](#jobs-toc-heading-1)
+- [二、覆盖范围](#jobs-toc-heading-2)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
 此目录只检查脚本门禁和源码，不连接真实 daemon 或集群，不下载、安装、部署、备份或卸载。Linux 函数测试的临时样本在退出时删除。
 
-## 一、运行方式
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、运行方式</span><!-- jobs-toc:heading-end -->
 
 在工程根目录执行：
 
@@ -24,7 +33,7 @@ bash Deployment/Tests/validate-targets.sh
 
 不需要管理员权限；不要运行平台安装/卸载入口来代替此测试。
 
-## 二、覆盖范围
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、覆盖范围</span><!-- jobs-toc:heading-end -->
 
 | 入口 | 验证内容 |
 | --- | --- |

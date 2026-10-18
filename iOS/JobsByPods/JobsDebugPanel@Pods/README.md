@@ -2,15 +2,27 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、接入与配置](#jobs-toc-heading-2)
+- [二、环境与窗口行为](#jobs-toc-heading-3)
+- [三、Demo 与离线预览](#jobs-toc-heading-4)
+- [四、弱网边界与资源来源](#jobs-toc-heading-5)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 <u>[**Swift**](https://www.swift.org/)</u> 调试工具：屏幕前方的圆形按钮 push 出功能列表，再次点击关闭面板并返回打开前的页面，默认功能为 App 网络环境切换。长按按钮只隐藏到本进程结束，下次启动自动恢复。
 
-## 一、接入与配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、接入与配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**CocoaPods**](https://cocoapods.org/) 仅在 Debug 依赖，并且所有源码均有 `#if DEBUG`；Release 不初始化、不链接此 Pod，也不展示 Demo 入口。
 
@@ -51,7 +63,7 @@
   #endif
   ```
 
-## 二、环境与窗口行为 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、环境与窗口行为 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 环境只接受带有效 host 的 HTTP / HTTPS URL。无效条目自动过滤；保存的 URL 不在当前配置中时回退到首个有效环境。持久化键为 `JobsDebugPanel.Debug.SelectedEnvironmentURL`，只由 Debug 代码读取与写入。
 - 切换后立即调用 `byEnvironmentDidChange`，并发出 `environmentDidChangeNotification`。框架不绑定某个网络栈；本宿主由 `MarketplaceDebugPanel` 桥接到 `MarketplaceEnvironment.select`，后续业务请求新建 agent 时读取当前 URL。环境 revision、缓存按环境和 URL 隔离、旧请求不得覆盖新环境均沿用原业务实现。
@@ -63,14 +75,14 @@
 - 圆按钮可单指拖动，位置限定在当前窗口安全区域内；旋转或窗口尺寸变化时重新限制位置。拖动不会打开菜单或触发长按隐藏，拖动后仍可点击打开；位置仅在当前 Scene 的本次启动内保留。
 - 圆按钮的长按隐藏状态只存在内存中，不写入持久化配置。背景图来自打包资源，无文字、无运行时网络图片。
 
-## 三、Demo 与离线预览 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、Demo 与离线预览 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 维修宿主的 `AppDelegate` 初始化 `App/Debug/MarketplaceDebugPanel/MarketplaceDebugPanel.swift`，菜单顺序为 `App 环境切换`、`修改本机测试地址`、`查看当前环境`、`线上配置状态`；“我的 → 配置服务地址”复用同一编辑入口。
 - 测试 URL 沿用模拟器 `http://127.0.0.1:8080` / 真机 `http://192.168.1.7:8080` 与已保存的有效自定义地址。`productionBaseURL` 仍为空，只展示未配置状态；配置真实线上 URL 后自动进入二级列表。Pod 恢复保存的有效 URL，无效或尚未配置的旧线上选择回退本机测试。
 - 业务进入、刷新和写操作照常通过 `JobsNetworking` 请求当前头 URL 的 `/api/v1/...`，超时为 2 秒且不自动重试；成功替换本地样例，失败、超时或解析失败继续本地演示。缓存按环境和 URL 隔离，切换递增 revision 保护旧响应。
 - Release 固定读取线上配置，不读取 Debug 环境选择或自定义测试地址；线上未配时不发出伪造请求，继续本地演示。环境列表完全无有效配置时显示 `JobsEmptyAuto` 按钮空态与重新加载入口。
 
-## 四、弱网边界与资源来源 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、弱网边界与资源来源 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 不提供“全 App 弱网”开关：普通 [**iOS**](https://developer.apple.com/ios/) App 无法通过公开 API 全局控制系统网络带宽、延迟和丢包；只延迟某个请求回调无法覆盖 WebSocket、媒体流和其它请求栈。需要真实弱网测试时，开发者可手动使用系统 [**Network Link Conditioner**](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/On_Demand_Resources_Guide/TestingPerformance.html)。[**URLProtocol**](https://developer.apple.com/documentation/foundation/urlsessionconfiguration/protocolclasses) 的局部拦截也不适用于后台 URLSession，不能据此宣称完整弱网覆盖。
 - 素材先检索 [**iconfont**](https://www.iconfont.cn/)，未能确认匹配图标的作者许可，改用 [**Ant Design Icons**](https://github.com/ant-design/ant-design-icons) 官方 `filled/bug.svg`，MIT 许可。

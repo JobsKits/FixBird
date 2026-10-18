@@ -2,13 +2,24 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、文件用途](#jobs-toc-heading-1)
+- [二、服务与数据](#jobs-toc-heading-2)
+- [三、部署边界](#jobs-toc-heading-3)
+- [四、完整反安装](#jobs-toc-heading-4)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
 此目录保存 [**Kubernetes**](https://kubernetes.io/) 路线共用的工作负载清单及各平台控制面安装函数。
 
-## 一、文件用途 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、文件用途 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `workloads.yaml`：部署 `repair-marketplace` Namespace、[**TiDB**](https://docs.pingcap.com/tidb/stable/) 单副本 StatefulSet / PVC、内部 Service 与 API Deployment。
 - `deploy-linux.sh`：通过匹配发行版入口安装 [**K3s**](https://docs.k3s.io/)，构建并导入 API 镜像，应用清单并运行本机 `kubectl port-forward`。
@@ -19,7 +30,7 @@
 
 主机转发端口默认 `8081`，与 Docker 路线的 `8080` 分开；可通过 `KUBERNETES_API_PORT` 指定 1–65535 的其它端口，容器与 Service 仍监听 `8080`。端口转发需保持入口终端运行。macOS / Windows 先通过主机 Docker 下载并导入 TiDB 镜像，避免节点重复进行公网镜像认证；Minikube 下载命令使用客户端代理并绕过集群网段，代理软件须保持可用。
 
-## 二、服务与数据 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、服务与数据 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 API 在容器内监听 `8080`，集群外仅通过 `kubectl port-forward` 绑定主机的 `127.0.0.1:8081`。[**TiDB**](https://docs.pingcap.com/tidb/stable/) 使用 ClusterIP 服务、单副本 StatefulSet 和 5 GiB ReadWriteOnce PVC；API 启动入口等待 [**TiDB**](https://docs.pingcap.com/tidb/stable/) 后运行建库和迁移程序。
 
@@ -37,11 +48,11 @@ macOS / Windows 为保留已经部署的 PVC，继续使用显式 `minikube` pro
 
 固定组件版本与校验规则见 [共享版本清单](../../Shared/README.md)。Docker 命名卷与 Kubernetes PVC 互相独立，本入口不自动迁移业务数据；切换路线应另做逻辑导出/导入、迁移版本校验与业务验收。
 
-## 三、部署边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">三、部署边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 该清单用于本地/单机编排演示。[**Linux**](https://www.kernel.org/) [**K3s**](https://docs.k3s.io/) 的 [**Kubernetes**](https://kubernetes.io/) 服务留在主机上；退出入口只会结束端口转发。macOS/Windows [**Minikube**](https://minikube.sigs.k8s.io/docs/) 由 [**Docker Desktop**](https://www.docker.com/products/docker-desktop/) 承载。当前无 Ingress、外网 Service、TLS、自动扩缩容或高可用 [**TiDB**](https://docs.pingcap.com/tidb/stable/) 配置。[**Windows**](https://www.microsoft.com/windows) ARM64 因当前 [**Minikube**](https://minikube.sigs.k8s.io/docs/) 官方发布物缺少 [**Windows**](https://www.microsoft.com/windows) ARM64 二进制而不支持此路线。
 
-## 四、完整反安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">四、完整反安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 进入同级的 [`unDeployment`](../../../unDeployment/README.md) 选择对应系统入口，在运行时选择“先备份再卸载”（默认）或“永久清空数据”，然后输入完整 `YES`。脚本会卸载本机共享容器运行环境，影响两条部署路线及其它容器项目。源码保留；备份失败停止卸载。详细范围、备份恢复、日志与限制见 [完整反安装说明](../../../unDeployment/README.md)。
 

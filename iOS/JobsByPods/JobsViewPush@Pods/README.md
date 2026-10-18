@@ -2,7 +2,26 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、能力范围](#jobs-toc-heading-2)
+- [二、侧滑抽屉交互](#jobs-toc-heading-3)
+- [三、交互参数](#jobs-toc-heading-4)
+- [四、模块边界](#jobs-toc-heading-5)
+- [五、明暗主题契约](#jobs-toc-heading-6)
+- [六、Jobs DSL 调用约定](#jobs-toc-heading-7)
+- [七、架构脉络与关键设计](#jobs-toc-heading-8)
+  - [7.1、设计目的与职责划分](#jobs-toc-heading-9)
+  - [7.2、运行脉络](#jobs-toc-heading-10)
+  - [7.3、关键设计与边界](#jobs-toc-heading-11)
+  - [7.4、阅读与重建顺序](#jobs-toc-heading-12)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
@@ -10,17 +29,17 @@
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 > `JobsViewPush` 提供 UIView 级安全推入容器和控制器级侧滑抽屉，统一处理上下左右方向、推出比例、背景遮罩、点击关闭与交互式拖动。
 
-## 一、能力范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、能力范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `JobsViewPushPresentation`：把任意 `UIView` 从上、下、左、右方向推入指定容器，并支持沿原路拖回。
 - `JobsSideDrawerVC`：支持 `UIViewController` / `UIView` 两种载体、跟随或固定主内容、边缘拖出以及点击遮罩关闭。
 - 模块内部使用 `JobsSwiftDSL` 组织视图与动画，基础色使用 `JobsSwiftBaseDefines.JobsCor`。
 
-## 二、侧滑抽屉交互 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、侧滑抽屉交互 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 打开：从配置方向对应的屏幕边缘拖动，抽屉、主内容和遮罩实时跟随手指进度。
 - 关闭：抽屉打开后可从整个容器开始反向拖动，不限于抽屉内容区域；松手前可反向回拉取消。
@@ -29,7 +48,7 @@
 - 滚动仲裁：与抽屉同轴的 `UIScrollView` 能继续滚动时优先滚动，到达边界后再交给抽屉；垂直轴列表可与横向抽屉手势协同识别。
 - 无障碍：开启“减弱动态效果”后，松手收口时间会进一步缩短。
 
-## 三、交互参数 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、交互参数 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 `JobsSideDrawerConfiguration` 提供以下可调参数：
 
@@ -61,37 +80,37 @@ let drawer = JobsSideDrawerVC(
 
 运行期间修改配置后，调用 `applyConfiguration(animated:)` 使方向、比例、颜色和交互阈值生效。
 
-## 四、模块边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、模块边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - <u>[**Swift**](https://www.swift.org/)</u> 源码位于 `./JobsViewPush.swift` 与 `./Core/`。
 - `./JobsViewPush.podspec` 负责声明源码、`UIKit` 以及 Jobs 本地依赖。
 - 模块修改后应扫描主工程中的 `import JobsViewPush`、`JobsSideDrawerVC`、`JobsSideDrawerConfiguration` 和 `jobsPush` 调用，避免公开配置与调用示例漂移。
 
-## 五、明暗主题契约 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-6" data-jobs-toc="v2">五、明暗主题契约 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 页面、列表和弹框的普通承载面使用 `JobsCor.systemBackground` / `JobsCor.secondarySystemBackground`，正文、说明和占位文字使用 `JobsCor.label` / `JobsCor.secondaryLabel` / `JobsCor.placeholderText`，确保白天浅底深字、黑夜深底浅字。
 - 品牌色、媒体画布、二维码、相机、视频、手写和马赛克内容保留业务色；颜色写入 `CGColor`、`CALayer` 或自绘上下文时，需要在主题 Trait 变化后重新解析和绘制。
 - 验证时从 Demo 全局主题入口分别切换白天和黑夜，检查组件的背景、文字、禁用态、占位态与弹出层对比度。
 
-## 六、Jobs DSL 调用约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-7" data-jobs-toc="v2">六、Jobs DSL 调用约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 Pod 内 Jobs 自维护代码统一采用“一镜到底”：同一配置语义的主对象只作为链起点出现一次；子对象通过宿主级 `byXxx` 或配置闭包继续收口。缺少链式入口时，先在低层补齐返回 `Self` 的 DSL，再改调用端。
 
 <a id="jobs-architecture"></a>
 
-## 七、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-8" data-jobs-toc="v2">七、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本节用于用中文快速理解组件，并为按框架重建提供入口；关注职责、运行关系和关键边界，不要求逐行复刻。
 
-### 7.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-9" data-jobs-toc="v2">7.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 提供视图推出便利能力和侧边抽屉控制器。抽屉将主内容与抽屉内容按子控制器关系装配，Configuration 描述方向、展示方式和手势阈值，进度统一驱动布局和遮罩。
 
-### 7.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-10" data-jobs-toc="v2">7.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 安装子控制器 → 等待有效尺寸后挂载视图 → 手势或接口改变进度 → 判断完成方向 → 打开或关闭并回调
 
-### 7.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-11" data-jobs-toc="v2">7.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 先完成父子控制器关系，再读取和布局子视图，避免导航容器在零尺寸阶段提前生成错误布局。
 - 左、右、上、下抽屉需把位移与速度转换到统一开合方向，不能全部按水平向右处理。
@@ -99,7 +118,7 @@ Pod 内 Jobs 自维护代码统一采用“一镜到底”：同一配置语义�
 - 禁止本次边缘打开不应影响已打开抽屉的关闭手势；关闭完成回调可供宿主退出承载页面。
 - 容器旋转或尺寸变化更新布局，不应无条件再次强制子导航栏布局或重复安装控制器。
 
-### 7.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-12" data-jobs-toc="v2">7.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 先读 SideDrawerConfiguration 与子控制器装配，再看 progress 布局、交互判定和关闭回调，最后看 JobsViewPush.swift 便利入口。
 

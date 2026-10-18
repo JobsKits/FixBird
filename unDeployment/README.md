@@ -2,17 +2,31 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、入口与运行方式](#jobs-toc-heading-2)
+- [二、运行时数据选择](#jobs-toc-heading-3)
+- [三、各平台卸载范围](#jobs-toc-heading-4)
+- [四、备份与恢复](#jobs-toc-heading-5)
+- [五、失败与非标准环境](#jobs-toc-heading-6)
+- [六、验证边界](#jobs-toc-heading-7)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 反安装负责卸载 [**Docker**](https://www.docker.com/) 和本项目使用的本地 [**Kubernetes**](https://kubernetes.io/) 运行环境，清理部署配置，使标准部署入口可以重新安装。它不是暂停服务，也不是系统快照回滚：不会把操作系统软件版本、系统日志和共享基础工具恢复到某个历史时刻。
 
 **是否保留数据在运行反安装脚本时选择。默认先备份，再卸载；只有选择永久删除才直接清空数据。两种模式都卸载运行环境，均需输入完整 `YES`。**
 
-## 一、入口与运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、入口与运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本目录与 `../Deployment/` 同级，按相同的路线、操作系统和发行版提供 `uninstall.sh`、`uninstall.command`、`uninstall.ps1`，共 38 个入口；部署与反部署脚本分开存放。两条路线共用本机运行环境，从任一路线运行反安装，都会影响另一条路线及其它容器项目。
 
@@ -24,7 +38,7 @@
 
 入口先打印自述并等待回车，然后选择数据策略，最后输入 `YES`。任何其它确认输入取消；没有可交互输入时退出。没有自动确认参数，避免双击或自动任务误清场。请先关闭部署入口的端口转发窗口。
 
-## 二、运行时数据选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、运行时数据选择 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 选择 | 行为 | 数据结果 |
 | --- | --- | --- |
@@ -35,7 +49,7 @@
 
 备份需要足够磁盘空间；虚拟磁盘和容器目录可能很大。归档失败、权限不足、磁盘已满或运行环境不能正常停止时，中止卸载，不显示成功。服务可能已经停止，需要自行重新启动。归档可能包含数据库与本机凭据配置，请按敏感数据保管。
 
-## 三、各平台卸载范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、各平台卸载范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 平台 | 软件与数据 |
 | --- | --- |
@@ -47,13 +61,13 @@ Windows 中独立安装的 Ubuntu 等 WSL 发行版不会被注销；检测到�
 
 Linux 不执行全局 `autoremove`，不会盲删 curl、CA 证书等操作系统共享工具，也不会尝试降级已更新的软件包。缺少历史安装记录无法可靠判断这些基础依赖是否由某次部署新增。需要字节级恢复操作系统时，应使用部署前的虚拟机或云盘快照。
 
-## 四、备份与恢复 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、备份与恢复 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 Linux 与 macOS 使用 `data.tar` 保存原始目录布局；Windows 使用编号归档和 `restore-paths.txt` 记录目标位置。归档检查验证文件可读取，不等于已经完成数据库恢复演练。
 
 恢复前先安装兼容版本的运行环境并停止相关服务，再按归档记录还原路径、权限和虚拟磁盘；完成后检查数据库与业务。不要直接将旧 Docker 数据目录复制进正在运行的 daemon，也不要跨操作系统直接恢复虚拟磁盘。生产数据库应另做逻辑备份。脚本不自动执行还原。
 
-## 五、失败与非标准环境 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-6" data-jobs-toc="v2">五、失败与非标准环境 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本流程以现有部署脚本的标准路径为边界。自定义数据目录、rootless Docker、手工复制或其它包管理器安装的工具、其它用户的环境，不能保证自动清完。脚本对已识别的自定义环境和残留命令报错，需按输出处理后重跑。不要将未覆盖的自定义安装当作已清零。
 
@@ -65,7 +79,7 @@ macOS 的完全磁盘访问权限可能阻止备份或移除 Docker 容器目录
 
 日志位于系统临时目录中的 `repair-uninstall-*` 文件，路径在终端输出。既有部署日志保留用于排障，不会清空系统审计记录。Windows 不自动重启；出现重启提示后，系统组件清理需重启才生效。
 
-## 六、验证边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-7" data-jobs-toc="v2">六、验证边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 此前已通过 38 个入口配对及路径检查、Shell 语法、36 个 Shell 入口非交互门禁、双 Shell 数据模式 / 取消 / EOF 验证，以及 Linux 备份失败和残留挂载的隔离假命令验证。本次新增 [隔离检查](../Deployment/Tests/README.md) 覆盖 live-restore、残留 writer、Buildx 所有权及全部 PS1 BOM / Parser；本机 PowerShell 使用官方临时 macOS 运行包，Windows 5.1 的实际 Parser 由 Windows CI / 实机执行。未在开发电脑上执行真实卸载；实际删除、系统软件卸载、归档恢复与跨平台权限流程仍需在可丢弃的目标虚拟机验收。
 

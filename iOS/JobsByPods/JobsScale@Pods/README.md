@@ -2,7 +2,19 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、架构脉络与关键设计](#jobs-toc-heading-1)
+  - [1.1、设计目的与职责划分](#jobs-toc-heading-2)
+  - [1.2、运行脉络](#jobs-toc-heading-3)
+  - [1.3、关键设计与边界](#jobs-toc-heading-4)
+  - [1.4、阅读与重建顺序](#jobs-toc-heading-5)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
@@ -30,26 +42,26 @@
 
 <a id="jobs-architecture"></a>
 
-## 一、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本节用于用中文快速理解组件，并为按框架重建提供入口；关注职责、运行关系和关键边界，不要求逐行复刻。
 
-### 1.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-2" data-jobs-toc="v2">1.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 将设计稿尺寸到当前显示尺寸的转换集中管理，宽高布局与字体缩放分别计算。字体支持连续比例或按屏幕宽度分档，窗口尺寸由 JobsGetWindow 辅助获取。
 
-### 1.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-3" data-jobs-toc="v2">1.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 启动时设置设计稿尺寸 → 获取当前显示尺寸 → 计算宽高比例与字体比例 → 供布局和字体入口使用
 
-### 1.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">1.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 字体只看宽度，避免横屏或 iPad 上随高度比例异常变化；布局宽高不能混为一个比例。
 - Safe Area 是布局约束，默认不作为全局比例尺；兼容开关取不到可靠窗口时会回退。
 - 比例缩放不等于自动布局，宿主仍需处理安全区、旋转、分屏及内容固有尺寸。
 - 启动配置必须先于业务使用，不能让不同页面各自偷偷修改全局设计稿基准。
 
-### 1.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">1.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 先读 setup 与设计稿基准，再看 screenSize、UI 比例和字体分档策略，最后看便利数值入口。
 

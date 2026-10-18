@@ -2,11 +2,71 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、结论总览](#conclusion)
+  - [1.1、当前推荐矩阵](#recommended-matrix)
+  - [1.2、梯队摘要](#tier-summary)
+- [二、选型层次与统一边界](#layers)
+  - [2.1、数据库引擎与访问层不是一回事](#engine-and-access)
+  - [2.2、选型原则](#selection-principles)
+  - [2.3、为什么不强行让每一端都用 WCDB](#platform-differences)
+- [三、IM 数据边界](#boundary)
+  - [3.1、一端一个本地数据库](#one-end-one-db)
+  - [3.2、本地库、服务端主库和辅助存储的职责](#data-ownership)
+  - [3.3、统一逻辑模型，不统一物理 API](#common-schema)
+- [四、iOS 端选型](#ios)
+  - [4.1、第一梯队首选：SQLite + GRDB.swift + JobsIMStorage](#ios-current)
+  - [4.2、第一梯队强平替：WCDB](#ios-wcdb)
+  - [4.3、第二梯队与特殊方案](#ios-second-tier)
+- [五、Android 端选型](#android)
+  - [5.1、第一梯队首选：Room + BundledSQLiteDriver](#android-current)
+  - [5.2、第一梯队平替：SQLDelight + SQLite](#android-sqldelight)
+  - [5.3、第二梯队与特殊方案](#android-second-tier)
+- [六、鸿蒙端选型](#harmony)
+  - [6.1、第一梯队首选：系统 RDB／relationalStore](#harmony-current)
+  - [6.2、第二梯队：原生 SQLite NDK／C++ 桥接](#harmony-second-tier)
+  - [6.3、不适合消息主库的方案](#harmony-third-tier)
+- [七、Web 端选型](#web)
+  - [7.1、第一梯队首选：IndexedDB + Dexie.js](#web-current)
+  - [7.2、第二梯队：原生 IndexedDB](#web-second-tier)
+  - [7.3、第三梯队：SQLite WASM + OPFS](#web-third-tier)
+  - [7.4、同步优先的特殊候选：Couchbase Lite](#web-sync-special)
+- [八、CLI 端选型](#cli)
+  - [8.1、第一梯队首选：Go + modernc.org/sqlite](#cli-current)
+  - [8.2、第二梯队：mattn/go-sqlite3](#cli-second-tier)
+  - [8.3、为什么不直接用 KV 数据库](#cli-no-kv)
+- [九、服务端主库](#server)
+  - [9.1、当前项目选择：TiDB](#server-current)
+  - [9.2、独立 IM 从零部署的第一梯队平替：PostgreSQL](#server-postgres)
+  - [9.3、第二梯队与辅助组件](#server-second-tier)
+- [十、横向平替与暂不选择项](#alternatives)
+  - [10.1、横向强候选对比](#cross-platform-alternatives)
+  - [10.2、WCDB 的最终定位](#wcdb-boundary)
+  - [10.3、Realm 不作为新项目默认项](#realm-boundary)
+- [十一、综合落地组合](#final-plan)
+  - [11.1、最终采用的端侧组合](#final-combination)
+  - [11.2、综合下来为什么是这个选择](#why-this-combination)
+  - [11.3、依赖与汇编边界](#dependency-policy)
+- [十二、实施与验收](#acceptance)
+  - [12.1、实施顺序](#implementation-order)
+  - [12.2、最低验收清单](#acceptance-list)
+  - [12.3、容量与性能口径](#performance-boundary)
+- [十三、风险与维护边界](#risks)
+  - [13.1、主要风险](#risk-matrix)
+  - [13.2、必须保留的工程资产](#maintenance-boundary)
+- [十四、最终结论](#final-conclusion)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 **专项版本**：`IM-baseline-20261008.1`  
 **日期**：2026-10-08  

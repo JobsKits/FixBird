@@ -2,17 +2,40 @@
 
 ![啄木鸟与维修扳手组合 Logo 横幅](../README-banner.svg)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、目录结构](#jobs-toc-heading-2)
+- [二、部署路线](#jobs-toc-heading-3)
+  - [2.1、单机与集群的选型](#jobs-toc-heading-4)
+  - [2.2、Kubernetes 与 Docker 的依赖关系](#jobs-toc-heading-5)
+  - [2.3、一键部署的覆盖范围](#jobs-toc-heading-6)
+- [三、Linux 镜像支持范围](#jobs-toc-heading-7)
+- [四、一键部署流程](#jobs-toc-heading-8)
+  - [4.1、默认地址](#jobs-toc-heading-9)
+  - [4.2、运行日志与配置](#jobs-toc-heading-10)
+- [五、首次运行条件与系统边界](#jobs-toc-heading-11)
+  - [5.1、镜像认证与下载超时排查](#jobs-toc-heading-12)
+- [六、演示环境与生产环境边界](#jobs-toc-heading-13)
+- [七、部署入口与组件说明](#jobs-toc-heading-14)
+- [八、完整反安装](#jobs-toc-heading-15)
+- [九、跨平台检查与验证范围](#jobs-toc-heading-16)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 本目录提供按操作系统和发行版选择的一键部署入口，尽量避免在主机全局安装 [**Go**](https://go.dev/)、[**TiDB**](https://docs.pingcap.com/tidb/stable/) 或编排工具。[**Docker**](https://www.docker.com/) 与 [**Kubernetes**](https://kubernetes.io/) 是两条并行路线：本机预览优先使用 [**Docker Compose**](https://docs.docker.com/compose/)，单机编排验证可使用 [**Kubernetes**](https://kubernetes.io/)。
 
 两条路线共用同一份 [**Go**](https://go.dev/) API 镜像和业务清单。脚本按操作系统版本与 CPU 架构选择安装流程，平台专属入口调用共享部署代码；每个入口都配有 README，说明适用系统、影响范围、访问方式与限制。目标是减少首次部署和日常维护所需的人工操作。所有平台入口启动后都会先显示脚本自述并等待回车；按 Ctrl+C 可取消，没有交互输入时会停止，不会跳过确认。
 
-## 一、目录结构 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、目录结构 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```text
 ./
@@ -30,7 +53,7 @@
 └── Tests/                     # 函数替身与编码 / Parser 检查，无真实部署操作
 ```
 
-## 二、部署路线 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、部署路线 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 路线 | [**Linux**](https://www.kernel.org/) | [**macOS**](https://www.apple.com/macos/) | [**Windows**](https://www.microsoft.com/windows) | 用途 |
 | --- | --- | --- | --- | --- |
@@ -39,7 +62,7 @@
 
 选择与你当前系统相符的 `deploy.sh`、`deploy.command` 或 `deploy.ps1`。[**Linux**](https://www.kernel.org/) 脚本会检测 `/etc/os-release` 和 `uname -m`，不匹配时会停止；[**Docker**](https://www.docker.com/) 镜像支持 `x86_64` / `aarch64`。每个入口会准备容器运行环境、构建或下载镜像、部署 API 和 [**TiDB**](https://docs.pingcap.com/tidb/stable/)，并检查 API 健康状态。
 
-### 2.1、单机与集群的选型 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">2.1、单机与集群的选型 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 [**Docker Compose**](https://docs.docker.com/compose/) 适合在一台主机上定义和启动多个关联服务，例如本项目的 API 与数据库。[**Kubernetes**](https://kubernetes.io/) 提供集群级容器编排，可统一管理服务调度、滚动更新、故障恢复和扩缩容；实际扩缩容仍需配置相应策略与资源。
 
@@ -56,7 +79,7 @@
 
 Docker 命名卷和 Kubernetes PVC 保存不同实例的数据，切换路线不会自动迁移。切换前应冻结写入、另做可验证的数据库逻辑备份，导入目标实例并校验迁移版本、订单和资金演示数据，再验收和切换访问地址；`unDeployment` 的全环境冷归档用于同平台兼容环境恢复，不是跨路线或跨系统的数据迁移工具。
 
-### 2.2、Kubernetes 与 Docker 的依赖关系 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">2.2、Kubernetes 与 Docker 的依赖关系 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 Kubernetes 本身不要求安装 Docker Engine 或 Docker Desktop。节点需要符合 CRI 接口的容器运行时，例如 [**containerd**](https://containerd.io/) 或 [**CRI-O**](https://cri-o.io/)；具体支持方式见 [Kubernetes 容器运行时说明](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)。容器镜像的构建工具与节点的容器运行时也可以分别选择。
 
@@ -72,7 +95,7 @@ Kubernetes 本身不要求安装 Docker Engine 或 Docker Desktop。节点需要
 
 如需让两条路线的运行环境完全独立，桌面 Kubernetes 路线需要选择适配系统与芯片的虚拟机驱动，并配套独立的镜像构建流程；Linux 路线也需要替换现有 Docker 镜像构建步骤。[Minikube 官方说明](https://minikube.sigs.k8s.io/docs/tutorials/docker_desktop_replacement/) 提供了使用虚拟机驱动替代 Docker Desktop 的思路；本项目当前入口尚未采用该方案。
 
-### 2.3、一键部署的覆盖范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">2.3、一键部署的覆盖范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 一键入口负责串联环境准备、镜像构建和服务启动。首次运行仍可能需要联网、管理员授权及手动接受 Docker Desktop 许可；入口先显示自述，按回车确认后执行。运行条件详见 [首次运行条件与系统边界](#五首次运行条件与系统边界)。
 
@@ -80,7 +103,7 @@ Docker 路线以后台容器运行服务，部署成功后可以关闭入口终�
 
 数据库持久化卷用于保存数据，一键部署没有提供自动备份或生产级高可用。鉴权、TLS、备份恢复及集群容量等要求见 [演示环境与生产环境边界](#六演示环境与生产环境边界)。
 
-## 三、[**Linux**](https://www.kernel.org/) 镜像支持范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-7" data-jobs-toc="v2">三、[**Linux**](https://www.kernel.org/) 镜像支持范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 每种发行版在 [**Docker**](https://www.docker.com/) 和 [**Kubernetes**](https://kubernetes.io/) 路线下各有独立脚本。支持范围按 [**华为云**](https://support.huaweicloud.com/productdesc-ims/ims-productdesc-pdf.pdf)、[**腾讯云**](https://cloud.tencent.com/document/product/213/93093) 与 [**阿里云**](https://help.aliyun.com/zh/ecs/user-guide/public-mirroring-overview) 公共镜像中常见且仍有维护价值的版本收敛；脚本会根据 `/etc/os-release` 的 `ID`、`VERSION_ID` 自动识别。
 
@@ -108,7 +131,7 @@ Docker 路线以后台容器运行服务，部署成功后可以关闭入口终�
 
 [**Ubuntu**](https://ubuntu.com/) 20.04 标准维护期已结束，仅在启用 [**Ubuntu Pro / ESM**](https://ubuntu.com/security/esm) 后纳入入口；[**Fedora**](https://fedoraproject.org/wiki/Fedora_Release_Life_Cycle) 仅接收当前受维护版本；[**openSUSE Leap**](https://get.opensuse.org/leap/) 15.x 已结束维护，默认只接收 Leap 16.0。镜像清单会随云厂商和上游生命周期变化，筛选依据见 [**阿里云公共镜像**](https://help.aliyun.com/zh/ecs/user-guide/public-mirroring-overview)、[**腾讯云公共镜像**](https://cloud.tencent.com/document/product/213/93093) 与 [**华为云支持的操作系统**](https://support.huaweicloud.com/productdesc-ims/ims-productdesc-pdf.pdf)。[**Docker Engine**](https://docs.docker.com/engine/install/) 上游正式验证范围少于本项目提供的云镜像入口；衍生系统可能需要厂商仓库包，脚本无法替代云厂商对特定镜像的兼容承诺。
 
-## 四、一键部署流程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-8" data-jobs-toc="v2">四、一键部署流程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 1、检测操作系统版本和 CPU 架构，下载匹配架构的运行时或工具。
 
@@ -120,7 +143,7 @@ Docker 路线以后台容器运行服务，部署成功后可以关闭入口终�
 
 5、以 `/readyz` 检查数据库和迁移就绪，成功后显示并打开管理后台地址；`/healthz` 仅用于进程存活检查。
 
-### 4.1、默认地址 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-9" data-jobs-toc="v2">4.1、默认地址 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**Docker**](https://www.docker.com/)：`http://127.0.0.1:8080/admin/`；健康检查 `http://127.0.0.1:8080/healthz`。
 
@@ -128,7 +151,7 @@ Docker 路线以后台容器运行服务，部署成功后可以关闭入口终�
 
 - [**Docker**](https://www.docker.com/) 默认仅监听本机；[**TiDB**](https://docs.pingcap.com/tidb/stable/) 端口 `4000` 也仅绑定本机。[**Kubernetes**](https://kubernetes.io/) 的 API 通过本机端口转发，不创建公网 Service 或 Ingress。
 
-### 4.2、运行日志与配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-10" data-jobs-toc="v2">4.2、运行日志与配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**Docker**](https://www.docker.com/) 配置：`Docker/Shared/.env`，首次运行从 `.env.example` 复制，后续不会覆盖。
 
@@ -142,7 +165,7 @@ Docker 路线以后台容器运行服务，部署成功后可以关闭入口终�
 
 - [**Kubernetes**](https://kubernetes.io/) [**macOS**](https://www.apple.com/macos/) / [**Windows**](https://www.microsoft.com/windows) 日志：对应系统的用户日志目录中的 `kubernetes-deployment.log` 或 `kubernetes.log`。
 
-## 五、首次运行条件与系统边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-11" data-jobs-toc="v2">五、首次运行条件与系统边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**Linux**](https://www.kernel.org/) 安装系统包、启用服务需要 root 或可用的 `sudo`；脚本会在终端请求密码。
 
@@ -156,7 +179,7 @@ Docker 路线以后台容器运行服务，部署成功后可以关闭入口终�
 
 - 初次部署需要联网下载 [**Docker**](https://www.docker.com/)、[**Go**](https://go.dev/) 基础镜像、[**TiDB**](https://docs.pingcap.com/tidb/stable/) 镜像，以及 [**Kubernetes**](https://kubernetes.io/) 路线使用的 [**K3s**](https://docs.k3s.io/) / [**Minikube**](https://minikube.sigs.k8s.io/docs/)。没有网络或镜像源不可达时，脚本会失败并留下诊断日志，不会自动伪装成离线部署成功。
 
-### 5.1、镜像认证与下载超时排查 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-12" data-jobs-toc="v2">5.1、镜像认证与下载超时排查 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 构建日志中的 `failed to fetch oauth token`、`auth.docker.io` 或 `registry-1.docker.io` 连接超时，表示构建引擎无法完成镜像仓库认证或访问；这类超时本身不能证明 Dockerfile 或登录凭据有误。已拉取某个镜像，也不代表其它镜像的认证和下载链路都可用。
 
@@ -170,13 +193,13 @@ macOS 脚本会同时检查镜像仓库和认证端点，并为 Docker 构建命
 
 代理模式、地址及绕过列表与当前 Desktop 设置相同时直接复用，配置变化时才备份并重启，避免重复部署要求管理员密码；仍保留运行时回车确认。
 
-## 六、演示环境与生产环境边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-13" data-jobs-toc="v2">六、演示环境与生产环境边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 这套配置用于本机预览和单机原型部署。[**TiDB**](https://docs.pingcap.com/tidb/stable/) 使用单机 `unistore` 演示模式（详见 [**TiDB** 配置文档](https://docs.pingcap.com/tidb/stable/command-line-flags-for-tidb-configuration/)）；[**Kubernetes**](https://kubernetes.io/) 使用单节点集群和本地持久卷，尚未配置备份、故障转移、Ingress、TLS、监控或自动扩缩容。当前已支持账号与独立设备会话；后台、审核、私有图片和账务要求鉴权，匿名演示身份只操作演示订单。支付渠道仍未接入。真实运营前的 HTTPS、细分权限、支付回调、密钥管理、数据库运行保障和审计待后续阶段落实。
 
 管理员首次创建、会话有效期与私有图片持久卷配置分别见 [Docker 共享说明](Docker/Shared/README.md)和 [Kubernetes 共享说明](Kubernetes/Shared/README.md)。各平台入口每次都重新构建当前源码并部署／迁移；默认主管理员由程序自动创建，不必手动补充管理员变量。代码文件修改后需要再次运行部署入口，才会更新正在运行的服务。
 
-## 七、部署入口与组件说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-14" data-jobs-toc="v2">七、部署入口与组件说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [Docker 路线](Docker/README.md)：[**Docker Engine**](https://docs.docker.com/engine/) / [**Docker Desktop**](https://www.docker.com/products/docker-desktop/)、[**Docker Compose**](https://docs.docker.com/compose/)、[**TiDB**](https://docs.pingcap.com/tidb/stable/) 与 API 容器。
 
@@ -188,11 +211,11 @@ macOS 脚本会同时检查镜像仓库和认证端点，并为 Docker 构建命
 
 - [隔离检查](Tests/README.md)：验证目标与数据保护门禁，不执行安装、部署或卸载。Windows PS1 统一 UTF-8 BOM，兼容默认 PowerShell 5.1；Windows CI 使用其实际 Parser 核验。
 
-## 八、完整反安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-15" data-jobs-toc="v2">八、完整反安装 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 进入同级的 [`unDeployment`](../unDeployment/README.md) 选择对应系统入口，在运行时选择“先备份再卸载”（默认）或“永久清空数据”，然后输入完整 `YES`。脚本会卸载本机共享容器运行环境，影响两条部署路线及其它容器项目。源码保留；备份失败停止卸载。详细范围、备份恢复、日志与限制见 [完整反安装说明](../unDeployment/README.md)。
 
-## 九、跨平台检查与验证范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-16" data-jobs-toc="v2">九、跨平台检查与验证范围 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 2026-10-05，以已跑通的 Docker/macOS 为基准检查两条路线的 38 个平台入口及共享组件。两条路线共用包含 `go.mod` / `go.sum` 的镜像构建流程；已修复 Linux 函数库漏载、下载重试 / 插件补齐、客户端代理、Minikube 连接恢复及主机端口冲突。
 

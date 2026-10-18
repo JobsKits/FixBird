@@ -2,13 +2,22 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、实现职责](#jobs-toc-heading-1)
+- [二、执行约定](#jobs-toc-heading-2)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
 本目录的函数由各平台 `uninstall` 入口加载，不能独立运行。详细操作见 [反安装说明](../README.md)。
 
-## 一、实现职责 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、实现职责 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 文件 | 职责 |
 | --- | --- |
@@ -16,7 +25,7 @@
 | `uninstall-macos.zsh` | 停机归档、Minikube profiles 清理、Docker Desktop 官方卸载与残留核验 |
 | `uninstall-windows.ps1` | 数据归档、官方卸载器、Docker 专用 WSL 清理、重启状态与失败传播 |
 
-## 二、执行约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、执行约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 入口先显示自述并等待回车，随后检查环境、选择数据策略，再要求输入 `YES`。保留数据采用“先停服备份、验证归档，再卸载”，不是卸载后尝试恢复已经删除的数据。失败停止并保留日志；重跑会重新检查已安装内容。
 

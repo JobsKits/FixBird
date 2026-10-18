@@ -2,13 +2,38 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、使用说明](#jobs-toc-heading-1)
+- [二、✅ UI 统一调用规范示例](#jobs-toc-heading-2)
+  - [2.1、UILabel](#jobs-toc-heading-3)
+  - [2.2、UIButton](#jobs-toc-heading-4)
+  - [2.3、UITextField](#jobs-toc-heading-5)
+  - [2.4、UITextView](#jobs-toc-heading-6)
+  - [2.5、UIBarButtonItem](#jobs-toc-heading-7)
+  - [2.6、UITabBarItem](#jobs-toc-heading-8)
+  - [2.7、UISegmentedControl](#jobs-toc-heading-9)
+  - [2.8、UISearchBar](#jobs-toc-heading-10)
+  - [2.9、UIAlertController](#jobs-toc-heading-11)
+  - [2.10、UIView（无障碍 accessibilityLabel / Hint）](#jobs-toc-heading-12)
+  - [2.11、UIViewController.title](#jobs-toc-heading-13)
+- [三、架构脉络与关键设计](#jobs-toc-heading-14)
+  - [3.1、设计目的与职责划分](#jobs-toc-heading-15)
+  - [3.2、运行脉络](#jobs-toc-heading-16)
+  - [3.3、关键设计与边界](#jobs-toc-heading-17)
+  - [3.4、阅读与重建顺序](#jobs-toc-heading-18)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
 > 中文架构入口：[架构脉络与关键设计](#jobs-architecture)。
 
-## 一、使用说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、使用说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 必要时，需要在启动时注册
 
@@ -61,11 +86,11 @@
   * **语言变化能触发刷新**（通知）且 **翻译来源 bundle 正确**（`TRLang.bundleProvider` 指向当前语言 bundle）
   * **UI 文案设置时走 TRBind/tr_setXXX 形成绑定注册**（而不是直接赋值/提前缓存翻译结果）
 
-## 二、✅ UI 统一调用规范示例 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、✅ UI 统一调用规范示例 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 调用方应引入 `JobsByUIKit`；按钮创建以及 [**UIKit**](https://developer.apple.com/documentation/uikit) 配置继续遵守 `JobsByUIKit` / `JobsSwiftDSL` 规范。
 
-### 2.1、`UILabel` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-3" data-jobs-toc="v2">2.1、`UILabel` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 普通文本
 
@@ -91,7 +116,7 @@
   }
   ```
 
-### 2.2、`UIButton` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-4" data-jobs-toc="v2">2.2、`UIButton` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 普通文本
 
@@ -118,7 +143,7 @@
   }
   ```
 
-### 2.3、`UITextField` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">2.3、`UITextField` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * `placeholder`
 
@@ -172,7 +197,7 @@
     }
     ```
 
-### 2.4、`UITextView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">2.4、`UITextView` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 原生的**[**UIKit**](https://developer.apple.com/documentation/uikit)**并不存在`UITextView.placeholder`
 
@@ -200,7 +225,7 @@
   }
   ```
 
-### 2.5、`UIBarButtonItem` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-7" data-jobs-toc="v2">2.5、`UIBarButtonItem` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * ```swift
   navigationItem.tr_setTitle("KEY".tr)          /// 主标题（中间大字）
@@ -213,27 +238,27 @@
   navigationItem.rightBarButtonItem?.tr_setTitle("KEY".tr)
   ```
 
-### 2.6、`UITabBarItem` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-8" data-jobs-toc="v2">2.6、`UITabBarItem` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 tabBarItem.tr_setTitle("KEY".tr)
 ```
 
-### 2.7、`UISegmentedControl` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-9" data-jobs-toc="v2">2.7、`UISegmentedControl` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 segmentedControl.tr_setTitle("KEY".tr, forSegmentAt: 0)
 segmentedControl.tr_setTitle("KEY".tr, forSegmentAt: 1)
 ```
 
-### 2.8、`UISearchBar` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-10" data-jobs-toc="v2">2.8、`UISearchBar` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 searchBar.tr_setPlaceholder("KEY".tr)
 searchBar.tr_setPrompt("KEY".tr)
 ```
 
-### 2.9、`UIAlertController` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-11" data-jobs-toc="v2">2.9、`UIAlertController` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 let alert = UIAlertController.makeAlert()
@@ -246,7 +271,7 @@ alert.byAddAction(title: "KEY".tr)
 present(alert, animated: true)
 ```
 
-### 2.10、`UIView`（无障碍 `accessibilityLabel` / `Hint`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-12" data-jobs-toc="v2">2.10、`UIView`（无障碍 `accessibilityLabel` / `Hint`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 contentView
@@ -254,7 +279,7 @@ contentView
     .tr_setA11yHint("KEY".tr)
 ```
 
-### 2.11、`UIViewController`.`title` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-13" data-jobs-toc="v2">2.11、`UIViewController`.`title` <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 TRBind.bind(self, translated: "KEY".tr) { vc, text in
@@ -264,26 +289,26 @@ TRBind.bind(self, translated: "KEY".tr) { vc, text in
 
 <a id="jobs-architecture"></a>
 
-## 三、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-14" data-jobs-toc="v2">三、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本节用于用中文快速理解组件，并为按框架重建提供入口；关注职责、运行关系和关键边界，不要求逐行复刻。
 
-### 3.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-15" data-jobs-toc="v2">3.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 将语言选择、语言码归一化、Bundle 查词和已绑定 UI 自动刷新连接起来。LanguageManager 管理当前语言，Bundle 扩展改变本地化查找目标，TRAutoRefresh 与 [**UIKit**](https://developer.apple.com/documentation/uikit) 入口登记需要随语言变化重放的赋值。
 
-### 3.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-16" data-jobs-toc="v2">3.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 设置或恢复语言 → 选择对应 lproj → 翻译键查词 → 登记 UI 文本绑定 → 语言切换通知触发刷新
 
-### 3.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-17" data-jobs-toc="v2">3.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 只替换一次文字不会自动获得持续刷新，必须理解 tr_setText 等绑定入口与翻译键登记之间的关系。
 - 语言码到资源目录存在归一化规则，简繁中文和地区变体不能只截取前两个字符。
 - 普通文本、富文本与输入占位有不同赋值路径，UITextView 本身没有原生 placeholder 属性。
 - Bundle.main 的覆盖具有全局影响，业务应统一管理语言入口，避免多个库各自安装互相冲突的覆盖。
 
-### 3.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-18" data-jobs-toc="v2">3.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 先读 LanguageManager、TRLang，再看 Bundle/String 扩展，最后追 TRAutoRefresh 与 [**UIKit**](https://developer.apple.com/documentation/uikit) 的登记、通知和释放。
 

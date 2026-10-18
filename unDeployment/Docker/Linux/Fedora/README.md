@@ -2,15 +2,25 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、用途与影响](#jobs-toc-heading-1)
+- [二、运行方式](#jobs-toc-heading-2)
+- [三、备份、日志与验证](#jobs-toc-heading-3)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 一、用途与影响 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、用途与影响 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本入口与 [部署入口](../../../../Deployment/Docker/Linux/Fedora/README.md) 对应。卸载本机容器运行环境；两个部署路线及其它容器项目都会受影响。保留源码和脚本，清理实际部署配置。完整范围与平台限制见 [反安装总说明](../../../README.md)。
 
-## 二、运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、运行方式 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 在当前目录的交互式终端执行；macOS 支持双击，Windows 需要以部署账户打开管理员 PowerShell，Linux 的系统操作会请求 sudo 权限。
 
@@ -20,7 +30,7 @@ bash ./uninstall.sh
 
 先阅读自述并回车，再选择 `1`（默认，先备份再卸载）或 `2`（永久删除数据），最后输入完整 `YES`。其它确认输入取消；按 Ctrl+C 可终止，没有交互输入时退出。
 
-## 三、备份、日志与验证 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">三、备份、日志与验证 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 备份放在当前用户的 `RepairMarketplaceBackups/时间戳-进程号/`，日志放在系统临时目录的 `repair-uninstall-*` 文件。备份失败停止卸载；数据可能包含数据库和凭据配置，应妥善保存。恢复方式、非标准环境限制与未执行声明见总说明。脚本未经真实目标主机卸载验收，不要把静态检查视为数据恢复验证。
 

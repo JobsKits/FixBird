@@ -2,15 +2,28 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、目录与执行前检查](#jobs-toc-heading-2)
+- [二、运行方式与确认](#jobs-toc-heading-3)
+- [三、流程与产物边界](#jobs-toc-heading-4)
+- [四、日志与常见问题](#jobs-toc-heading-5)
+- [五、验证边界](#jobs-toc-heading-6)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 本脚本是啄木鸟维修平台原生 [**iOS**](https://developer.apple.com/ios/) 工程主 App 的自动 IPA 保存入口。[**Xcode**](https://developer.apple.com/xcode) 在最后一个 `Save Build IPA` 构建阶段调用它：真机生成 `../../build/真机.ipa`，模拟器生成 `../../build/模拟器.ipa`。签名与压缩成功后清空工程 `build/` 全部内容，仅保留本次唯一产物。
 
-## 一、目录与执行前检查 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、目录与执行前检查 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```text
 save_device_ipa_after_build.command/
@@ -25,7 +38,7 @@ save_device_ipa_after_build.command/
 
 App 源产物、日志、系统临时目录和所有构建中间目录必须位于 `../../build/` 外；输出目录不能是软链接。脚本采用 Xcode 提供的 `SRCROOT` 或 `PROJECT_DIR` 定位工程，不依赖启动目录，也不写死本机项目路径。
 
-## 二、运行方式与确认 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、运行方式与确认 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 日常使用项目现有工作空间，在 Xcode 正常编译主 App 即可；构建阶段已经配置脚本输入路径和 `build/` 输出目录，仍位于主 App 最后一个 Build Phase。导航中的脚本与 README 仅供阅读，不加入源码或资源编译。
 
@@ -50,7 +63,7 @@ App 源产物、日志、系统临时目录和所有构建中间目录必须位�
 | `CODE_SIGNING_ALLOWED`、`EXPANDED_CODE_SIGN_IDENTITY` | 真机必须允许签名且身份非空、非 `-`；模拟器不要求真机身份 |
 | `TMPDIR` | 系统临时目录；缺省回退 `/tmp` |
 
-## 三、流程与产物边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、流程与产物边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 1、展示用途与清理范围，按 Xcode / 手动入口完成确认。
 
@@ -66,7 +79,7 @@ App 源产物、日志、系统临时目录和所有构建中间目录必须位�
 
 `模拟器.ipa` 仅为模拟器 App 的 Payload 快照，不能安装到真机或正式分发。`真机.ipa` 是否可安装取决于签名和描述文件；正式发布仍使用 Archive / Organizer。`clean`、非 iOS、Tests / Widget 不独立输出 IPA；测试触发主 App 重建仍可能替换产物。该阶段成功不代表后续 Scheme 动作或测试完成。
 
-## 四、日志与常见问题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、日志与常见问题 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 业务输出同步到 Xcode 构建日志 / 终端与系统临时目录中的 `save_device_ipa_after_build.log`，确认后每次覆盖。临时快照目录使用相同脚本名加随机后缀，完成或失败退出时清理。
 
@@ -79,7 +92,7 @@ App 源产物、日志、系统临时目录和所有构建中间目录必须位�
 | 旧平台 IPA 消失 | 成功流程只保留本次平台包，重要产物应提前移出 build/ |
 | 移动项目后找不到脚本 | 保持本包位于 ScriptsByDevTools 下，工程调用使用相对路径 |
 
-## 五、验证边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-6" data-jobs-toc="v2">五、验证边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 验证采用 `zsh -n`、工程配置与引用检查，以及隔离展示 / 取消 / 非交互退出用例。没有为迁移运行真实 `pod install`、`xcodebuild`、签名、打包或清空工程 `build/`；已有 IPA 保持原样。实际签名、安装及分发结果须以实际构建与设备验收为准。
 

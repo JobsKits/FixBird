@@ -2,7 +2,24 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、功能说明](#jobs-toc-heading-2)
+- [二、接入示例](#jobs-toc-heading-3)
+- [三、内容配置](#jobs-toc-heading-4)
+- [四、明暗主题契约](#jobs-toc-heading-5)
+- [五、架构脉络与关键设计](#jobs-toc-heading-6)
+  - [5.1、设计目的与职责划分](#jobs-toc-heading-7)
+  - [5.2、运行脉络](#jobs-toc-heading-8)
+  - [5.3、关键设计与边界](#jobs-toc-heading-9)
+  - [5.4、阅读与重建顺序](#jobs-toc-heading-10)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
@@ -10,11 +27,11 @@
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 > `JobsSwiftSplash` 是 <u>[**Swift**](https://www.swift.org/)</u> 开屏组件，支持图片、GIF、视频、倒计时跳过和开屏交互行为。
 
-## 一、功能说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、功能说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 内容支持本地静态图、本地 GIF、远程图片、本地视频和远程视频。
 - 远程视频首次下载到 `Caches/JobsSwiftSplash`，后续直接读取本地缓存。
@@ -29,7 +46,7 @@
 - 本 Pod 直接依赖 `JobsSwiftBaseDefines`，系统字体统一由 `JobsFont` 工厂提供。
 - Wi-Fi 下载提示与倒计时按钮的位置关系使用 `SnapKit` 约束，Podspec 显式声明直接依赖。
 
-## 二、接入示例 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、接入示例 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 import JobsSwiftSplash
@@ -52,7 +69,7 @@ JobsSplashPresenter.show(over: homeViewController, configuration: configuration)
 
 `JobsSplashPresenter` 把开屏作为首页的子控制器覆盖展示，同时隔离宿主根视图已有手势。点击跳过或倒计时结束后，开屏会被移除，宿主手势按展示前状态恢复，原首页自然显露。
 
-## 三、内容配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、内容配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```swift
 .localImage(name: "Splash")
@@ -69,7 +86,7 @@ JobsSplashPresenter.show(over: homeViewController, configuration: configuration)
 
 业务设置页应使用 `JobsSplashContentType.allCases` 完整展示五种内容类型，并把用户选择写入 `JobsSplashPreferences.contentTypeForNextLaunch`；启动入口读取该设置后，再为所选类型提供实际资源名或 URL。<u>[**Swift**](https://www.swift.org/)</u> Demo 会复用“米老鼠 / 唐老鸭 / 迪斯尼”图片生成本地 GIF 文件，再通过 `.localGIF(fileURL:)` 展示，不依赖额外占位素材。
 
-## 四、明暗主题契约 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、明暗主题契约 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 页面、列表和弹框的普通承载面使用 `JobsCor.systemBackground` / `JobsCor.secondarySystemBackground`，正文、说明和占位文字使用 `JobsCor.label` / `JobsCor.secondaryLabel` / `JobsCor.placeholderText`，确保白天浅底深字、黑夜深底浅字。
 - 品牌色、媒体画布、二维码、相机、视频、手写和马赛克内容保留业务色；颜色写入 `CGColor`、`CALayer` 或自绘上下文时，需要在主题 Trait 变化后重新解析和绘制。
@@ -77,15 +94,15 @@ JobsSplashPresenter.show(over: homeViewController, configuration: configuration)
 
 <a id="jobs-architecture"></a>
 
-## 五、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-6" data-jobs-toc="v2">五、架构脉络与关键设计 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本节用于用中文快速理解组件，并为按框架重建提供入口；关注职责、运行关系和关键边界，不要求逐行复刻。
 
-### 5.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-7" data-jobs-toc="v2">5.1、设计目的与职责划分 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 用 Configuration 描述开屏媒体和跳过、点击、摇动等动作，Presenter 负责挂载展示，VC 组织播放及退出，MediaCache 管理远程资源和视频预加载，Preferences 与 Localization 管理独立状态。
 
-### 5.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-8" data-jobs-toc="v2">5.2、运行脉络 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 配置开屏 → 选择本地资源或缓存 → 挂载展示并计时 → 响应跳过或动作 → 退出展示；预加载任务独立推进
 
@@ -104,7 +121,7 @@ flowchart TD
     G -.-> B
 ```
 
-### 5.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-9" data-jobs-toc="v2">5.3、关键设计与边界 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 展示生命周期与媒体缓存生命周期分离，页面退出不应被理解成所有预加载任务都结束。
 - 远程视频使用缓存及预加载策略，下载失败保留待办并退避重试；不能重建成每次进入都直接强制在线播放。
@@ -112,7 +129,7 @@ flowchart TD
 - resumePendingVideoPreloads 当前是空入口，实际恢复逻辑在缓存对象初始化及内部处理，不能按方法名虚构额外恢复行为。
 - GIF 帧时长、视频画面模式、跳过按钮布局与语言资源都有独立配置，不应只用一张静态图替代全部类型。
 
-### 5.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-10" data-jobs-toc="v2">5.4、阅读与重建顺序 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 先读 Configuration 和 Presenter，再看 VC 的展示与关闭，最后追 MediaCache 的持久待办、缓存与重试。
 

@@ -2,16 +2,35 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、目标](#jobs-toc-heading-1)
+- [二、参考资料](#jobs-toc-heading-2)
+- [三、特别说明](#jobs-toc-heading-3)
+- [四、配置流程](#jobs-toc-heading-4)
+  - [4.1、Xcode 中的配置](#jobs-toc-heading-5)
+  - [4.2、语言代码](#jobs-toc-heading-6)
+  - [4.3、应用名称本地化 / 国际化（InfoPlist.strings）](#jobs-toc-heading-7)
+  - [4.4、代码中字符串的本地化（Localizable.strings）](#jobs-toc-heading-8)
+  - [4.5、图片本地化](#jobs-toc-heading-9)
+  - [4.6、第三方支援](#jobs-toc-heading-10)
+  - [4.7、相关调用](#jobs-toc-heading-11)
+- [五、总结](#jobs-toc-heading-12)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 一、目标 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、目标 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * **App**语言跟随当前手机系统语言
 * 用户主动切换当前App语言，即：**App**语言不同于手机系统语言
 
-## 二、参考资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、参考资料 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * [**3分钟实现iOS语言本地化/国际化（图文详解）**](https://cloud.tencent.com/developer/article/1143302)
 * [**iOS App内语言切换（国际化）**](https://blog.csdn.net/shanghaibao123/article/details/107323395)
@@ -20,7 +39,7 @@
 * [**Demos-LanguageSettingsDemo**](https://github.com/DarkAngel7/Demos-LanguageSettingsDemo/)
 * [**iOS - 多语言本地化**](https://devma.cn/blog/2016/05/27/ios-duo-yu-yan-ben-di-hua/)
 
-## 三、特别说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">三、特别说明 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 经实践证明，如果配置多语言化，那么**[**Xcode**](https://developer.apple.com/xcode)**将会刷新`Info.plist`，导致里面的注释消失。正确的做法是，对`Info.plist`进行备份，随时进行替换
 
@@ -28,9 +47,9 @@
 
   ![image-20240706113027884](../Resource/iOS多语言环境设置.md/assets/image-20240706113027884.png)
 
-## 四、配置流程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">四、配置流程 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 4.1、[**Xcode**](https://developer.apple.com/xcode) 中的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-5" data-jobs-toc="v2">4.1、[**Xcode**](https://developer.apple.com/xcode) 中的配置 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 选中 **project** ➤ **Info** ➤ **Localizations**，然后点击"+"，添加需要国际化 / 本地化的语言
 
@@ -48,7 +67,7 @@
   * 如果弹出如下对话框，直接点击finish
     ![image-20240701112459992](../Resource/iOS多语言环境设置.md/assets/image-20240701112459992.png)
 
-### 4.2、语言代码 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">4.2、语言代码 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 同一种语言，因为方言文化等历史原因，会对应多个语言代码
 
@@ -102,7 +121,7 @@
     * **hil**：希利盖农语（Hiligaynon）
   
 
-### 4.3、应用名称本地化 / 国际化（`InfoPlist.strings`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-7" data-jobs-toc="v2">4.3、应用名称本地化 / 国际化（`InfoPlist.strings`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 是指同一个**App**的名称，在不同的语言环境下（也就是手机设备的语言设置）显示不同的名称；
   比如，微信在简体中文环境下**App**名称显示为**微信**，在英语环境下显示为**weChat**
@@ -149,7 +168,7 @@
     
     ![image-20240701133957265](../Resource/iOS多语言环境设置.md/assets/image-20240701133957265.png)
 
-### 4.4、代码中字符串的本地化（`Localizable.strings`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-8" data-jobs-toc="v2">4.4、代码中字符串的本地化（`Localizable.strings`） <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 指App内的字符串在不同的语言环境下显示不同的内容；
 
@@ -267,7 +286,7 @@
   },nil, self),JobsLanguageSwitchNotification,nil);
   ```
 
-### 4.5、图片本地化 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-9" data-jobs-toc="v2">4.5、图片本地化 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 > 和本地化代码中的字符串一样，通过`NSLocalizedString(key,comment)`来获取相应的字符串，然后根据这个字符串再获取图片。
 
@@ -277,7 +296,7 @@ UIImage *image = [UIImage imageNamed:imageName];
 self.imageView.image = image;
 ```
 
-### 4.6、第三方支援 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-10" data-jobs-toc="v2">4.6、第三方支援 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 *JobsLanguageManager.h*
 
@@ -392,7 +411,7 @@ static AppLanguage _language = AppLanguageBySys;
 @end
 ```
 
-### 4.7、相关调用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-11" data-jobs-toc="v2">4.7、相关调用 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 原理：应用启动时，首先会读取**NSUserDefaults**中的key为`JobsLanguageKey`对应的value，该value是一个String数组。也就是说，我们访问这个名为`JobsLanguageKey`的key可以返回一个string数组，该数组存储着APP支持的语言列表，数组的第一项为**APP**当前默认的语言。
 
@@ -431,7 +450,7 @@ static AppLanguage _language = AppLanguageBySys;
   }
   ```
 
-## 五、总结 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-12" data-jobs-toc="v2">五、总结 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 * 其实是操作语言包文件夹`*.lproj`内的`InfoPlist.strings`和`Localizable.strings`。所以一定确保这两个文件一定是包含在工程文件里（需要进入编译期）
 

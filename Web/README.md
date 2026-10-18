@@ -2,13 +2,23 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [一、扫码与多端登录](#jobs-toc-heading-1)
+- [二、业务与无服务器预览](#jobs-toc-heading-2)
+- [三、验证](#jobs-toc-heading-3)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
 PC 浏览器入口由 API 同源托管于 `/portal/`，与 `/admin/` 运营后台分离。用于验证用户／师傅多端登录及基本工单流程，不代表 Windows 或 macOS 原生客户端已经实现。
 
-## 一、扫码与多端登录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">一、扫码与多端登录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 PC 打开页面后生成两分钟登录二维码；已登录的 [**iOS**](https://developer.apple.com/ios/) App 在“我的 → 扫码登录授权”扫描，核对 PC 信息后确认或拒绝。模拟器可展开页面“模拟器联调”复制二维码内容，粘贴到手机授权页。仅 pending、网络失败或 consumed 均不能当成登录成功；领取响应丢失需重新生成二维码。
 
@@ -18,7 +28,7 @@ PC 打开页面后生成两分钟登录二维码；已登录的 [**iOS**](https:
 
 二维码由本地打包的 [**QRCodeJS**](https://github.com/davidshimjs/qrcodejs) 生成，不把扫码内容发送给图片生成网站。来源、固定提交和校验摘要位于 [`ThirdParty/QRCodeJS/source.json`](ThirdParty/QRCodeJS/source.json)，MIT许可随包保留；供应商代码不修改。
 
-## 二、业务与无服务器预览 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">二、业务与无服务器预览 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 用户可提交报修、确认报价；审核通过的师傅可查看待接订单及本人工单，接单、登记到场、提交报价与完工。本人账务查询当前使用模拟账本，服务端强制当前主体范围。列表按游标加载下一页；空列表提供本地 Logo 和重新加载入口。
 
@@ -26,7 +36,7 @@ PC 打开页面后生成两分钟登录二维码；已登录的 [**iOS**](https:
 
 `environment.js` 保留测试和空线上地址，默认复用 `/portal/` 的同源地址；修改测试地址后点击保存。线上尚未配置时明确提示。直接打开 `index.html` 可看离线业务预览，实际登录需使用 Go 托管的同源页面。所有 Logo 随页面本地打包，未新增网络图片依赖。
 
-## 三、验证 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">三、验证 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 项目根目录运行，无构建步骤或 npm 安装：
 

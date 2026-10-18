@@ -2,15 +2,41 @@
 
 ![啄木鸟与维修扳手组合 Logo 横幅](README-banner.svg)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [🔥 前言](#jobs-toc-heading-1)
+- [一、项目目标](#jobs-toc-heading-2)
+- [二、端目录](#jobs-toc-heading-3)
+- [三、架构与业务流](#jobs-toc-heading-4)
+- [四、业务功能](#jobs-toc-heading-5)
+  - [4.1、iOS 用户端](#jobs-toc-heading-6)
+  - [4.2、iOS 师傅端](#jobs-toc-heading-7)
+  - [4.3、Go 后端与管理后台](#jobs-toc-heading-8)
+  - [4.4、前端无服务器演示与空态约定](#jobs-toc-heading-9)
+- [五、技术选择与版本基线](#jobs-toc-heading-10)
+- [六、部署与运行](#jobs-toc-heading-11)
+  - [6.1、一键后端部署](#jobs-toc-heading-12)
+  - [6.2、软件准备](#jobs-toc-heading-13)
+  - [6.3、iOS 安装和运行](#jobs-toc-heading-14)
+  - [6.4、Go API 与 TiDB](#jobs-toc-heading-15)
+  - [6.5、Web 管理后台](#jobs-toc-heading-16)
+- [七、API 入口](#jobs-toc-heading-17)
+- [八、后续阶段](#jobs-toc-heading-18)
+- [九、验证入口与状态](#jobs-toc-heading-19)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
-## 🔥 <font id=前言>前言</font>
+## <span id="jobs-toc-heading-1" data-jobs-toc="v2">🔥 <font id=前言>前言</font></span><!-- jobs-toc:heading-end -->
 
 本仓库包含维修撮合业务的跨端原型、后端 API、管理后台与部署材料，各端通过统一 API 合同逐步接通。
 
-## 一、项目目标 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、项目目标 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 本项目按“用户报修、平台派单、师傅上门、平台收款、师傅分润”的业务方向搭建跨端原型。首期交付 [**iOS**](https://developer.apple.com/ios/) 原生用户端 / 师傅端、[**Go**](https://go.dev/) API、[**TiDB**](https://docs.pingcap.com/tidb/stable/) 数据结构和 [**Web**](https://developer.mozilla.org/en-US/docs/Web) 管理后台。[**HarmonyOS**](https://developer.huawei.com/consumer/cn/) 7 端先保留独立目录，等哥确认 [**iOS**](https://developer.apple.com/ios/) 版本后再开始实现。
 
@@ -20,7 +46,7 @@
 
 后续功能见[心愿单](心愿单.md)：聊天 IM 下一版本实现，独立模块边界已预留；其它原生客户端按 iOS 验收后的节奏推进。
 
-## 二、端目录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、端目录 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 目录 | 当前内容 | 状态 |
 | --- | --- | --- |
@@ -35,7 +61,7 @@
 | [`WeChatMiniProgram/`](WeChatMiniProgram/README.md) | [**微信小程序**](https://developers.weixin.qq.com/miniprogram/dev/framework/) 独立端目录 | 预留 |
 | [`Web/`](Web/README.md) | 用户／师傅 PC 浏览器入口，扫码登录、订单操作与个人模拟账务 | 最小功能实现，完整 Web 客户端待扩展 |
 
-## 三、架构与业务流 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、架构与业务流 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```mermaid
 flowchart LR
@@ -75,9 +101,9 @@ stateDiagram-v2
 
 演示收款后，后端按 85% 师傅 / 15% 平台的原型参数生成分润台账，不产生真实交易。金额统一使用整数分，报价范围为 1 分至 100000000 分；先对师傅份额四舍五入，再用总额减去师傅份额得到平台费，保证总额守恒。重复演示收款和重复核销不新增台账、不撤销已核销状态。正式分润比例、退款、发票、佣金税务和支付结算规则需业务确认后再配置。
 
-## 四、业务功能 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、业务功能 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 4.1、[**iOS**](https://developer.apple.com/ios/) 用户端 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-6" data-jobs-toc="v2">4.1、[**iOS**](https://developer.apple.com/ios/) 用户端 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 按家电维修、清洗、安装、水电、疏通、防水、家具门窗、房屋修缮、数码维修等服务分类提交需求。
 - 记录设备、故障描述、上门地址和期望时间；查看订单进度。
@@ -91,13 +117,13 @@ stateDiagram-v2
 - [**iOS**](https://developer.apple.com/ios/) API 客户端统一使用 Jobs `JobsNetworking`；业务层不直接调用 [**AFNetworking**](https://github.com/AFNetworking/AFNetworking)。当前端不使用旧 [**YTKNetwork**](https://github.com/yuantiku/YTKNetwork) 适配器，因此 [**CocoaPods**](https://cocoapods.org/) 不再安装这两个网络库。
 - 订单列表无数据时显示 Jobs UIButton 空态按钮；[**iconfont**](https://www.iconfont.cn/) 图片先显示本地 Logo，再尝试加载网络图片，失败时继续显示本地 Logo。
 
-### 4.2、[**iOS**](https://developer.apple.com/ios/) 师傅端 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-7" data-jobs-toc="v2">4.2、[**iOS**](https://developer.apple.com/ios/) 师傅端 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 匿名演示可切换角色；登录后使用服务端账号的固定角色，师傅审核通过后查看接单大厅和自己的工单。
 - 完成接单、登记到场、提交报价、登记完工等状态操作。
 - 师傅可注册、上传1—6张私有图片并提交资料，查看审核状态与驳回原因；通过审核才能领取新工单。人工资料审核不包含 OCR、第三方实名核验、排班或真实定位。
 
-### 4.3、[**Go**](https://go.dev/) 后端与管理后台 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-8" data-jobs-toc="v2">4.3、[**Go**](https://go.dev/) 后端与管理后台 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - API 负责订单创建、角色可见范围、工单状态校验、演示支付意图和管理报表。
 - 内存仓储可离线演示；设置 [**TiDB**](https://docs.pingcap.com/tidb/stable/) DSN 后使用 [**TiDB**](https://docs.pingcap.com/tidb/stable/) 持久化。
@@ -105,7 +131,7 @@ stateDiagram-v2
 - 后台支持管理员登录、师傅审核、账务流水筛选／汇总／CSV导出，并适配手机浏览器。模拟收款和人工核销在同事务写平衡账本，重复请求不重复记账；真实账与模拟账隔离，当前真实账为空。
 - 用户／师傅 PC 浏览器入口为 `/portal/`，支持手机扫码授权登录；手机退出不撤销 PC，会话有效期内可继续使用。手机可查看本人登录设备并撤销指定设备。
 
-### 4.4、前端无服务器演示与空态约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-9" data-jobs-toc="v2">4.4、前端无服务器演示与空态约定 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - 前端不因没有已部署服务器而跳过 API：每次进入数据页或刷新时仍向配置的 [**Go**](https://go.dev/) API 发请求。
 - 首屏可先画出本地样例立即展示 UI。请求成功时直接用服务器响应替换；请求失败、超时或响应无法解析时继续使用端内本地演示数据。接口恢复后，下一次请求成功即自动改用真数据，不需要切换“模拟 / 生产”模式。
@@ -115,7 +141,7 @@ stateDiagram-v2
 - UI 图片从 [**iconfont 阿里巴巴矢量图标库**](https://www.iconfont.cn/) 选择；先显示随包提供的本地 Logo，再发起网络图片加载，失败时继续显示本地 Logo。
 - 这套流程应用于当前 [**iOS**](https://developer.apple.com/ios/)、WebAdmin 和 PC 浏览器入口。后续 [**Flutter**](https://flutter.dev/)、[**Android**](https://developer.android.com/)、鸿蒙 7、[**Windows**](https://www.microsoft.com/windows)、[**macOS**](https://www.apple.com/macos/)、微信小程序和完整用户 Web 端按同一合同实现；鸿蒙 7 仍在 [**iOS**](https://developer.apple.com/ios/) 验收后开始开发。
 
-## 五、技术选择与版本基线 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-10" data-jobs-toc="v2">五、技术选择与版本基线 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 模块 | 技术 |
 | --- | --- |
@@ -126,15 +152,15 @@ stateDiagram-v2
 | 管理后台 | [**HTML**](https://html.spec.whatwg.org/)、[**CSS**](https://www.w3.org/Style/CSS/)、原生 [**JavaScript**](https://developer.mozilla.org/en-US/docs/Web/JavaScript)，由 [**Go**](https://go.dev/) 同源提供 |
 | 其他端 | [**Flutter**](https://flutter.dev/)、[**Android**](https://developer.android.com/)、[**HarmonyOS**](https://developer.huawei.com/consumer/cn/)、[**Windows**](https://www.microsoft.com/windows)、[**macOS**](https://www.apple.com/macos/)、[**微信小程序**](https://developers.weixin.qq.com/miniprogram/dev/framework/) |
 
-## 六、部署与运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-11" data-jobs-toc="v2">六、部署与运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
-### 6.1、一键后端部署 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-12" data-jobs-toc="v2">6.1、一键后端部署 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 服务器部署脚本统一放在 [`Deployment/README.md`](Deployment/README.md)。[**Docker**](https://www.docker.com/) 与 [**Kubernetes**](https://kubernetes.io/) 两条路线按操作系统和发行版分别提供一键入口，负责安装容器环境、构建 [**Go**](https://go.dev/) API 镜像、启动 [**TiDB**](https://docs.pingcap.com/tidb/stable/) 与后台并执行数据库初始化。首次部署优先使用 [**Docker**](https://www.docker.com/) 路线；[**Kubernetes**](https://kubernetes.io/) 路线用于本机单节点验证和后续迁移准备。
 
 完整反安装脚本独立放在同级的 [`unDeployment/README.md`](unDeployment/README.md)，按操作系统与发行版对应。是否保留项目数据在脚本运行时选择：默认先备份再卸载，也可永久清空，输入 `YES` 后执行。
 
-### 6.2、软件准备 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-13" data-jobs-toc="v2">6.2、软件准备 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - [**macOS**](https://www.apple.com/macos/)、[**Xcode**](https://developer.apple.com/xcode/) 和 [**CocoaPods**](https://cocoapods.org/)，用于打开 [**iOS**](https://developer.apple.com/ios/) 工程；安装 [**CocoaPods**](https://cocoapods.org/) 后执行 `pod --version` 确认命令可用。
 - [**Go**](https://go.dev/) 1.26.8，用于运行 API、迁移程序和统一验证；模块最低声明为 1.24.0。
@@ -142,7 +168,7 @@ stateDiagram-v2
 - 浏览器用于访问 [**Web**](https://developer.mozilla.org/en-US/docs/Web) 管理后台。
 - 没有 [**Go**](https://go.dev/) / [**TiDB**](https://docs.pingcap.com/tidb/stable/) 时可直接打开 `WebAdmin/index.html` 观察后台；页面会尝试访问本机 API，失败后显示可操作的本地演示数据。
 
-### 6.3、[**iOS**](https://developer.apple.com/ios/) 安装和运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-14" data-jobs-toc="v2">6.3、[**iOS**](https://developer.apple.com/ios/) 安装和运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```sh
 cd iOS
@@ -167,7 +193,7 @@ xcodebuild -workspace RepairMarketplace.xcworkspace -scheme RepairMarketplace -d
 
 该脚本是主 App target 的最后一个 Build Phase，不是整个 Scheme 的 Post-action；IPA 阶段通过不代表后续 Scheme 动作或测试都通过。
 
-### 6.4、[**Go**](https://go.dev/) API 与 [**TiDB**](https://docs.pingcap.com/tidb/stable/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-15" data-jobs-toc="v2">6.4、[**Go**](https://go.dev/) API 与 [**TiDB**](https://docs.pingcap.com/tidb/stable/) <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```sh
 cd Server
@@ -189,11 +215,11 @@ go run ./cmd/api
 
 后台首先展示独立登录入口，包含登录、开户说明与恢复码找回密码。主管理员首次启动自动创建为 `admin / admin`，无须手动填写 `.env`。管理员登录后在“设置 → 账号管理”新增管理员或普通账号，管理员可审核身份、重置所有用户密码、封停／解封账号；普通账号可处理业务和修改自己的密码，不能审核身份、新增账号、修改他人密码或封停账号。封停和密码修改撤销旧会话，重复部署不覆盖既有密码或权限。各平台部署入口每次重建当前源码并部署，已配置的 Docker 局域网网卡入口自动保留。`SESSION_TTL_HOURS` 默认 24 小时；手机退出只撤销该会话，PC 会话持续到过期或被手机撤销。私有图片与数据库一起保存，部署说明见对应 Docker／Kubernetes Shared README。
 
-### 6.5、[**Web**](https://developer.mozilla.org/en-US/docs/Web) 管理后台 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+### <span id="jobs-toc-heading-16" data-jobs-toc="v2">6.5、[**Web**](https://developer.mozilla.org/en-US/docs/Web) 管理后台 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 [**Go**](https://go.dev/) 服务运行后打开 `/admin/`。后台复用实际同源端口，包括 Kubernetes 的 8081，不需要独立安装前端依赖或打包。没有服务时也可直接用浏览器打开 `WebAdmin/index.html`：本地假数据立即显示，并请求 `http://127.0.0.1:8080`；各 API 最多等待 2 秒，覆盖完整正文读取。每个模块标记数据来源，合法空列表显示空态，坏响应按同样规则回退。订单、师傅和台账可按游标加载更多。失败写操作保留原因并在独立副本演示，服务恢复后下一次刷新自动使用真数据。
 
-## 七、API 入口 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-17" data-jobs-toc="v2">七、API 入口 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 | 方法 | 路径 | 用途 |
 | --- | --- | --- |
@@ -228,7 +254,7 @@ go run ./cmd/api
 
 列表维持数组响应，支持 `limit`（订单默认 100，账务默认 50，最大 200）与 `cursor`；`X-Next-Cursor` 表示下一页。角色与主体过滤在仓储层执行，后台统计覆盖整体数据。账务按 `mode=simulated|actual` 隔离，日期范围为起点包含、终点不包含；汇总覆盖全部筛选流水，CSV 超过 10000 条拒绝导出。机器错误码、输入约束和跨端接口合同位于 [`Server/api/openapi.yaml`](Server/api/openapi.yaml)。
 
-## 八、后续阶段 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-18" data-jobs-toc="v2">八、后续阶段 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 1、评审 [**iOS**](https://developer.apple.com/ios/) 用户端和师傅端；确认信息架构、下单字段和工单流程。
 
@@ -240,7 +266,7 @@ go run ./cmd/api
 
 5、沿现有 [**OpenAPI**](https://www.openapis.org/) 合同补齐新端，再复用到 [**Flutter**](https://flutter.dev/)、[**Android**](https://developer.android.com/)、[**Windows**](https://www.microsoft.com/windows)、[**macOS**](https://www.apple.com/macos/)、微信小程序和完整 Web 端。具体后续范围统一记录在[心愿单](心愿单.md)。
 
-## 九、验证入口与状态 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-19" data-jobs-toc="v2">九、验证入口与状态 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 统一入口与依赖见 [`Validation/README.md`](Validation/README.md)：
 

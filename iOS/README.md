@@ -2,7 +2,19 @@
 
 ![Jobs出品，必属精品](https://picsum.photos/1500/400)
 
-[toc]
+<!-- jobs-toc:start -->
+<!-- jobs-toc:source {"v":2,"token":"[toc]"} -->
+<details>
+<summary>📚 目录（点击展开 / 收起）</summary>
+
+- [CocoaPods 安装网络选路](#cocoapods-network-route)
+- [一、工程组成](#jobs-toc-heading-2)
+- [二、运行](#jobs-toc-heading-3)
+- [三、编译产物](#jobs-toc-heading-4)
+- [四、业务回归验证](#jobs-toc-heading-5)
+
+</details>
+<!-- jobs-toc:end -->
 
 ---
 
@@ -28,7 +40,7 @@ pod install
 
 [网络适配、开关与测试](<./ScriptsByPods/【MacOS】🌐CocoaPods网络适配.command/README.md>) · [Specs 选源、超时与日志](<./ScriptsByPods/【MacOS】🌐CocoaPods源自动选择.command/README.md>)。迁移时保留完整 ScriptsByPods 包及各 Podfile 的相对加载路径。网络摘要显示在安装输出中，Specs 日志写系统临时目录并按 Podfile 所在目录隔离。
 
-## 一、工程组成 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-2" data-jobs-toc="v2">一、工程组成 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 - `App/`：App / Scene 入口与 Info.plist。
 - `App/Domain/`：订单、身份会话、师傅申请、设备授权和模拟账务模型，包含输入校验、整数分金额与请求上下文；每个主体独立目录。
@@ -43,7 +55,7 @@ pod install
 - `Podfile.deps`：按一行一个 Pod 拆出的本地 / 外部依赖。
 - `RepairMarketplace.xcodeproj`：[**iOS**](https://developer.apple.com/ios/) app project；执行 [**CocoaPods**](https://cocoapods.org/) 后使用 workspace 打开。
 
-## 二、运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-3" data-jobs-toc="v2">二、运行 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 ```sh
 cd .
@@ -101,7 +113,7 @@ iPhone 与 Mac 需在同一局域网，允许 App 的本地网络访问；IP 变
 
 `JobsThemeCenter`、`Jobsl10n`、`JobsSwiftSplash` 与 `JobsNetworking` 的使用位置分别在启动入口、界面模块、`SceneDelegate` 和 `MarketplaceAPI`。固定文案和服务分类支持简体中文 / 英文，组合标题先翻译各部分；用户填写的地址和故障描述保留原文。开屏跳过按钮跟随 App 内语言，“我的”中开屏开关显示下一次点击执行的动作。
 
-## 三、编译产物 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-4" data-jobs-toc="v2">三、编译产物 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 主 App target 最后一个 `Save Build IPA` Build Phase 会在 App 编译完成后调用 `ScriptsByDevTools/save_device_ipa_after_build.command/save_device_ipa_after_build.command`，将本次构建结果写入 `build/`：
 
@@ -118,7 +130,7 @@ iPhone 与 Mac 需在同一局域网，允许 App 的本地网络访问；IP 变
 
 脚本与专属说明位于 `ScriptsByDevTools/save_device_ipa_after_build.command/`，参见 [脚本 README](./ScriptsByDevTools/save_device_ipa_after_build.command/README.md)。Xcode 构建入口仍打印自述后自动执行；独立终端运行需先回车确认，再输入 `YES` 同意成功打包后的 build/ 清空，没有可交互输入则退出。确认前不初始化日志，也不修改产物。
 
-## 四、业务回归验证 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a>
+## <span id="jobs-toc-heading-5" data-jobs-toc="v2">四、业务回归验证 <a href="#前言" style="font-size:17px; color:green;"><b>🔼</b></a> <a href="#🔚" style="font-size:17px; color:green;"><b>🔽</b></a></span><!-- jobs-toc:heading-end -->
 
 在当前目录运行：
 
